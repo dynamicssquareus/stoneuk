@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /blog/tag/
+Disallow: /blog/category/
+Disallow: /thank-you/
+
+
+
+Sitemap: https://www.stonediscover.co.uk/sitemap.xml
+

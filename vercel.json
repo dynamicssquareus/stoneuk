@@ -1,0 +1,402 @@
+{
+    "redirects": [
+      { "source": "/memorials/angel-headstones/", "destination": "/memorials/angel-headstone/", "statusCode": 301 },
+      { "source": "/memorials/vases-and-urns/", "destination": "/", "statusCode": 301 },
+      {
+      "source": "/memorials/benches/memorial-bench-with-curved-seat-and-harp-legs/",
+      "destination": "/product/memorial-bench-with-curved-seat-and-harp-legs/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/benches/black-granite-memorial-bench-with-one-side-tablet/",
+      "destination": "/product/black-granite-memorial-bench-with-one-side-tablet/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/vases/traditional-turned-indian-aurora-granite-memorial-vases/",
+      "destination": "/product/traditional-turned-indian-aurora-granite-memorial-vases/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/vases/traditional-turned-tropical-green-granite-memorial-vases/",
+      "destination": "/product/traditional-turned-tropical-green-granite-memorial-vases/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/vases/black-granite-memorial-vases-with-rose-carved/",
+      "destination": "/product/black-granite-memorial-vases-with-rose-carved/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/black-granite-upright-weeping-angel-headstone/",
+      "destination": "/product/black-granite-upright-weeping-angel-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/benches/black-granite-memorial-bench-with-flat-back/",
+      "destination": "/product/black-granite-memorial-bench-with-flat-back/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/grey-granite-sculpted-angel-heart-headstone/",
+      "destination": "/product/grey-granite-sculpted-angel-heart-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/benches/grey-granite-memorial-bench-with-oval-back/",
+      "destination": "/product/grey-granite-memorial-bench-with-oval-back/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/indian-aurora-statue-heart-angel-headstone/",
+      "destination": "/product/indian-aurora-statue-heart-angel-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/kerb-sets/black-granite-memorial-kerb-sets/",
+      "destination": "/product/black-granite-memorial-kerb-sets/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/black-granite-ogee-headstone-with-moulding/",
+      "destination": "/product/black-granite-ogee-headstone-with-moulding/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/black-granite-headstone-with-floral-carving/",
+      "destination": "/product/black-granite-headstone-with-floral-carving/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/black-granite-gothic-arch-shape-headstone/",
+      "destination": "/product/black-granite-gothic-arch-shape-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/bahama-blue-leaning-angel-headstone/",
+      "destination": "/product/bahama-blue-leaning-angel-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/black-granite-ornate-celtic-cross-headstone/",
+      "destination": "/product/black-granite-ornate-celtic-cross-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/black-granite-kneeling-angel/",
+      "destination": "/product/black-granite-kneeling-angel/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/black-granite-half-round-headstone/",
+      "destination": "/product/black-granite-half-round-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/benches/black-granite-pedestal-memorial-bench/",
+      "destination": "/product/black-granite-pedestal-memorial-bench/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/red-granite-round-shape-headstones/",
+      "destination": "/product/red-granite-round-shape-headstones/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/book-headstones/black-granite-book-headstone/",
+      "destination": "/product/black-granite-book-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/plaques/red-granite-rose-shape-memorial-plaques/",
+      "destination": "/product/red-granite-rose-shape-memorial-plaques/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/angel-headstone/red-granite-sculpted-angel-headstone/",
+      "destination": "/product/red-granite-sculpted-angel-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/vases/traditional-turned-black-granite-memorial-vases/",
+      "destination": "/product/traditional-turned-black-granite-memorial-vases/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/plaques/black-granite-memorial-plaque/",
+      "destination": "/product/black-granite-memorial-plaque/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/red-granite-serpentine-headstone/",
+      "destination": "/product/red-granite-serpentine-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/indian-aurora-granite-headstones/",
+      "destination": "/product/indian-aurora-granite-headstones/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/urns/bahama-blue-granite-memorial-urns/",
+      "destination": "/product/bahama-blue-granite-memorial-urns/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/benches/black-granite-couch-memorial-bench/",
+      "destination": "/product/black-granite-couch-memorial-bench/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/plaques/double-heart-granite-memorial-plaques/",
+      "destination": "/product/double-heart-granite-memorial-plaques/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/plaques/black-granite-heart-memorial-plaques/",
+      "destination": "/product/black-granite-heart-memorial-plaques/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/bahama-blue-granite-headstone/",
+      "destination": "/product/bahama-blue-granite-headstone/",
+      "permanent": true
+    },
+    {
+      "source": "/memorials/headstones/offset-peon-granite-headstone/",
+      "destination": "/product/offset-peon-granite-headstone/",
+      "permanent": true
+    },
+    {
+    "source": "/memorials/plaques/red-granite-memorial-plaque/",
+    "destination": "/memorials/plaques/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/heart-headstones/brown-granite-heart-headstone/",
+    "destination": "/memorials/heart-headstones/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/black-granite-memorial-vases/",
+    "destination": "/memorials/vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/black-granite-memorial-vases/",
+    "destination": "/memorials/vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/memorial-vases/",
+    "destination": "/memorials/vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/children-headstones/",
+    "destination": "/memorials/childrens-headstones/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/himalayan-blue-granite-bespoke-memorial/",
+    "destination": "/product/himalayan-blue-granite-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/black-granite-personalized-bespoke-memorial/",
+    "destination": "/product/black-granite-personalized-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/tropical-green-granite-bespoke-memorial/",
+    "destination": "/product/tropical-green-granite-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/black-granite-polished-memorial-flower-vase/",
+    "destination": "/product/black-granite-polished-memorial-flower-vase/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/grey-granite-tapered-memorial-vases/",
+    "destination": "/product/grey-granite-tapered-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/angel-headstone/black-granite-weeping-angel-headstone/",
+    "destination": "/product/black-granite-weeping-angel-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/headstones/bahama-blue-granite-floral-carved-headstone/",
+    "destination": "/product/bahama-blue-granite-floral-carved-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/headstones/grey-granite-arc-top-headstone/",
+    "destination": "/product/grey-granite-arc-top-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/square-blue-pearl-granite-memorial-vases/",
+    "destination": "/product/square-blue-pearl-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/book-headstones/black-granite-open-book-headstone/",
+    "destination": "/product/black-granite-open-book-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/traditional-turned-red-granite-memorial-vases/",
+    "destination": "/product/traditional-turned-red-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/angel-headstone/black-granite-sculpted-angel-wing-heart-headstone/",
+    "destination": "/product/black-granite-sculpted-angel-wing-heart-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/indian-red-classic-granite-memorial-vases/",
+    "destination": "/product/indian-red-classic-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/bahama-blue-granite-bespoke-memorial/",
+    "destination": "/product/bahama-blue-granite-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/indian-juparana-granite-bespoke-memorial/",
+    "destination": "/product/indian-juparana-granite-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/black-and-grey-granite-bespoke-memorial/",
+    "destination": "/product/black-and-grey-granite-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/plaques/red-granite-square-shape-memorial-plaques/",
+    "destination": "/product/red-granite-square-shape-memorial-plaques/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/childrens-headstones/black-granite-children-headstone/",
+    "destination": "/product/black-granite-children-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/black-granite-cross-memorial-vases/",
+    "destination": "/product/black-granite-cross-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/book-headstones/standing-book-headstone/",
+    "destination": "/product/standing-book-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/book-headstones/black-granite-open-standing-book-headstone/",
+    "destination": "/product/black-granite-open-standing-book-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/benches/red-granite-memorial-bench-with-flat-seat-harp-legs/",
+    "destination": "/product/red-granite-memorial-bench-with-flat-seat-harp-legs/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/book-headstones/red-granite-open-book-headstone/",
+    "destination": "/product/red-granite-open-book-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/book-headstones/green-granite-book-headstone/",
+    "destination": "/product/green-granite-book-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/bahama-blue-single-bespoke-gravestone/",
+    "destination": "/product/bahama-blue-single-bespoke-gravestone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/heart-headstones/brown-granite-heart-headstone/",
+    "destination": "/product/brown-granite-heart-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/paradise-granite-bespoke-gravestone/",
+    "destination": "/product/paradise-granite-bespoke-gravestone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/urns/black-granite-memorial-urns/",
+    "destination": "/product/black-granite-memorial-urns/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/heart-headstones/black-granite-heart-headstone/",
+    "destination": "/product/black-granite-heart-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/angel-with-heart-bespoke-memorial/",
+    "destination": "/product/angel-with-heart-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/kerb-sets/bahama-blue-granite-full-kerb-sets-with-candy-twist/",
+    "destination": "/product/bahama-blue-granite-full-kerb-sets-with-candy-twist/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/traditional-turned-bahama-blue-granite-memorial-vases/",
+    "destination": "/product/traditional-turned-bahama-blue-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/childrens-headstones/bahama-blue-children-headstone/",
+    "destination": "/product/bahama-blue-children-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/square-black-granite-memorial-vases/",
+    "destination": "/memorials/vases/square-black-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/plaques/himalayan-blue-granite-memorial-plaque/",
+    "destination": "/product/himalayan-blue-granite-memorial-plaque/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/headstones/red-granite-pitched-margin-headstone/",
+    "destination": "/product/red-granite-pitched-margin-headstone/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/headstones/gray-granite-square-headstones/",
+    "destination": "/product/gray-granite-square-headstones/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/vases/beveled-bahama-blue-granite-memorial-vases/",
+    "destination": "/product/beveled-bahama-blue-granite-memorial-vases/",
+    "statusCode": 301
+  },
+  {
+    "source": "/memorials/bespoke/paradiso-granite-personalized-bespoke-memorial/",
+    "destination": "/product/paradiso-granite-personalized-bespoke-memorial/",
+    "statusCode": 301
+  },
+  {
+    "source": "/product/black-granite-memorial-kerb-sets/",
+    "destination": "/memorials/kerb-sets/",
+    "statusCode": 301
+  }
+    ]
+  }
+  

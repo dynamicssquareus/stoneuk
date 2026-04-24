@@ -1,0 +1,158 @@
+[
+    {
+    "id": 7,
+    "title": "Anton(Black + Bahama Blue)",
+    "image": "/img/webpages/Anton-bahama-blue-black.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 10 @210/set",
+        "price": 2100,
+        "discount": "Get 4.5% discount"
+      }
+    ],
+    "yard": "Liverpool"
+  },
+  {
+    "id": 8,
+    "title": "Monument Black Ogee + Anton",
+    "image": "/img/webpages/Anton-black-ogee.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 9 @210/set",
+        "price": 1890,
+         "discount": "Get 4.5% discount"
+      }
+    ],
+    "yard": "Liverpool"
+  },
+  {
+    "id": 5,
+    "title": "Monument Bhama Blue Anton",
+    "image": "/img/webpages/Anton-bahama-blue.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 5 @210/set",
+        "price": 1050
+      }
+    ],
+    "yard": "Liverpool"
+  },
+  {
+    "id": 1,
+    "title": "Monument Black Ogee",
+    "image": "/img/webpages/Monument-Ogee-Black-1.png",
+    "hsSize": "27X21X3",
+    "baseSize": "24X12X3",
+    "options": [
+      {
+        "label": "Set of 7 @125/set",
+        "price": 875
+      }
+    ],
+    "yard": "Southampton"
+  },
+  {
+    "id": 4,
+    "title": "Monument Black Anton",
+    "image": "/img/webpages/Monument-antone-Black-2.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 5 @220/set",
+        "price": 1100
+      }
+    ],
+    "yard": "Liverpool"
+  },
+  {
+    "id": 2,
+    "title": "Monument Black Ogee",
+    "image": "/img/webpages/Monument-Ogee-Black-1.png",
+    "hsSize": "27X21X3",
+    "baseSize": "24X12X3",
+    "options": [
+      {
+        "label": "Set of 7 @125/set",
+        "price": 875
+      },
+      {
+        "label": "Set of 14 @120/set",
+        "price": 1680,
+        "discount": "Get 4% discount"
+      }
+    ],
+    "yard": "Liverpool"
+  },
+  {
+    "id": 3,
+    "title": "Monument Black Ogee",
+    "image": "/img/webpages/Monument-Ogee-Black-1.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 4 @220/set",
+        "price": 880
+      },
+      {
+        "label": "Set of 8 @215/set",
+        "price": 1720,
+        "discount": "Get 2.27% discount"
+      },
+      {
+        "label": "Set of 12 @210/set",
+        "price": 2520,
+        "discount": "Get 4.55% discount"
+      },
+      {
+        "label": "Set of 16 @205/set",
+        "price": 3280,
+        "discount": "Get 6.82% discount"
+      },
+      {
+        "label": "Set of 20 @200/set",
+        "price": 4000,
+        "discount": "Get 9.09% discount"
+      }
+    ],
+    "yard": "Liverpool"
+  },
+
+  {
+    "id": 6,
+    "title": "Monument Black Ogee",
+    "image": "/img/webpages/Monument-Ogee-Black-1.png",
+    "hsSize": "30X24X4",
+    "baseSize": "30X12X4",
+    "options": [
+      {
+        "label": "Set of 5 @215/set",
+        "price": 1075
+      },
+      {
+        "label": "Set of 10 @210/set",
+        "price": 2100,
+        "discount": "Get 2.33% discount"
+      },
+      {
+        "label": "Set of 15 @205/set",
+        "price": 3075,
+        "discount": "Get 4.65% discount"
+      },
+      {
+        "label": "Set of 20 @200/set",
+        "price": 4000,
+        "discount": "Get 6.98% discount"
+      }
+    ],
+    "yard": "Southampton"
+  }
+  
+]

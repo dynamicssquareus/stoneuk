@@ -1,22 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 
 const API_URL =
   "https://stonediscoveruk-apibackend.onrender.com/api/frontend/productgalleryimages";
 
+// ✅ Image helper
 const getImageUrl = (img) => {
   if (!img) return "/img/webpages/product-01.jpg";
   if (img.startsWith("http")) return img;
   return `${process.env.NEXT_PUBLIC_IMAGE}/${img.trim()}`;
 };
 
-export default function GalleryPage() {
+export default function ImageGallery() {
   const [images, setImages] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(4);
   const [loading, setLoading] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const observerRef = useRef();
 
   // 🔥 Flatten API
   const flattenImages = (data) => {
@@ -35,13 +37,15 @@ export default function GalleryPage() {
     return result;
   };
 
-  // 🔹 Fetch
+  // 🔹 Fetch data
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const res = await fetch(API_URL);
         const data = await res.json();
-        setImages(flattenImages(data?.data || data || []));
+
+        const flat = flattenImages(data?.data || data || []);
+        setImages(flat);
       } catch (err) {
         console.error(err);
       } finally {
@@ -52,90 +56,75 @@ export default function GalleryPage() {
     fetchImages();
   }, []);
 
-  // 🔹 Keyboard control
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (currentIndex === null) return;
+  // 🔹 Infinite scroll
+  const lastImageRef = useCallback(
+    (node) => {
+      if (loading) return;
 
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
-      if (e.key === "Escape") closeModal();
-    };
+      if (observerRef.current) observerRef.current.disconnect();
 
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [currentIndex, images]);
+      observerRef.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => prev + 8);
+        }
+      });
 
-  // 🔹 Controls
-  const openModal = (index) => setCurrentIndex(index);
-  const closeModal = () => setCurrentIndex(null);
-
-  const nextImage = () => {
-    setCurrentIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
-  };
+      if (node) observerRef.current.observe(node);
+    },
+    [loading]
+  );
 
   return (
-    <div className="container py-5">
-      <h2 className="text-center mb-4 fw-bold">Image Gallery</h2>
+    <>
+      <div className="row g-5">
+        {images.slice(0, visibleCount).map((img, index) => {
+          const isLast = index === visibleCount - 1;
 
-      {/* 🔥 GRID */}
-      <div className="row g-4">
-        {images.slice(0, visibleCount).map((img, index) => (
-          <div className="col-6 col-md-4 col-lg-3" key={index}>
+          return (
             <div
-              className="gallery-card"
-              onClick={() => openModal(index)}
+              className="col-6 col-md-4 col-lg-3"
+              key={index}
+              ref={isLast ? lastImageRef : null}
             >
-              <div className="img-wrap">
-                <Image
-                  src={getImageUrl(img.image)}
-                  alt={img.alt}
-                  fill
-                  className="gallery-img"
-                />
+              <div
+                className="card border-0 h-100 overflow-hidden"
+                style={{ cursor: "pointer" }}
+                onClick={() => setSelectedImage(img)}
+              >
+                <div className="ratio ratio-1x1">
+                  <Image
+                    src={getImageUrl(img.image)}
+                    alt={img.alt}
+                    title={img.title}
+                    className="img-fluid w-100 h-100 object-fit-cover"
+                    loading="lazy"
+                    width={600}
+                    height={600}
+                  />
+                  
+                </div>
+                <p className="text-center cus-pp mt-2">
+                    {img.title}
+                  </p>
               </div>
-
-              <div className="overlay">
-                <span>View</span>
-              </div>
-
-              {img.title && <p className="title">{img.title}</p>}
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {/* Skeleton */}
         {loading &&
           Array.from({ length: 8 }).map((_, i) => (
             <div className="col-6 col-md-4 col-lg-3" key={i}>
-              <div className="placeholder-glow">
-                <div className="placeholder w-100 ratio ratio-1x1"></div>
+              <div className="card border-0 shadow-sm">
+                <div className="ratio ratio-1x1 placeholder-glow">
+                  <div className="placeholder w-100 h-100"></div>
+                </div>
               </div>
             </div>
           ))}
       </div>
 
-      {/* 🔥 LOAD MORE */}
-      {!loading && visibleCount < images.length && (
-        <div className="text-center mt-4">
-          <button
-            className="btn btn-dark px-4 py-2"
-            onClick={() => setVisibleCount((prev) => prev + 8)}
-          >
-            Load More
-          </button>
-        </div>
-      )}
-
-      {/* ❌ EMPTY */}
+      {/* ❌ Empty */}
       {!loading && images.length === 0 && (
         <div className="text-center py-5 text-muted">
           No images found
@@ -143,42 +132,45 @@ export default function GalleryPage() {
       )}
 
       {/* 🔥 MODAL */}
-      {currentIndex !== null && (
-        <div className="custom-modal" onClick={closeModal}>
-          <div
-            className="modal-content-custom"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={getImageUrl(images[currentIndex].image)}
-              alt={images[currentIndex].alt}
-              width={900}
-              height={900}
-              className="modal-img"
-            />
+      {selectedImage && (
+        <div
+          className="modal fade show d-block"
+          tabIndex="-1"
+          style={{ background: "rgba(0,0,0,0.8)" }}
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="modal-dialog modal-dialog-centered modal-xl">
+            <div
+              className="modal-content bg-transparent border-0"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="modal-body text-center p-0">
+                <Image
+                  src={getImageUrl(selectedImage.image)}
+                  alt={selectedImage.alt}
+                  className="img-fluid rounded"
+                  width={600}
+                    height={600}
+                />
 
-            {images[currentIndex].title && (
-              <p className="text-white mt-2">
-                {images[currentIndex].title}
-              </p>
-            )}
+                {selectedImage.title && (
+                  <p className="text-white mt-2">
+                    {selectedImage.title}
+                  </p>
+                )}
 
-            {/* CLOSE */}
-            <button className="close-btn" onClick={closeModal}>
-              ✕
-            </button>
-
-            {/* ARROWS */}
-            <button className="nav-btn left" onClick={prevImage}>
-              ❮
-            </button>
-
-            <button className="nav-btn right" onClick={nextImage}>
-              ❯
-            </button>
+                {/* Close button */}
+                <button
+                  className="btn btn-light position-absolute top-0 end-0 m-3"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

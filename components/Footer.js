@@ -32,7 +32,7 @@ const Footer = ({ faq }) => {
                             <div className='subsc-head'>
                                 <div className='sub-it'>
                                     <p>Sales and Support:</p>
-                                    <span><a style={{color:'rgb(61 56 42)'}} href="tel:441613941594">+44 161 394 1594</a></span>
+                                    <span><a style={{color:'rgb(61 56 42)'}} href="tel:+447481959052">+44 7481 959 052</a></span>
                                 </div>
                                 <div className='sub-it'>
                                     <p>Or Mail us at:</p>

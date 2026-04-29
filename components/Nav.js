@@ -118,7 +118,6 @@ const Nav = () => {
           {/* <li><a className="nav-link scrollto" href="/">Industries</a></li> */}
           {/* <li><a className="nav-link scrollto" href="/">Company</a></li> */}
           <li><a style={{ color: '#a44400', fontWeight: 'bold' }} className="nav-link" href="/stocks-available/">In Stock</a></li>
-          <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
           <li className="dropdown"><a href="/memorials/"><span>Memorial Stones</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/memorials/angel-headstone/">Angel Headstone</a></li>
@@ -129,6 +128,12 @@ const Nav = () => {
               <li><a href="/memorials/heart-headstones/">Heart Headstones</a></li>
               <li><a href="/memorials/vases/">Vases</a></li>
               <li><a href="/memorials/urns/">Urns</a></li>
+            </ul>
+          </li>
+          <li className="dropdown"><a href="/memorials/"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/variety-of-granites/">Variety of granite</a></li>
+              <li><a href="/photo-gallery/">Photo Gallery</a></li>
             </ul>
           </li>
           <li><a className="nav-link scrollto" href="/about-us/">About Us</a></li>

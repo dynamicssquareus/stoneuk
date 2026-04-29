@@ -76,7 +76,7 @@ const ContactUs = () => {
                                         </div>
                                         <div className='inf-wigt'>
                                             <h4>Phone Number</h4>
-                                            <p>+44 161 394 1594</p>
+                                            <p>+44 7481 959 052</p>
                                         </div>
                                     </div>
                                     <div className='add-list'>

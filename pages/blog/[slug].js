@@ -31,17 +31,25 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
   };
 
   // Build modified content with injected h2 IDs and construct TOC using custom ID format (tb-XX)
-  const { modifiedContent, tableOfContents } = useMemo(() => {
-    let toc = [];
-    let count = 0;
-    const contentWithIds = post.content.replace(/<h2>(.*?)<\/h2>/g, (match, p1) => {
-      count++;
-      const id = `tb-${count.toString().padStart(2, '0')}`; // e.g. tb-01, tb-02...
-      toc.push({ id, title: p1 });
-      return `<h2 id="${id}">${p1}</h2>`;
-    });
-    return { modifiedContent: contentWithIds, tableOfContents: toc };
-  }, [post.content]);
+ const { modifiedContent, tableOfContents } = useMemo(() => {
+  let toc = [];
+  let count = 0;
+
+  const contentWithIds = post.content.replace(/<h2>(.*?)<\/h2>/g, (match, p1) => {
+    count++;
+    const id = `tb-${count.toString().padStart(2, '0')}`;
+
+    const cleanText = p1
+      .replace(/<[^>]+>/g, '')   // remove HTML
+      .replace(/^\d+\.\s*/, ''); // ✅ remove "1. "
+
+    toc.push({ id, title: cleanText });
+
+    return `<h2 id="${id}">${p1}</h2>`;
+  });
+
+  return { modifiedContent: contentWithIds, tableOfContents: toc };
+}, [post.content]);
 
   // Use IntersectionObserver to update the active heading in TOC
   useEffect(() => {
@@ -200,7 +208,7 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
             <div className="col-lg-4">
               <div className='po-sticky'>
                 <div className="sidebars">
-                  {tableOfContents.length >= 3 && (
+                  {tableOfContents.length >= 2 && (
                     <>
                       <h3>Table of Contents</h3>
                       <ol className="list-group-tb mb-4">

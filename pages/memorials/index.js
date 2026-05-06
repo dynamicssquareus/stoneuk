@@ -139,7 +139,7 @@ const Index = ({ categories }) => {
 
                         <div className='col-lg-6'>
                             <div className='about-us-image'>
-                                <img src='/img/webpages/about-us-pic.png' alt='About Us' className='img-fluid' />
+                                <img src='/img/webpages/granite-memorial-headstones.png' alt='granite-memorial-stones' className='img-fluid' />
                             </div>
                         </div>
                     </div>

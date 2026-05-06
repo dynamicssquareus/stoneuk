@@ -126,8 +126,7 @@ const Nav = () => {
               <li><a href="/memorials/benches/">Memorial Benches</a></li>
               <li><a href="/memorials/childrens-headstones/">Children Headstones</a></li>
               <li><a href="/memorials/heart-headstones/">Heart Headstones</a></li>
-              <li><a href="/memorials/vases/">Vases</a></li>
-              <li><a href="/memorials/urns/">Urns</a></li>
+              <li><a style={{ color: '#a44400', fontWeight: 'bold' }} href="/memorials">View All</a></li>
             </ul>
           </li>
           <li className="dropdown"><a href="/memorials/"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>

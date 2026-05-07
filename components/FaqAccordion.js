@@ -25,12 +25,25 @@ const FaqAccordion = ({ faqList = [] }) => {
     },
     {
       title: "Who can buy from Us?",
-      description: "We mostly sell headstone grave markers and bespoke memorial plaques to wholesalers, dealers, and importers. We do bulk orders at competitive prices, all over the UK. However, we also serve end customers or retailers, depending on the location and order quantity.",
+      description: "We sell Memorial headstone to wholesalers, dealers, and importers. We do bulk orders at competitive prices, all over the UK.",
     },
     {
       title: "What materials do you use for your memorial stone?",
       description: "We use premium quality Granite, sourced from the finest quarries of India for the industrial production of memorial tombstones and headstones grave markers. However, we can also accommodate special requests for other materials like marble, sandstone, and limestone, based on availability and order size.",
     },
+    {
+      title: "What is the lead time for wholesale memorial stone orders?",
+      description: "Production lead times vary by order size and customisation level. Standard stock designs typically ship within 6–8 weeks. Custom and bespoke memorials require 8–10 weeks depending on complexity. We provide confirmed lead times at the time of order.",
+    },
+    {
+      title: "Do you supply NAMM-compliant headstones?",
+      description: "Yes, our memorial stones are manufactured to meet UK memorial trade standards. We work with buyers to ensure products conform to cemetery authority requirements, including size, weight, and fixing specifications.",
+    },
+    {
+      title: "Can I order samples before committing to bulk?",
+      description: "Yes, sample pieces or a physical catalogue can be arranged for trade buyers. Contact our sales team to discuss sample options for your product range.",
+    },
+
     {
       title: "Can you customize memorials according to our specifications?",
       description: "Absolutely! We offer customization options, including sizes, shapes, engravings, and finishes. Please contact us with your detailed requirements, and we’ll work closely with you to meet your preferences.",

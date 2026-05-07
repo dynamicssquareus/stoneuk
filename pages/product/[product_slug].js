@@ -226,47 +226,80 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
       </section>
 
 
-
-      <section className='p-b-100 p-t-100 m-p-07'>
+<section className='p-b-100 p-t-80 m-p-07'>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                <h2 className='m-b-30'>Why Choose Us?</h2>
-                <p>Whether you’re a high-volume buyer or expanding your product line, our team is here to support your growth. We understand the B2B dynamics of the memorial industry and deliver not just products—but trust, consistency, and partnership.</p>
+                <h2 className='m-b-30'>Popular Granite <span>Varieties</span> We Offer</h2>
               </div>
-
             </div>
           </div>
-
-          <div className='row'>
-            <div className='col-lg-12'>
-              <div className='card-05'>
-                <div className='card-05-item'>
-                  <Image src='/img/icons/icons-1.png' alt='About Us' width={58} height={76} className='img-fluid' />
-                  <span>Quality Craftmanship</span>
+          <div className='row g-2 sliding-row'>
+            <div className='col-lg-2 col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-13.jpg' alt='Absolute Black' width={210} height={210} className='img-fluid' />
+                    <h4>Absolute Black</h4>
+                  </a>
                 </div>
-                <div className='card-05-item'>
-                  <Image src='/img/icons/icons-2.png' alt='About Us' width={58} height={76} className='img-fluid' />
-                  <span>Nationwide Delivery</span>
+              </div>
+            </div>
+            <div className='col-lg-2 col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-14.jpg' alt='Bahama Blue' width={210} height={210} className='img-fluid' />
+                    <h4>Bahama Blue</h4>
+                  </a>
                 </div>
-                <div className='card-05-item'>
-                  <Image src='/img/icons/icons-3.png' alt='About Us' width={58} height={76} className='img-fluid' />
-                  <span>24*7 Customer Service</span>
+              </div>
+            </div>
+            <div className='col-lg-2 col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-15.jpg' alt='Indian Aurora' width={210} height={210} className='img-fluid' />
+                    <h4>Indian Aurora</h4>
+                  </a>
                 </div>
-                <div className='card-05-item'>
-                  <Image src='/img/icons/icons-4.png' alt='About Us' width={58} height={76} className='img-fluid' />
-                  <span>Custom Designs</span>
+              </div>
+            </div>
+            <div className='col-lg-2 col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-16.jpg' alt='Imperial Red' width={210} height={210} className='img-fluid' />
+                    <h4>Imperial Red</h4>
+                  </a>
                 </div>
-                <div className='card-05-item'>
-                  <Image src='/img/icons/icons-5.png' alt='About Us' width={58} height={76} className='img-fluid' />
-                  <span>Experienced Masons</span>
+              </div>
+            </div>
+            <div className='col-lg-2 col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-17.jpg' alt='Jurpana' width={210} height={210} className='img-fluid' />
+                    <h4>Jurpana</h4>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className='col-lg-2  col-md-4 sliding-col'>
+              <div className='card-04'>
+                <div className='card-04-item text-center'>
+                  <a href="/contact-us/">
+                    <Image src='/img/webpages/pic-18.jpg' alt='Kuppam Green' width={210} height={210} className='img-fluid' />
+                    <h4>Kuppam Green</h4>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+     
 
       <section className='partner-section'>
         <div className='container'>
@@ -387,89 +420,43 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
               </div>
             </div>
           </div>
+          <div className='row p-t-60'>
+                        <div className='col-lg-12'>
+                            <div className='card-05'>
+                                <div className='card-05-item'>
+                                    <img src='/img/icons/icons-1.png' alt='About Us' className='img-fluid' />
+                                    <span>Quality Craftmanship</span>
+                                </div>
+                                <div className='card-05-item'>
+                                    <img src='/img/icons/icons-2.png' alt='About Us' className='img-fluid' />
+                                    <span>Nationwide Delivery</span>
+                                </div>
+                                <div className='card-05-item'>
+                                    <img src='/img/icons/icons-3.png' alt='About Us' className='img-fluid' />
+                                    <span>24*7 Customer Service</span>
+                                </div>
+                                <div className='card-05-item'>
+                                    <img src='/img/icons/icons-4.png' alt='About Us' className='img-fluid' />
+                                    <span>Custom Designs</span>
+                                </div>
+                                <div className='card-05-item'>
+                                    <img src='/img/icons/icons-5.png' alt='About Us' className='img-fluid' />
+                                    <span>Experienced Masons</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
       </section>
 
-      <section className='p-b-100 p-t-80 m-p-07'>
+      
+
+      <section className='p-t-60'>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                <h2 className='m-b-30'>Popular Granite <span>Varieties</span> We Offer</h2>
-              </div>
-            </div>
-          </div>
-          <div className='row g-2 sliding-row'>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-13.jpg' alt='Absolute Black' width={210} height={210} className='img-fluid' />
-                    <h4>Absolute Black</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-14.jpg' alt='Bahama Blue' width={210} height={210} className='img-fluid' />
-                    <h4>Bahama Blue</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-15.jpg' alt='Indian Aurora' width={210} height={210} className='img-fluid' />
-                    <h4>Indian Aurora</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-16.jpg' alt='Imperial Red' width={210} height={210} className='img-fluid' />
-                    <h4>Imperial Red</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-17.jpg' alt='Jurpana' width={210} height={210} className='img-fluid' />
-                    <h4>Jurpana</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2  col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-18.jpg' alt='Kuppam Green' width={210} height={210} className='img-fluid' />
-                    <h4>Kuppam Green</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className='p-t-20'>
-        <div className='container'>
-          <div className='row justify-content-center'>
-            <div className='col-lg-9'>
-              <div className='heading-center p-b-40'>
-                <h2 className='m-b-30'>Join Hands with a Reliable <span>Tombstone Supplier</span></h2>
+                <h2 className='m-b-30'>Join Hands with a Reliable <span>Memorial Supplier</span></h2>
                 <p>Whether you’re a high-volume buyer or expanding your product line, our team is here to support your growth. We understand the B2B dynamics of the memorial industry and deliver not just products—but trust, consistency, and partnership.</p>
               </div>
               <div className='button-center-new text-center'>

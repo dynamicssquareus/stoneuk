@@ -68,7 +68,7 @@ const Footer = ({ faq }) => {
                                     {/* <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
                                     <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
                                     <a href="#" className="instagram"><i className="bi bi-instagram"></i></a> */}
-                                    <a href="https://www.linkedin.com/showcase/stone-discover-uk/" className="linkedin" target='_blank'><i className="bi bi-linkedin"></i></a>
+                                    <a href="https://www.linkedin.com/company/stone-discover-uk-ltd/" className="linkedin" target='_blank'><i className="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                             <div className="col-lg-2 col-6 footer-links">

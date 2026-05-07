@@ -1768,7 +1768,7 @@ ul li {
 .product-gallery .swiper-button-prev, .swiper-button-next{
   color: #593024 !important;
 }
-.accordion-one.accordion-one-product-new h2, .accordion-one.accordion-one-product-new h3 {
+.accordion-one.accordion-one-product-new h2, .accordion-one.accordion-one-product-new h3,.about-full-content h3 {
     color: #aa7d4a;
     font-size: 22px;
     background-image: linear-gradient(102deg, #aa7d4a -16%, #4f4f4f 97%);
@@ -1777,6 +1777,15 @@ ul li {
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
 }
+.accordion-one.accordion-one-product-new ul li,.about-full-content ul li{
+  font-size: 16px;
+  color: var(--secondary);
+    line-height: 1.5;
+    font-family: var(--font-sec);
+    margin-bottom: 8px;
+}
+.about-full-content p{}
+.about-full-content ul li{}
 .cus-pp{
   font-weight: 600;
     color: #444444;

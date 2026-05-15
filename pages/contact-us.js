@@ -85,7 +85,7 @@ const ContactUs = () => {
                                         </div>
                                         <div className='inf-wigt'>
                                             <h4>Email Us</h4>
-                                            <p>info@stonediscover.com</p>
+                                            <p>info@stonediscover.co.uk</p>
                                         </div>
                                     </div>
                                 </div>

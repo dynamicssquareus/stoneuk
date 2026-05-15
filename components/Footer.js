@@ -36,7 +36,7 @@ const Footer = ({ faq }) => {
                                 </div>
                                 <div className='sub-it'>
                                     <p>Or Mail us at:</p>
-                                    <span>info@stonediscover.com</span>
+                                    <span>info@stonediscover.co.uk</span>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ const Footer = ({ faq }) => {
                                 <h4>Useful info</h4>
                                 {/* <p><b>Office:</b> 1116, JMD Megapolis, Sector 48, Gurugram, Haryana 122018.</p> */}
                                 <p><b>Working Time:</b> Mon-Sat: 8 AM - 5 PM</p>
-                                <p><b>Email:</b> info@stonediscover.com</p>
+                                <p><b>Email:</b> info@stonediscover.co.uk</p>
                                 {/* <FormSubscribe /> */}
                             </div>
 

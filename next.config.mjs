@@ -20,7 +20,9 @@ const nextConfig = {
     NEXT_PUBLIC_AUTHOR_API_URL:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/blog/authors',
     NEXT_PUBLIC_AUTHOR_BLOG_API_URL:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/blogs/author/',
     NEXT_PUBLIC_BLOG_API_Image:'https://stonediscoveruk-apibackend.onrender.com/uploads',
-    NEXT_PUBLIC_BLOG_API_Image_profilePics:'https://stonediscoveruk-apibackend.onrender.com/uploads'
+    NEXT_PUBLIC_BLOG_API_Image_profilePics:'https://stonediscoveruk-apibackend.onrender.com/uploads',
+    NEXT_PUBLIC_LOCATION:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/locations',
+    NEXT_PUBLIC_LOCATION_DETAILS:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/locationdetails'
   },
   images: {
     formats: ["image/avif", "image/webp"],

@@ -2,25 +2,22 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Form from './Form';
-import FaqAccordion from './FaqAccordion';
+import FaqAccordionComon from './FaqAccordionComon';
 
 
 
-const FooterContactForm = ({faq}) => {
+const FooterContactFormHome = ({ faqList = [] }) => {
     const router = useRouter();
 
     // Define the pathname of the page where you want to hide the component
     const hiddenPagePaths = ['/contact-us', '/thank-you','/get-quote-now','/catalog-download'];
-    const hideTombstonePages =
-    router.asPath.startsWith('/location')
-   // Check for exact match pages OR tombstone category pages
-  const shouldHide =
-    hiddenPagePaths.includes(router.pathname) || hideTombstonePages;
 
-  if (shouldHide) {
-    return null;
-  }
-   
+    const shouldHideComponent = hiddenPagePaths.includes(router.pathname);
+    // Conditionally render the component based on whether it should be hidden
+    if (shouldHideComponent) {
+        // Return null to hide the component
+        return null;
+    }
     const getHeaderText = () => {
         switch (router.pathname) {
             case '/':
@@ -55,7 +52,7 @@ const FooterContactForm = ({faq}) => {
             </div>
             <div className='row bg-gray justify-content-center'>
             <div className='col-lg-10'>
-                    <FaqAccordion faqList={faq} />
+                    <FaqAccordionComon faqList={faqList} />
                 </div>
 
                 {/* <div className='col-lg-6 order-2 order-lg-1'>
@@ -68,4 +65,4 @@ const FooterContactForm = ({faq}) => {
     );
 }
 
-export default FooterContactForm;
+export default FooterContactFormHome;

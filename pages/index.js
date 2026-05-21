@@ -16,7 +16,7 @@ export default function Home() {
           content="Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today."
         />
         <link rel="canonical" href="https://www.stonediscover.co.uk/" />
-        <meta property="og:locale" content="US" />
+        <meta property="og:locale" content="UK" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Wholesale Memorial Headstones in the UK | Stone Discover UK" />
         <meta property="og:description" content="Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today." />

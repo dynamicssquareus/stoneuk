@@ -31,6 +31,166 @@ export default function Home() {
         <meta name="twitter:title" content="Wholesale Memorial Headstones in the UK | Stone Discover UK" />
         <meta name="twitter:description" content="Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today." />
         <meta name="twitter:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.stonediscover.co.uk/#organization",
+                  "name": "Stone Discover UK Ltd.",
+                  "url": "https://www.stonediscover.co.uk/",
+                  "sameAs": [
+                    "https://x.com/sdiscover_uk",
+                    "https://www.linkedin.com/company/stone-discover-uk-ltd/"
+                  ],
+                  "logo": {
+                    "@type": "ImageObject",
+                    "@id": "https://www.stonediscover.co.uk/#logo",
+                    "inLanguage": "en-GB",
+                    "url": "https://www.stonediscover.co.uk/stone-logo.png",
+                    "contentUrl": "https://www.stonediscover.co.uk/stone-logo.png",
+                    "width": 1024,
+                    "height": 1024,
+                    "caption": "Stone Discover UK"
+                  },
+                  "image": {
+                    "@id": "https://www.stonediscover.co.uk/#logo"
+                  },
+                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today!",
+                  "alternateName": "Stone Discover Wholesale Memorial Headstones Supplier in London, United Kingdom",
+                  "telephone": [
+                    "+44 7481 959 052",
+                    "+44 161 394 1594"
+                  ],
+                  "email": "info@stonediscover.co.uk",
+                  "brand": {
+                    "@type": "Brand",
+                    "name": "Stone Discover UK Ltd.",
+                    "logo": "https://www.stonediscover.co.uk/stone-logo.png"
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.3",
+                    "reviewCount": "1280"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.stonediscover.co.uk/#website",
+                  "url": "https://www.stonediscover.co.uk/",
+                  "name": "Stone Discover UK Ltd.",
+                  "alternateName": "Stone Discover Wholesale Granite Memorial Supplier in London, UK",
+                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today!",
+                  "publisher": {
+                    "@id": "https://www.stonediscover.co.uk/#organization"
+                  },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://www.stonediscover.co.uk/?s={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  },
+                  "inLanguage": "en-GB"
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://www.stonediscover.co.uk/#webpage",
+                  "url": "https://www.stonediscover.co.uk/",
+                  "name": "UK's Trusted Wholesale Memorial Headstone Supplier UK | Stone Discover UK",
+                  "isPartOf": {
+                    "@id": "https://www.stonediscover.co.uk/#website"
+                  },
+                  "about": {
+                    "@id": "https://www.stonediscover.co.uk/#organization"
+                  },
+                  "primaryImageOfPage": {
+                    "@id": "https://www.stonediscover.co.uk/#logo"
+                  },
+                  "datePublished": "2021-08-31T06:09:16+00:00",
+                  "dateModified": "2021-11-07T09:15:37+00:00",
+                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today.",
+                  "inLanguage": "en-GB",
+                  "potentialAction": {
+                    "@type": "ReadAction",
+                    "target": [
+                      "https://www.stonediscover.co.uk/"
+                    ]
+                  },
+                  "headline": "UK's Trusted Wholesale Memorial Headstones Supplier, We specialize in creating premium quality memorial headstones and gravestones using the finest granite",
+                  "keywords": [
+                    "Wholesale Memorial UK",
+                    "Granite Memorial UK",
+                    "Memorial Supplier UK",
+                    "Memorial Headstones UK",
+                    "Memorial Gravestones UK",
+                    "Memorial Markers Supplier",
+                    "Granite Grave Supplier UK"
+                  ]
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://www.stonediscover.co.uk/#localbusiness",
+                  "name": "Stone Discover UK Ltd.",
+                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today.",
+                  "image": "https://www.stonediscover.co.uk/stone-logo.png",
+                  "alternateName": "Stone Discover Wholesale Memorial Supplier in London, UK",
+                  "priceRange": "£££-£££",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "124-128 City Road",
+                    "addressLocality": "London",
+                    "addressRegion": "London",
+                    "postalCode": "EC1V 2NX",
+                    "addressCountry": "GB"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 51.52706865727293,
+                    "longitude": -0.08876773400079006
+                  },
+                  "telephone": [
+                    "+44 7481 959 052",
+                    "+44 161 394 1594"
+                  ],
+                  "email": "info@stonediscover.co.uk",
+                  "url": "https://www.stonediscover.co.uk/",
+                  "sameAs": [
+                    "https://x.com/sdiscover_uk",
+                    "https://www.linkedin.com/company/stone-discover-uk-ltd/"
+                  ],
+                  "brand": {
+                    "@type": "Brand",
+                    "name": "Stone Discover UK Ltd.",
+                    "logo": "https://www.stonediscover.co.uk/stone-logo.png"
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.3",
+                    "reviewCount": "1260"
+                  },
+                  "openingHoursSpecification": [
+                    {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday"
+                      ],
+                      "opens": "08:00",
+                      "closes": "17:00"
+                    }
+                  ]
+                }
+              ]
+
+            })
+          }}
+        />
       </Head>
 
       <div className="hero-banner-one">
@@ -194,7 +354,7 @@ export default function Home() {
               </div>
             </div>
             <div className='col-lg-6 d-flex'>
-              
+
               <div className='card-03'>
                 <ul>
                   <li className='m-b-20'>
@@ -404,7 +564,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className='col-lg-3 col-md-6 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>

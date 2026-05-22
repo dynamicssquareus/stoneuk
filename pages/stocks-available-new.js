@@ -14,6 +14,8 @@ const Test = ({ products }) => {
     setShowModal(true);
   };
 
+  const loading = !products;
+
   return (
     <>
       <Head>
@@ -92,14 +94,93 @@ const Test = ({ products }) => {
           </div>
         </div>
 
+        {/* <div className="row">
+          {loading ? (
+            <div className="col-12 text-center py-5">
+              <div
+                className="spinner-border text-dark"
+                role="status"
+              ></div>
+
+              <h5 className="mt-3">
+                Loading Products...
+              </h5>
+
+              <p className="text-muted">
+                Please wait while we fetch inventory
+              </p>
+            </div>
+          ) : products?.length > 0 ? (
+            products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onBook={handleBook}
+              />
+            ))
+          ) : (
+            <div className="col-12 text-center py-5">
+              <h4>No Products Available</h4>
+
+              <p className="text-muted">
+                Please check back later.
+              </p>
+            </div>
+          )}
+        </div> */}
         <div className="row">
-          {products?.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onBook={handleBook}
-            />
-          ))}
+          {loading ? (
+            <div className="col-12 text-center py-5">
+              <div
+                className="spinner-border text-dark"
+                role="status"
+              ></div>
+
+              <h5 className="mt-3">
+                Loading Products...
+              </h5>
+
+              <p className="text-muted">
+                Please wait while we fetch inventory
+              </p>
+            </div>
+          ) : products?.filter(
+            (product) =>
+              product?.options?.some(
+                (opt) =>
+                  !isNaN(
+                    Number(opt.price || opt.pricePerSet)
+                  ) &&
+                  Number(opt.price || opt.pricePerSet) > 0
+              )
+          ).length > 0 ? (
+            products
+              .filter(
+                (product) =>
+                  product?.options?.some(
+                    (opt) =>
+                      !isNaN(
+                        Number(opt.price || opt.pricePerSet)
+                      ) &&
+                      Number(opt.price || opt.pricePerSet) > 0
+                  )
+              )
+              .map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onBook={handleBook}
+                />
+              ))
+          ) : (
+            <div className="col-12 text-center py-5">
+              <h4>No Products Available</h4>
+
+              <p className="text-muted">
+                Please check back later.
+              </p>
+            </div>
+          )}
         </div>
       </div>
 

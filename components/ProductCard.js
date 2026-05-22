@@ -6,12 +6,12 @@ export default function ProductCard({ product, onBook }) {
 
     return (
         <>
-            <div className="col-lg-4 mb-4 d-flex">
+            <div className="col-lg-3 col-sm-6 mb-4 d-flex">
                 <div className="card-m-01">
                     <div className="card-pick">
                         <Image src={product.image} width={400} height={400} alt="image name" />
                     </div>
-                    <h6>{product.title}</h6>
+                    <h6> {product.title?.replace(/&amp;/g, "&")}</h6>
                     <p className="mut">
                         H/S: {product.hsSize} | Base: {product.baseSize}
                     </p>

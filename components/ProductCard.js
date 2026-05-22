@@ -9,7 +9,7 @@ export default function ProductCard({ product, onBook }) {
             <div className="col-lg-3 col-sm-6 mb-4 d-flex">
                 <div className="card-m-01">
                     <div className="card-pick">
-                        <Image src={product.image} width={400} height={400} alt="image name" />
+                        <Image src={product.image} width={400} height={400} alt={product.title?.replace(/&amp;/g, "&")} />
                     </div>
                     <h6> {product.title?.replace(/&amp;/g, "&")}</h6>
                     <p className="mut">
@@ -63,12 +63,13 @@ export default function ProductCard({ product, onBook }) {
                         Enquire Now
                     </button>
                 </div>
-                <style jsx>
+                <style jsx global>
                     {`
           .card-m-01 h6 {
             font-family: var(--font-sec) !important;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
+                text-transform: capitalize;
           }
           .card-m-01 {
             border-radius: 8px;
@@ -86,7 +87,13 @@ export default function ProductCard({ product, onBook }) {
           .card-m-01 .card-pick {
             text-align: center;
             margin-bottom: 30px;
+            width:100%;
+            height:auto
           }
+            .card-pick img{
+            width:100%;
+            height:100%
+            }
           .form-ff {
             display: grid;
             grid-template-columns: 4fr 2fr;

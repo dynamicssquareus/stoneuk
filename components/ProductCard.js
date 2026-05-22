@@ -6,7 +6,7 @@ export default function ProductCard({ product, onBook }) {
 
     return (
         <>
-            <div className="col-lg-3 col-sm-6 mb-4 d-flex">
+            <div className="col-lg-4 col-sm-6 mb-4 d-flex">
                 <div className="card-m-01">
                     <div className="card-pick">
                         <Image src={product.image} width={400} height={400} alt={product.title?.replace(/&amp;/g, "&")} />

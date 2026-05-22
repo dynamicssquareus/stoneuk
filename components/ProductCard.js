@@ -122,10 +122,11 @@ export default function ProductCard({ product, onBook }) {
             margin-bottom: 0;
           }
           .small-c {
-            font-size: 16px;
-            color: #d95404;
-            margin-top: -15px;
-            margin-bottom: 30px;
+            font-size: 14px;
+    color: #d95404;
+    margin-top: -20px;
+    font-weight: 600;
+    margin-bottom: 30px;
           }
             @media (max-width: 767px){
                 .small-p{

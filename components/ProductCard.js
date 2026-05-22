@@ -9,7 +9,7 @@ export default function ProductCard({ product, onBook }) {
             <div className="col-lg-4 mb-4 d-flex">
                 <div className="card-m-01">
                     <div className="card-pick">
-                        <Image src={product.image} width={790} height={790} alt="image name" />
+                        <Image src={product.image} width={600} height={600} alt="image name" />
                     </div>
                     <h6>{product.title}</h6>
                     <p className="mut">
@@ -33,7 +33,7 @@ export default function ProductCard({ product, onBook }) {
                             ))}
                         </select>
 
-                        <div className="fw-bold-bg">£ {selected.price}</div>
+                        <div className="fw-bold-bg">£ {selected.price || selected.pricePerSet}</div>
                     </div>
 
                     <div className="di-sec">
@@ -48,7 +48,7 @@ export default function ProductCard({ product, onBook }) {
                             onBook({
                                 title: product?.title || "",
                                 option: selected?.label || "",
-                                price: selected?.price || "",
+                                price: selected?.price || selected?.pricePerSet || "",
                                 size: `H/S: ${product?.hsSize || "NA"} | Base: ${product?.baseSize || "NA"}`,
                                 discount:
                                     selected?.discount !== undefined &&
@@ -60,7 +60,7 @@ export default function ProductCard({ product, onBook }) {
                             })
                         }
                     >
-                        Request for Quotation
+                        Order Now
                     </button>
                 </div>
                 <style jsx>

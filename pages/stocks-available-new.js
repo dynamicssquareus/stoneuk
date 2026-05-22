@@ -1,99 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import BookingForm from "@/components/BookingForm";
-import Head from 'next/head';
+import Head from "next/head";
 import Image from "next/image";
-import ModelBox from '@/components/ModelBox';
+import React from "react";
 
-import React from 'react';
-
-const Test = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+const Test = ({ products }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // ✅ API FETCH
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://discover-pricecalculator.onrender.com/api/v1/inventories"
-        );
-
-        const data = await res.json();
-
-        // if api response direct array
-        if (Array.isArray(data)) {
-          setProducts(data);
-        }
-        // if api response inside data key
-        else if (data?.data) {
-          setProducts(data.data);
-        } else {
-          setProducts([]);
-        }
-      } catch (error) {
-        console.error("API Error:", error);
-        setProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  // ✅ Called when Book Now is clicked
   const handleBook = (productData) => {
     setSelectedProduct(productData);
     setShowModal(true);
   };
 
-  const SkeletonCard = () => (
-    <div className="col-lg-4 mb-4 d-flex">
-      <div className="card-m-01">
-        <div className="card-pick skeleton-box" />
-        <div className="skeleton-line w-75" />
-        <div className="skeleton-line w-100" />
-        <div className="skeleton-line w-50" />
-      </div>
-
-      <style jsx global>{`
-        .skeleton-box {
-          width: 100%;
-          aspect-ratio: 1 / 1;
-          background: #eaeaea;
-          border-radius: 6px;
-          margin-bottom: 30px;
-        }
-
-        .skeleton-line {
-          height: 14px;
-          background: #eaeaea;
-          border-radius: 4px;
-          margin-bottom: 10px;
-        }
-
-        .w-75 {
-          width: 75%;
-        }
-
-        .w-100 {
-          width: 100%;
-        }
-
-        .w-50 {
-          width: 50%;
-        }
-      `}</style>
-    </div>
-  );
-
   return (
     <>
       <Head>
         <meta name="robots" content="noindex, nofollow" />
+
         <title>
           In-Stock Memorial Headstones in UK | Stone Discover Inventory
         </title>
@@ -138,7 +63,6 @@ const Test = () => {
         <meta property="og:image:type" content="image/jpeg" />
 
         <meta name="twitter:card" content="summary_large_image" />
-
         <meta name="twitter:site" content="@Stone Discover UK" />
 
         <meta
@@ -155,8 +79,6 @@ const Test = () => {
           name="twitter:image"
           content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg"
         />
-
-        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       <div className="container py-5">
@@ -171,40 +93,13 @@ const Test = () => {
         </div>
 
         <div className="row">
-          {loading ? (
-            Array.from({ length: 4 }).map((_, i) => (
-              <SkeletonCard key={i} />
-            ))
-          ) : (
-            <>
-              {products.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onBook={handleBook}
-                />
-              ))}
-
-              {/* STATIC CARD AFTER DATA LOAD */}
-              {/* <div className="col-lg-4 mb-4">
-                <div className="my-new-card">
-                  <h3>Let’s Build the Right Package for You</h3>
-
-                  <p>
-                    Have specific volume needs or custom requirements? Reach
-                    out to us for personalised pricing and flexible package
-                    options.
-                  </p>
-
-                  <ModelBox
-                    className="btn-three-black"
-                    headerText="Scale Your Store!"
-                    buttonText="Get a Custom Quote"
-                  />
-                </div>
-              </div> */}
-            </>
-          )}
+          {products?.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onBook={handleBook}
+            />
+          ))}
         </div>
       </div>
 
@@ -239,11 +134,9 @@ const Test = () => {
                   <Image
                     src="/img/icons/icons-1.png"
                     alt="About Us"
-                    className="img-fluid"
                     width={58}
                     height={76}
                   />
-
                   <span>Quality Craftmanship</span>
                 </div>
 
@@ -251,11 +144,9 @@ const Test = () => {
                   <Image
                     src="/img/icons/icons-2.png"
                     alt="About Us"
-                    className="img-fluid"
                     width={58}
                     height={76}
                   />
-
                   <span>Nationwide Delivery</span>
                 </div>
 
@@ -263,11 +154,9 @@ const Test = () => {
                   <Image
                     src="/img/icons/icons-3.png"
                     alt="About Us"
-                    className="img-fluid"
                     width={58}
                     height={76}
                   />
-
                   <span>24*7 Customer Service</span>
                 </div>
 
@@ -275,11 +164,9 @@ const Test = () => {
                   <Image
                     src="/img/icons/icons-4.png"
                     alt="About Us"
-                    className="img-fluid"
                     width={58}
                     height={76}
                   />
-
                   <span>Custom Designs</span>
                 </div>
 
@@ -287,11 +174,9 @@ const Test = () => {
                   <Image
                     src="/img/icons/icons-5.png"
                     alt="About Us"
-                    className="img-fluid"
                     width={58}
                     height={76}
                   />
-
                   <span>Experienced Masons</span>
                 </div>
               </div>
@@ -300,7 +185,6 @@ const Test = () => {
         </div>
       </section>
 
-      {/* ✅ BOOKING POPUP */}
       {showModal && selectedProduct && (
         <div
           className="modal fade show d-block"
@@ -330,5 +214,31 @@ const Test = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  try {
+    const res = await fetch(
+      "https://discover-pricecalculator.onrender.com/api/v1/inventories"
+    );
+
+    const data = await res.json();
+
+    return {
+      props: {
+        products: Array.isArray(data)
+          ? data
+          : data?.data || [],
+      },
+    };
+  } catch (error) {
+    console.error("Inventory API Error:", error);
+
+    return {
+      props: {
+        products: [],
+      },
+    };
+  }
+}
 
 export default Test;

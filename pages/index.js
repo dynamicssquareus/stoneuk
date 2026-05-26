@@ -35,7 +35,6 @@ export default function Home() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-
               "@context": "https://schema.org",
               "@graph": [
                 {
@@ -43,6 +42,7 @@ export default function Home() {
                   "@id": "https://www.stonediscover.co.uk/#organization",
                   "name": "Stone Discover UK Ltd.",
                   "url": "https://www.stonediscover.co.uk/",
+                  "foundingDate": "1984",
                   "sameAs": [
                     "https://x.com/sdiscover_uk",
                     "https://www.linkedin.com/company/stone-discover-uk-ltd/"
@@ -57,25 +57,15 @@ export default function Home() {
                     "height": 1024,
                     "caption": "Stone Discover UK"
                   },
-                  "image": {
-                    "@id": "https://www.stonediscover.co.uk/#logo"
-                  },
-                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today!",
-                  "alternateName": "Stone Discover Wholesale Memorial Headstones Supplier in London, United Kingdom",
-                  "telephone": [
-                    "+44 7481 959 052",
-                    "+44 161 394 1594"
-                  ],
+                  "image": { "@id": "https://www.stonediscover.co.uk/#logo" },
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct from our quarry in India. UK stock in Liverpool and Southampton.",
+                  "alternateName": "Stone Discover Wholesale Memorial Headstones Supplier UK",
+                  "telephone": ["+44 7481 959 052", "+44 161 394 1594"],
                   "email": "info@stonediscover.co.uk",
                   "brand": {
                     "@type": "Brand",
                     "name": "Stone Discover UK Ltd.",
                     "logo": "https://www.stonediscover.co.uk/stone-logo.png"
-                  },
-                  "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.3",
-                    "reviewCount": "1280"
                   }
                 },
                 {
@@ -83,66 +73,62 @@ export default function Home() {
                   "@id": "https://www.stonediscover.co.uk/#website",
                   "url": "https://www.stonediscover.co.uk/",
                   "name": "Stone Discover UK Ltd.",
-                  "alternateName": "Stone Discover Wholesale Granite Memorial Supplier in London, UK",
-                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today!",
-                  "publisher": {
-                    "@id": "https://www.stonediscover.co.uk/#organization"
-                  },
-                  "potentialAction": {
+                  "alternateName": "Stone Discover — Wholesale Granite Memorials Supplier UK",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
+                  "publisher": { "@id": "https://www.stonediscover.co.uk/#organization" },
+                  "potentialAction": [{
                     "@type": "SearchAction",
-                    "target": "https://www.stonediscover.co.uk/?s={search_term_string}",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://www.stonediscover.co.uk/?s={search_term_string}"
+                    },
                     "query-input": "required name=search_term_string"
-                  },
+                  }],
                   "inLanguage": "en-GB"
                 },
                 {
                   "@type": "WebPage",
                   "@id": "https://www.stonediscover.co.uk/#webpage",
                   "url": "https://www.stonediscover.co.uk/",
-                  "name": "UK's Trusted Wholesale Memorial Headstone Supplier UK | Stone Discover UK",
-                  "isPartOf": {
-                    "@id": "https://www.stonediscover.co.uk/#website"
-                  },
-                  "about": {
-                    "@id": "https://www.stonediscover.co.uk/#organization"
-                  },
-                  "primaryImageOfPage": {
-                    "@id": "https://www.stonediscover.co.uk/#logo"
-                  },
-                  "datePublished": "2021-08-31T06:09:16+00:00",
-                  "dateModified": "2021-11-07T09:15:37+00:00",
-                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today.",
+                  "name": "Wholesale Memorial Headstones UK | Stone Discover UK",
+                  "isPartOf": { "@id": "https://www.stonediscover.co.uk/#website" },
+                  "about": { "@id": "https://www.stonediscover.co.uk/#organization" },
+                  "primaryImageOfPage": { "@id": "https://www.stonediscover.co.uk/#logo" },
+                  "datePublished": "2024-01-01T00:00:00+00:00",
+                  "dateModified": "2025-05-26T00:00:00+00:00",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
                   "inLanguage": "en-GB",
-                  "potentialAction": {
+                  "potentialAction": [{
                     "@type": "ReadAction",
-                    "target": [
-                      "https://www.stonediscover.co.uk/"
-                    ]
-                  },
-                  "headline": "UK's Trusted Wholesale Memorial Headstones Supplier, We specialize in creating premium quality memorial headstones and gravestones using the finest granite",
+                    "target": ["https://www.stonediscover.co.uk/"]
+                  }],
+                  "headline": "UK's Wholesale Memorial Headstones Supplier",
                   "keywords": [
-                    "Wholesale Memorial UK",
-                    "Granite Memorial UK",
-                    "Memorial Supplier UK",
-                    "Memorial Headstones UK",
-                    "Memorial Gravestones UK",
-                    "Memorial Markers Supplier",
-                    "Granite Grave Supplier UK"
+                    "wholesale memorial headstones UK",
+                    "granite memorial UK",
+                    "memorial supplier UK",
+                    "memorial headstones UK",
+                    "wholesale granite headstones",
+                    "granite grave markers UK",
+                    "trade memorial supplier UK"
                   ]
                 },
                 {
                   "@type": "LocalBusiness",
                   "@id": "https://www.stonediscover.co.uk/#localbusiness",
                   "name": "Stone Discover UK Ltd.",
-                  "description": "Buy high-quality memorial headstones at wholesale prices in the UK. Ideal for funeral homes, stone retailers, and fabricators. Contact Stone Discover UK today.",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
                   "image": "https://www.stonediscover.co.uk/stone-logo.png",
-                  "alternateName": "Stone Discover Wholesale Memorial Supplier in London, UK",
-                  "priceRange": "£££-£££",
+                  "alternateName": "Stone Discover Wholesale Memorial Supplier UK",
+                  "priceRange": "££",
+                  "telephone": ["+44 7481 959 052", "+44 161 394 1594"],
+                  "email": "info@stonediscover.co.uk",
+                  "url": "https://www.stonediscover.co.uk/",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "124-128 City Road",
                     "addressLocality": "London",
-                    "addressRegion": "London",
+                    "addressRegion": "England",
                     "postalCode": "EC1V 2NX",
                     "addressCountry": "GB"
                   },
@@ -151,43 +137,74 @@ export default function Home() {
                     "latitude": 51.52706865727293,
                     "longitude": -0.08876773400079006
                   },
-                  "telephone": [
-                    "+44 7481 959 052",
-                    "+44 161 394 1594"
-                  ],
-                  "email": "info@stonediscover.co.uk",
-                  "url": "https://www.stonediscover.co.uk/",
-                  "sameAs": [
-                    "https://x.com/sdiscover_uk",
-                    "https://www.linkedin.com/company/stone-discover-uk-ltd/"
-                  ],
                   "brand": {
                     "@type": "Brand",
                     "name": "Stone Discover UK Ltd.",
                     "logo": "https://www.stonediscover.co.uk/stone-logo.png"
                   },
-                  "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.3",
-                    "reviewCount": "1260"
-                  },
-                  "openingHoursSpecification": [
+                  "openingHoursSpecification": [{
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "08:00",
+                    "closes": "17:00"
+                  }],
+                  "sameAs": [
+                    "https://x.com/sdiscover_uk",
+                    "https://www.linkedin.com/company/stone-discover-uk-ltd/"
+                  ]
+                },
+                {
+                  "@type": "FAQPage",
+                  "@id": "https://www.stonediscover.co.uk/#faqpage",
+                  "mainEntity": [
                     {
-                      "@type": "OpeningHoursSpecification",
-                      "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday"
-                      ],
-                      "opens": "08:00",
-                      "closes": "17:00"
+                      "@type": "Question",
+                      "name": "What types of memorials do you provide?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "We offer Ogee Memorials, Angel Memorials, Bench Memorials, Children Memorials, Heart shaped memorials, Kerb sets, Cremation Urns, and Vases. All products are made from premium Indian granite in different colours and finishes." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Who can buy from Stone Discover UK?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "We supply memorial headstones wholesale to stonemasons, funeral directors, monument dealers, wholesalers and importers. We supply bulk orders at competitive trade prices across the UK." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What is the minimum order quantity for granite headstones?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "Free delivery is included on a minimum order of 5 sets of Ogees, Mapples, or Kerbsets to a single UK address. Contact us for a detailed quote on your specific requirements." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do you supply NAMM-compliant headstones?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our memorial stones are manufactured to meet UK memorial trade standards including BS 8415. We provide full compliance documentation covering size, weight, and fixing specifications for cemetery authority submission." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What is the lead time for wholesale headstone orders?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "UK-stocked standard designs dispatch within 3-5 working days from our Liverpool or Southampton warehouse. Custom and bespoke manufactured orders take 6-8 weeks (standard) or 8-10 weeks (complex bespoke)." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Where are your headstones manufactured?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "Our headstones are crafted at our own manufacturing facility in Chennai, India, using granite from our quarry in Khammam, Telangana. We have supplied granite memorials since 1984. Stock is held at our UK warehouses in Liverpool and Southampton for fast trade dispatch." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Can headstones be customised for trade orders?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Full customisation is available including sizes, shapes, granite colours, engravings, finishes, and carved details. We support bespoke designs for all headstone types." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Can I order granite samples before placing a bulk order?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Granite sample pieces and a physical trade catalogue are available for verified trade buyers. Contact our sales team on +44 7481 959 052 or info@stonediscover.co.uk to arrange samples." }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What granite colours are available for UK headstones?",
+                      "acceptedAnswer": { "@type": "Answer", "text": "We supply 40+ granite colours. Most popular for UK cemeteries: Absolute Black, Steel Grey, Bahama Blue, Imperial Red, Indian Aurora, Viscon White, and Indian Juparana. Premium imported colours including Black Pearl, Blue Pearl, and South African Impala are also available." }
                     }
                   ]
                 }
               ]
-
             })
           }}
         />

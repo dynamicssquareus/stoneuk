@@ -214,8 +214,8 @@ const CategoryPage = ({ category, products, faq, error }) => {
             <div className="col-lg-6">
               <div className="about-us-image">
                 <Image
-                  width={600}
-                  height={600}
+                   width={563}
+                  height={563}
                   src={getImageUrlAbout(category.aboutusimage)}
                   alt={category.title}
                   className="img-fluid"

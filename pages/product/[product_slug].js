@@ -8,6 +8,9 @@ import ProductGallery from '@/components/ProductGallery';
 const getImageUrl = (img) =>
   img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/product-01.jpg';
 
+const getImageUrPartner = (img) =>
+  img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/headstones-pic.png'
+
 const ProductPage = ({ product, relatedProducts, specifications, error }) => {
   if (error) {
     return <div className="container py-5 text-center">Error loading product. Please try again later.</div>;
@@ -226,7 +229,7 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
       </section>
 
 
-<section className='p-b-100 p-t-80 m-p-07'>
+      <section className='p-b-100 p-t-80 m-p-07'>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
@@ -299,7 +302,7 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
           </div>
         </div>
       </section>
-     
+
 
       <section className='partner-section'>
         <div className='container'>
@@ -313,7 +316,14 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
           <div className='row'>
             <div className='col-lg-6 align-self-center'>
               <div className='partner-pic'>
-                <img src='/img/webpages/headstones-pic.png' alt='partent-side-pic' />
+                <Image
+                  width={563}
+                  height={563}
+                  src={getImageUrPartner(product?.category?.ctaimage)}
+                  alt={product?.category?.title || product?.title}
+                  className="img-fluid"
+                />
+
               </div>
             </div>
             <div className='col-lg-6 align-self-center'>
@@ -421,35 +431,35 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
             </div>
           </div>
           <div className='row p-t-60'>
-                        <div className='col-lg-12'>
-                            <div className='card-05'>
-                                <div className='card-05-item'>
-                                    <img src='/img/icons/icons-1.png' alt='About Us' className='img-fluid' />
-                                    <span>Quality Craftmanship</span>
-                                </div>
-                                <div className='card-05-item'>
-                                    <img src='/img/icons/icons-2.png' alt='About Us' className='img-fluid' />
-                                    <span>Nationwide Delivery</span>
-                                </div>
-                                <div className='card-05-item'>
-                                    <img src='/img/icons/icons-3.png' alt='About Us' className='img-fluid' />
-                                    <span>24*7 Customer Service</span>
-                                </div>
-                                <div className='card-05-item'>
-                                    <img src='/img/icons/icons-4.png' alt='About Us' className='img-fluid' />
-                                    <span>Custom Designs</span>
-                                </div>
-                                <div className='card-05-item'>
-                                    <img src='/img/icons/icons-5.png' alt='About Us' className='img-fluid' />
-                                    <span>Experienced Masons</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className='col-lg-12'>
+              <div className='card-05'>
+                <div className='card-05-item'>
+                  <img src='/img/icons/icons-1.png' alt='About Us' className='img-fluid' />
+                  <span>Quality Craftmanship</span>
+                </div>
+                <div className='card-05-item'>
+                  <img src='/img/icons/icons-2.png' alt='About Us' className='img-fluid' />
+                  <span>Nationwide Delivery</span>
+                </div>
+                <div className='card-05-item'>
+                  <img src='/img/icons/icons-3.png' alt='About Us' className='img-fluid' />
+                  <span>24*7 Customer Service</span>
+                </div>
+                <div className='card-05-item'>
+                  <img src='/img/icons/icons-4.png' alt='About Us' className='img-fluid' />
+                  <span>Custom Designs</span>
+                </div>
+                <div className='card-05-item'>
+                  <img src='/img/icons/icons-5.png' alt='About Us' className='img-fluid' />
+                  <span>Experienced Masons</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      
+
 
       <section className='p-t-60'>
         <div className='container'>

@@ -10,6 +10,12 @@ const getImageUrl = (img) =>
 const getImageUrlBanner = (img) =>
   img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/product-01.jpg'
 
+const getImageUrlAbout = (img) =>
+  img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/about-us-pic.png'
+
+const getImageUrPartner = (img) =>
+  img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/headstones-pic.png'
+
 const CategoryPage = ({ category, products, faq, error }) => {
   if (error) {
     return <p className="text-danger">{error}</p>;
@@ -207,7 +213,14 @@ const CategoryPage = ({ category, products, faq, error }) => {
 
             <div className="col-lg-6">
               <div className="about-us-image">
-                <img src="/img/webpages/about-us-pic.png" alt="About Us" className="img-fluid" />
+                <Image
+                  width={600}
+                  height={600}
+                  src={getImageUrlAbout(category.aboutusimage)}
+                  alt={category.title}
+                  className="img-fluid"
+                />
+                {/* <img src="/img/webpages/about-us-pic.png" alt="About Us" className="img-fluid" /> */}
               </div>
             </div>
           </div>
@@ -263,7 +276,14 @@ const CategoryPage = ({ category, products, faq, error }) => {
           <div className='row'>
             <div className='col-lg-6 align-self-center'>
               <div className='partner-pic'>
-                <img src='/img/webpages/headstones-pic.png' alt='partent-side-pic' />
+                {/* <img src='/img/webpages/headstones-pic.png' alt='partent-side-pic' /> */}
+                <Image
+                  width={555}
+                  height={440}
+                  src={getImageUrPartner(category.ctaimage)}
+                  alt={category.title}
+                  className="img-fluid"
+                />
               </div>
             </div>
             <div className='col-lg-6 align-self-center'>

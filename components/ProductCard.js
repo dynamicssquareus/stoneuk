@@ -4,12 +4,25 @@ import Image from "next/image";
 export default function ProductCard({ product, onBook }) {
     const [selected, setSelected] = useState(product.options[0]);
 
+    const discountText = selected?.discount?.trim();
+
+    const showDiscount =
+        discountText &&
+        !["no discount", "n/a", "none", "0"].includes(
+            discountText.toLowerCase()
+        );
+
     return (
         <>
             <div className="col-lg-4 col-sm-6 mb-4 d-flex">
                 <div className="card-m-01">
                     <div className="card-pick">
-                        <Image src={product.image} width={400} height={400} alt={product.title?.replace(/&amp;/g, "&")} />
+                        <Image
+                            src={product.image}
+                            width={400}
+                            height={400}
+                            alt={product.title?.replace(/&amp;/g, "&")}
+                        />
                     </div>
                     <h6> {product.title?.replace(/&amp;/g, "&")}</h6>
                     <p className="mut">
@@ -33,11 +46,16 @@ export default function ProductCard({ product, onBook }) {
                             ))}
                         </select>
 
-                        <div className="fw-bold-bg">£ {selected.price || selected.pricePerSet}</div>
+                        <div className="fw-bold-bg">
+                            £ {selected.price || selected.pricePerSet}
+                        </div>
                     </div>
 
                     <div className="di-sec">
-                        {selected.discount && <p className="small-p">{selected.discount}</p>}
+                        {/* {selected.discount && <p className="small-p">{selected.discount}</p>} */}
+                        {showDiscount && (
+                            <p className="small-p">{discountText}</p>
+                        )}
                     </div>
 
                     <p className="small-c">Yard: {product.yard}</p>
@@ -65,95 +83,94 @@ export default function ProductCard({ product, onBook }) {
                 </div>
                 <style jsx global>
                     {`
-          .card-m-01 h6 {
-            font-family: var(--font-sec) !important;
-            font-size: 16px;
-            font-weight: bold;
-                text-transform: capitalize;
-          }
-          .card-m-01 {
-            border-radius: 8px;
-            background-color: #f7f6f3;
-            padding: 15px 15px 30px 15px;
-            width: 100%;
-          }
-          .mut {
-            font-family: var(--font-sec) !important;
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 1.5;
-            color: #4a4a4a !important;
-          }
-          .card-m-01 .card-pick {
-            text-align: center;
-            margin-bottom: 30px;
-            width:100%;
-            height:auto
-          }
-            .card-pick img{
-            width:100%;
-            height:100%
+            .card-m-01 h6 {
+              font-family: var(--font-sec) !important;
+              font-size: 16px;
+              font-weight: bold;
+              text-transform: capitalize;
             }
-          .form-ff {
-            display: grid;
-            grid-template-columns: 4fr 2fr;
-            gap: 0px;
-          }
-          .fw-bold-bg {
-            border-radius: 0px 4px 4px 0px;
-            background-color: #ff8c3a;
-            background-image: linear-gradient(to right, #f9d2ac, #ff8c3a);
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            padding-right: 15px;
-            font-weight: bold;
-            color: #4a4a4a;
-            padding: 10px 20px;
-          }
-          .form-select {
-            border-color: #ff8c3a;
-            font-size: 15px;
-            border-right-color: transparent;
-            border-radius: 4px 0px 0px 4px ;
-          }
-          .di-sec {
-            height: 20px;
-            margin-top: 7px;
-            text-align: right;
-          }
-          .small-p {
-            color: #4a4a4a;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 0;
-          }
-          .small-c {
-            font-size: 14px;
-    color: #d95404;
-    margin-top: -20px;
-    font-weight: 600;
-    margin-bottom: 30px;
-          }
-            @media (max-width: 767px){
-                .small-p{
-    font-size: 13px !important;
-}
-.small-c{
-    font-size: 15px !important;
-    margin-top: -22px !important;
-}
-    .form-select{
-    border-right-color: #ff8c3a;
-    border-radius: 4px;
-    margin-bottom: 3px;
-    }
-    .fw-bold-bg{
-    border-radius: 4px;
-    }
+            .card-m-01 {
+              border-radius: 8px;
+              background-color: #f7f6f3;
+              padding: 15px 15px 30px 15px;
+              width: 100%;
             }
-          
-        `}
+            .mut {
+              font-family: var(--font-sec) !important;
+              font-size: 16px;
+              font-weight: normal;
+              line-height: 1.5;
+              color: #4a4a4a !important;
+            }
+            .card-m-01 .card-pick {
+              text-align: center;
+              margin-bottom: 30px;
+              width: 100%;
+              height: auto;
+            }
+            .card-pick img {
+              width: 100%;
+              height: 100%;
+            }
+            .form-ff {
+              display: grid;
+              grid-template-columns: 4fr 2fr;
+              gap: 0px;
+            }
+            .fw-bold-bg {
+              border-radius: 0px 4px 4px 0px;
+              background-color: #ff8c3a;
+              background-image: linear-gradient(to right, #f9d2ac, #ff8c3a);
+              display: flex;
+              align-items: center;
+              justify-content: right;
+              padding-right: 15px;
+              font-weight: bold;
+              color: #4a4a4a;
+              padding: 10px 20px;
+            }
+            .form-select {
+              border-color: #ff8c3a;
+              font-size: 15px;
+              border-right-color: transparent;
+              border-radius: 4px 0px 0px 4px;
+            }
+            .di-sec {
+              height: 20px;
+              margin-top: 7px;
+              text-align: right;
+            }
+            .small-p {
+              color: #4a4a4a;
+              font-weight: bold;
+              font-size: 14px;
+              margin-bottom: 0;
+            }
+            .small-c {
+              font-size: 14px;
+              color: #d95404;
+              margin-top: -20px;
+              font-weight: 600;
+              margin-bottom: 30px;
+            }
+            @media (max-width: 767px) {
+              .small-p {
+                font-size: 13px !important;
+              }
+              .small-c {
+                font-size: 15px !important;
+                margin-top: -22px !important;
+              }
+              .form-select {
+                border-right-color: #ff8c3a;
+                border-radius: 4px;
+                margin-bottom: 3px;
+              }
+              .fw-bold-bg {
+                border-radius: 4px;
+              }
+            }
+          `}
                 </style>
             </div>
         </>

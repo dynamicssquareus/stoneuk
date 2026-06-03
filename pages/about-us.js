@@ -35,56 +35,6 @@ export default function About() {
                 <meta name="twitter:title" content="About Stone Discover UK : Memorial Headstones Supplier in UK" />
                 <meta name="twitter:description" content="Stone Discover UK is a reliable supplier of wholesale memorial headstones, serving funeral homes and retailers across the UK with quality granite products." />
                 <meta name="twitter:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@graph": [
-                                {
-                                    "@type": "LocalBusiness",
-                                    "@id": "https://www.stonediscover.co.uk/#localbusiness",
-                                    "name": "Stone Discover UK Ltd.",
-                                    "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
-                                    "image": "https://www.stonediscover.co.uk/stone-logo.png",
-                                    "alternateName": "Stone Discover Wholesale Memorial Supplier UK",
-                                    "priceRange": "££",
-                                    "telephone": ["+44 7481 959 052", "+44 161 394 1594"],
-                                    "email": "info@stonediscover.co.uk",
-                                    "url": "https://www.stonediscover.co.uk/",
-                                    "address": {
-                                        "@type": "PostalAddress",
-                                        "streetAddress": "124-128 City Road",
-                                        "addressLocality": "London",
-                                        "addressRegion": "England",
-                                        "postalCode": "EC1V 2NX",
-                                        "addressCountry": "GB"
-                                    },
-                                    "geo": {
-                                        "@type": "GeoCoordinates",
-                                        "latitude": 51.52706865727293,
-                                        "longitude": -0.08876773400079006
-                                    },
-                                    "brand": {
-                                        "@type": "Brand",
-                                        "name": "Stone Discover UK Ltd.",
-                                        "logo": "https://www.stonediscover.co.uk/stone-logo.png"
-                                    },
-                                    "openingHoursSpecification": [{
-                                        "@type": "OpeningHoursSpecification",
-                                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                                        "opens": "08:00",
-                                        "closes": "17:00"
-                                    }],
-                                    "sameAs": [
-                                        "https://x.com/sdiscover_uk",
-                                        "https://www.linkedin.com/company/stone-discover-uk-ltd/"
-                                    ]
-                                }
-                            ]
-                        })
-                    }}
-                />
             </Head>
 
             <div className='common-header-banner'>

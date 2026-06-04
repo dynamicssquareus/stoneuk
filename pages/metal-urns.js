@@ -48,8 +48,8 @@ const VarietyGr = () => {
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                <h2 className='m-b-30'>Partner with a Trusted <span>Granite Headstones Supplier</span></h2>
-                <p>Whether you need bulk supply or want to expand your memorial range, We are a UK-based supplier offering reliable granite headstones, premium quality, and expert support. We work closely with memorial dealers and retailers across the UK to build long-term partnerships based on trust and performance.</p>
+                <h2 className='m-b-30'>Work with a Reliable Metal Urns <span>Supplier in the UK</span></h2>
+                <p>Looking to expand your memorial offering or source premium metal urns in bulk? Stone Discover UK supplies high-quality brass and aluminium urns with wholesale pricing, dependable UK-wide supply, and expert support for funeral homes, memorial retailers, and trade buyers.</p>
               </div>
               <div className='button-center-new text-center'>
                 <ModelBox className='btn-three' headerText="Scale Your Store! " buttonText="Request a Quote" />

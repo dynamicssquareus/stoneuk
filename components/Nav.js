@@ -129,17 +129,18 @@ const Nav = () => {
               <li><a style={{ color: '#a44400', fontWeight: 'bold' }} href="/memorials">View All</a></li>
             </ul>
           </li>
+            <li><a href="/metal-urns/">Metal Urns</a></li>
           <li className="dropdown"><a href="/memorials/"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/variety-of-granites/">Variety of granite</a></li>
-              <li><a href="/metal-urns/">Metal Urns</a></li>
+              <li><a href="/blog/">Blogs</a></li>
               <li><a href="/photo-gallery/">Photo Gallery</a></li>
             </ul>
           </li>
           <li><a className="nav-link scrollto" href="/about-us/">About Us</a></li>
 
           <li><a className="nav-link scrollto" href="/catalog-download/">Catalog</a></li>
-          <li><a className="nav-link" href="/blog/">Blogs</a></li>
+          
           <li><a className="nav-link scrollto" href="/contact-us/">Contact Us</a></li>
           <li><a className='btn btn-three btn btn-secondary' href='/get-quote-now/'>Get a Quote</a></li>
           <li><a className='btn btn-two' href='https://wa.me/9667584700'><span><i className="bi bi-whatsapp"></i></span></a></li>

@@ -6,16 +6,16 @@ const VarietyGr = () => {
   return (
     <>
       <Head>
-        <title>30+ Granite Varieties for Memorial Headstones UK | Stone Discover</title>
+        <title>Granite Colours for Memorials UK | Stone Discover UK</title>
         <meta
           name="description"
-          content="Explore 30+ granite varieties for memorial headstones in the UK. Premium quality, bespoke designs, and wholesale options for dealers. Enquire today."
+          content="Browse 40+ granite colours for memorial headstones — from Absolute Black to Ruby Red. UK wholesale supplier with trade pricing & nationwide delivery. Request a quote."
         />
         <link rel="canonical" href="https://www.stonediscover.co.uk/variety-of-granites/" />
         <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content=" 40+ Granite Varieties for Crafting Headstones | Stone Discover" />
-        <meta property="og:description" content=" Explore 30+ granite varieties for memorial headstones in the UK. Premium quality, bespoke designs, and wholesale options for dealers. Enquire today." />
+        <meta property="og:description" content=" Browse 40+ granite colours for memorial headstones — from Absolute Black to Ruby Red. UK wholesale supplier with trade pricing & nationwide delivery. Request a quote." />
         <meta property="og:url" content="https://www.stonediscover.co.uk/variety-of-granites/" />
         <meta property="og:site_name" content="Stone Discover" />
         <meta property="og:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
@@ -24,8 +24,8 @@ const VarietyGr = () => {
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Stone Discover" />
-        <meta name="twitter:title" content=" 30+ Granite Varieties for Memorial Headstones UK | Stone Discover" />
-        <meta name="twitter:description" content=" Explore 30+ granite varieties for memorial headstones in the UK. Premium quality, bespoke designs, and wholesale options for dealers. Enquire today." />
+        <meta name="twitter:title" content=" Granite Colours for Memorials UK | Stone Discover UK" />
+        <meta name="twitter:description" content=" Browse 40+ granite colours for memorial headstones — from Absolute Black to Ruby Red. UK wholesale supplier with trade pricing & nationwide delivery. Request a quote." />
         <meta name="twitter:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
 
       </Head>
@@ -35,7 +35,7 @@ const VarietyGr = () => {
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                 <h1 style={{fontWeight:'bold'}} className='m-b-30'>Varieties of Granite <span>Memorial Headstones UK</span></h1>
+                 <h1 style={{fontWeight:'bold'}} className='m-b-30'>Granite Colours for <span>Memorial Headstones UK</span></h1>
               </div>
             </div>
           </div>

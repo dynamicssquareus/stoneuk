@@ -132,6 +132,7 @@ const Nav = () => {
           <li className="dropdown"><a href="/memorials/"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/variety-of-granites/">Variety of granite</a></li>
+              <li><a href="/metal-urns/">Metal Urns</a></li>
               <li><a href="/photo-gallery/">Photo Gallery</a></li>
             </ul>
           </li>
@@ -209,6 +210,9 @@ const Nav = () => {
                  <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
                 <li><a className="nav-link" href="/memorials/">Memorial Stones</a></li>
                 <li><a className="nav-link" href="/about-us/">About US</a></li>
+                <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
+              <li><a className="nav-link" href="/metal-urns/">Metal Urns</a></li>
+              <li><a className="nav-link" href="/photo-gallery/">Photo Gallery</a></li>
                 <li><a className="nav-link" href="/blog/">Blogs</a></li>
                 <li><a className="nav-link" href="/catalog-download/">Catalog</a></li>
                 <li><a className="nav-link" href="/contact-us/">Contact Us</a></li>

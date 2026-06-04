@@ -1,23 +1,22 @@
 import React from 'react';
 import Head from 'next/head';
 import ModelBox from '@/components/ModelBox';
-import Image from 'next/image';
-import ImageGallery from '@/components/ImageGallery';
+import ImageGalleryBrash from '@/components/ImageGalleryBrash';
 const VarietyGr = () => {
   return (
     <>
       <Head>
-        <title>Granite Memorial Headstone Gallery UK | Stone Discover UK</title>
+        <title>Premium Metal Urns Supplier UK | Cremation Urns Supplier | Stone Discover UK</title>
         <meta
           name="description"
-          content="View our gallery of granite memorial headstones, kerb sets, angel memorials & more. See real craftsmanship across 40+ granite colours. Request a trade catalogue today."
+          content="Premium metal urns supplier in the UK offering brass, aluminium, and cremation urns with wholesale pricing, nationwide delivery, and quality craftsmanship. Get a quote now."
         />
-        <link rel="canonical" href="https://www.stonediscover.co.uk/photo-gallery/" />
+        <link rel="canonical" href="https://www.stonediscover.co.uk/metal-urns/" />
         <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content=" Granite Memorial Headstone Gallery UK | Stone Discover UK" />
-        <meta property="og:description" content=" View our gallery of granite memorial headstones, kerb sets, angel memorials & more. See real craftsmanship across 40+ granite colours. Request a trade catalogue today." />
-        <meta property="og:url" content="https://www.stonediscover.co.uk/photo-gallery/" />
+        <meta property="og:title" content=" Premium Metal Urns Supplier UK | Cremation Urns Supplier | Stone Discover UK" />
+        <meta property="og:description" content=" Premium metal urns supplier in the UK offering brass, aluminium, and cremation urns with wholesale pricing, nationwide delivery, and quality craftsmanship. Get a quote now." />
+        <meta property="og:url" content="https://www.stonediscover.co.uk/metal-urns/" />
         <meta property="og:site_name" content="Stone Discover" />
         <meta property="og:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
         <meta property="og:image:width" content="200" />
@@ -25,8 +24,8 @@ const VarietyGr = () => {
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Stone Discover" />
-        <meta name="twitter:title" content=" Granite Memorial Headstone Gallery UK | Stone Discover UK" />
-        <meta name="twitter:description" content=" View our gallery of granite memorial headstones, kerb sets, angel memorials & more. See real craftsmanship across 40+ granite colours. Request a trade catalogue today." />
+        <meta name="twitter:title" content=" Premium Metal Urns Supplier UK | Cremation Urns Supplier | Stone Discover UK" />
+        <meta name="twitter:description" content=" Premium metal urns supplier in the UK offering brass, aluminium, and cremation urns with wholesale pricing, nationwide delivery, and quality craftsmanship. Get a quote now." />
         <meta name="twitter:image" content="https://www.stonediscover.co.uk/img/stone-home-o.jpeg" />
 
       </Head>
@@ -36,11 +35,11 @@ const VarietyGr = () => {
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                 <h1 style={{fontWeight:'bold'}} className='m-b-30'>Photo Gallery of <span>Memorial Headstones and Monuments</span></h1>
+                 <h1 style={{fontWeight:'bold'}} className='m-b-30'>Premium Metal <span>Urns Supplier in the UK</span></h1>
               </div>
             </div>
           </div>
-          <ImageGallery />
+          <ImageGalleryBrash />
         </div>
       </section>
 
@@ -49,7 +48,7 @@ const VarietyGr = () => {
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
-                <h2 className='m-b-30'><span>Granite Memorial Headstone</span> Gallery — Designs, Colours & Styles</h2>
+                <h2 className='m-b-30'>Partner with a Trusted <span>Granite Headstones Supplier</span></h2>
                 <p>Whether you need bulk supply or want to expand your memorial range, We are a UK-based supplier offering reliable granite headstones, premium quality, and expert support. We work closely with memorial dealers and retailers across the UK to build long-term partnerships based on trust and performance.</p>
               </div>
               <div className='button-center-new text-center'>

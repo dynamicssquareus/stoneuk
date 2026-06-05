@@ -47,7 +47,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                   "image": { "@id": "https://www.stonediscover.co.uk/#logo" },
                   "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct from our quarry in India. UK stock in Liverpool and Southampton.",
                   "alternateName": "Stone Discover Wholesale Memorial Headstones Supplier UK",
-                  "telephone": ["+44 7481 959 052", "+44 161 394 1594"],
+                  "telephone": ["+44 1613 941 594", "+44 161 394 1594"],
                   "email": "info@stonediscover.co.uk",
                   "brand": {
                     "@type": "Brand",
@@ -108,7 +108,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                   "image": "https://www.stonediscover.co.uk/stone-logo.png",
                   "alternateName": "Stone Discover Wholesale Memorial Supplier UK",
                   "priceRange": "££",
-                  "telephone": ["+44 7481 959 052", "+44 161 394 1594"],
+                  "telephone": ["+44 1613 941 594", "+44 161 394 1594"],
                   "email": "info@stonediscover.co.uk",
                   "url": "https://www.stonediscover.co.uk/",
                   "address": {
@@ -182,7 +182,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                     {
                       "@type": "Question",
                       "name": "Can I order granite samples before placing a bulk order?",
-                      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Granite sample pieces and a physical trade catalogue are available for verified trade buyers. Contact our sales team on +44 7481 959 052 or info@stonediscover.co.uk to arrange samples." }
+                      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Granite sample pieces and a physical trade catalogue are available for verified trade buyers. Contact our sales team on +44 1613 941 594 or info@stonediscover.co.uk to arrange samples." }
                     },
                     {
                       "@type": "Question",

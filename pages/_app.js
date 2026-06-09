@@ -45,7 +45,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                     "caption": "Stone Discover UK"
                   },
                   "image": { "@id": "https://www.stonediscover.co.uk/#logo" },
-                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct from our quarry in India. UK stock in Liverpool and Southampton.",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct from our quarry in India. UK stock in London, Liverpool and Southampton.",
                   "alternateName": "Stone Discover Wholesale Memorial Headstones Supplier UK",
                   "telephone": ["+44 1613 941 594", "+44 161 394 1594"],
                   "email": "info@stonediscover.co.uk",
@@ -61,7 +61,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                   "url": "https://www.stonediscover.co.uk/",
                   "name": "Stone Discover UK Ltd.",
                   "alternateName": "Stone Discover — Wholesale Granite Memorials Supplier UK",
-                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in London, Liverpool and Southampton.",
                   "publisher": { "@id": "https://www.stonediscover.co.uk/#organization" },
                   "potentialAction": [{
                     "@type": "SearchAction",
@@ -83,7 +83,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                   "primaryImageOfPage": { "@id": "https://www.stonediscover.co.uk/#logo" },
                   "datePublished": "2024-01-01T00:00:00+00:00",
                   "dateModified": "2025-05-26T00:00:00+00:00",
-                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in London, Liverpool and Southampton.",
                   "inLanguage": "en-GB",
                   "potentialAction": [{
                     "@type": "ReadAction",
@@ -104,7 +104,7 @@ function MyAppWithLayout({ Component, pageProps }) {
                   "@type": "LocalBusiness",
                   "@id": "https://www.stonediscover.co.uk/#localbusiness",
                   "name": "Stone Discover UK Ltd.",
-                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in Liverpool and Southampton.",
+                  "description": "Wholesale granite memorial headstones for UK stonemasons, funeral directors and monument dealers. Factory direct since 1984. UK warehouse stock in London, Liverpool and Southampton.",
                   "image": "https://www.stonediscover.co.uk/stone-logo.png",
                   "alternateName": "Stone Discover Wholesale Memorial Supplier UK",
                   "priceRange": "££",

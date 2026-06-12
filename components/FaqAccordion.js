@@ -73,7 +73,7 @@ const FaqAccordion = ({ faqList = [] }) => {
                 </div>
               </AccordionHeader>
               <AccordionBody accordionId={`${index + 1}`}>
-                <p>{item.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: item.description }} />
               </AccordionBody>
             </AccordionItem>
           ))}

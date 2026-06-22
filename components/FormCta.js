@@ -206,15 +206,40 @@ const FormCta = ({ onSubmit }) => {
     return emailRegex.test(email);
   };
 
+  // const isValidPhoneNumber = (phone) => {
+  //   if (phone.trim() === '') {
+  //     return true; 
+  //   }
+
+  //   const cleanedPhoneNumber = phone.replace(/\D/g, '');
+
+  //   return /^\d{10,15}$/.test(cleanedPhoneNumber);
+  // };
   const isValidPhoneNumber = (phone) => {
-    if (phone.trim() === '') {
-      return true; // Return true for empty phone number
-    }
-    // Remove non-digit characters
-    const cleanedPhoneNumber = phone.replace(/\D/g, '');
-    // Check if the resulting string contains only digits and has a length between 10 and 13 characters
-    return /^\d{10,15}$/.test(cleanedPhoneNumber);
-  };
+  if (!phone?.trim()) return true;
+
+  const cleanedPhoneNumber = phone.replace(/\D/g, "");
+
+  // Length check
+  if (cleanedPhoneNumber.length < 10 || cleanedPhoneNumber.length > 18) {
+    return false;
+  }
+
+  // Last 10 digits (mobile number)
+  const localNumber = cleanedPhoneNumber.slice(-10);
+
+  // Block all same digits
+  if (/^(\d)\1+$/.test(localNumber)) {
+    return false;
+  }
+
+  // Block repeated patterns
+  if (/^(\d{1,3})\1+$/.test(localNumber)) {
+    return false;
+  }
+
+  return true;
+};
 
   useEffect(() => {
     // Clear the timer when redirectTimer reaches 0

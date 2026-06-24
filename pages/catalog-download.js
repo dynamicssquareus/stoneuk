@@ -22,7 +22,6 @@ const handleFormSubmit = () => {
                     content="Explore our Memorial Headstones Catalog for UK buyers. Stone Discover UK offers premium granite memorials at wholesale prices. Download now!"
                 />
                 <link rel="canonical" href="https://www.stonediscover.co.uk/catalog-download/" />
-                <meta property="og:locale" content="US" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Download Our Memorial Headstones Catalog | Stone Discover UK" />
                 <meta property="og:description" content="Explore our Memorial Headstones Catalog for UK buyers. Stone Discover UK offers premium granite memorials at wholesale prices. Download now!" />

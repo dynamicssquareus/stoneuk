@@ -64,7 +64,6 @@ const Test = () => {
         <title>In-Stock Memorial Headstones in UK | Stone Discover Inventory</title>
         <meta name="description" content="Browse in-stock memorial headstones available for immediate delivery across the UK. View designs, sizes, and finishes from Stone Discover." />
         <link rel="canonical" href="https://www.stonediscover.co.uk/stocks-available/" />
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="In-Stock Memorial Headstones in UK | Stone Discover Inventory" />
         <meta property="og:description" content="Browse in-stock memorial headstones available for immediate delivery across the UK. View designs, sizes, and finishes from Stone Discover." />

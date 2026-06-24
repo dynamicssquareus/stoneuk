@@ -12,7 +12,6 @@ const VarietyGr = () => {
           content="Premium metal urns supplier in the UK offering brass, aluminium, and cremation urns with wholesale pricing, nationwide delivery, and quality craftsmanship. Get a quote now."
         />
         <link rel="canonical" href="https://www.stonediscover.co.uk/metal-urns/" />
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content=" Premium Metal Urns Supplier UK | Cremation Urns Supplier | Stone Discover UK" />
         <meta property="og:description" content=" Premium metal urns supplier in the UK offering brass, aluminium, and cremation urns with wholesale pricing, nationwide delivery, and quality craftsmanship. Get a quote now." />

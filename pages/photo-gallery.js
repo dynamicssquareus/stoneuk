@@ -13,7 +13,6 @@ const VarietyGr = () => {
           content="View our gallery of granite memorial headstones, kerb sets, angel memorials & more. See real craftsmanship across 40+ granite colours. Request a trade catalogue today."
         />
         <link rel="canonical" href="https://www.stonediscover.co.uk/photo-gallery/" />
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content=" Granite Memorial Headstone Gallery UK | Stone Discover UK" />
         <meta property="og:description" content=" View our gallery of granite memorial headstones, kerb sets, angel memorials & more. See real craftsmanship across 40+ granite colours. Request a trade catalogue today." />

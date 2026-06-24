@@ -23,7 +23,7 @@ const ContactUs = () => {
                     content="Contact Stone Discover UK for premium wholesale memorial headstones. Trusted by UK funeral homes and retailers for quality and custom options."
                 />
                 <link rel="canonical" href="https://www.stonediscover.co.uk/contact-us/" />
-                <meta property="og:locale" content="US" />
+           
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Contact Stone Discover UK: Memorial Headstones Supplier in UK" />
                 <meta property="og:description" content="Contact Stone Discover UK for premium wholesale memorial headstones. Trusted by UK funeral homes and retailers for quality and custom options." />

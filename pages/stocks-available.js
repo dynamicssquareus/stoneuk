@@ -33,7 +33,6 @@ const Test = ({ products }) => {
           href="https://www.stonediscover.co.uk/stocks-available/"
         />
 
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
 
         <meta

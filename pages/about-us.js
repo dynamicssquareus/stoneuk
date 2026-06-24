@@ -20,7 +20,6 @@ export default function About() {
                     content="Stone Discover UK is a reliable supplier of wholesale memorial headstones, serving funeral homes and retailers across the UK with quality granite products."
                 />
                 <link rel="canonical" href="https://www.stonediscover.co.uk/about-us/" />
-                <meta property="og:locale" content="US" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="About Stone Discover UK : Memorial Headstones Supplier in UK" />
                 <meta property="og:description" content="Stone Discover UK is a reliable supplier of wholesale memorial headstones, serving funeral homes and retailers across the UK with quality granite products." />

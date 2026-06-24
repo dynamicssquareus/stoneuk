@@ -12,7 +12,6 @@ const VarietyGr = () => {
           content="Browse 40+ granite colours for memorial headstones — from Absolute Black to Ruby Red. UK wholesale supplier with trade pricing & nationwide delivery. Request a quote."
         />
         <link rel="canonical" href="https://www.stonediscover.co.uk/variety-of-granites/" />
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content=" 40+ Granite Varieties for Crafting Headstones | Stone Discover" />
         <meta property="og:description" content=" Browse 40+ granite colours for memorial headstones — from Absolute Black to Ruby Red. UK wholesale supplier with trade pricing & nationwide delivery. Request a quote." />

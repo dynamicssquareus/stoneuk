@@ -92,7 +92,6 @@ const Index = ({ categories }) => {
           rel="canonical"
           href="https://www.stonediscover.co.uk/memorials/"
         />
-        <meta property="og:locale" content="US" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

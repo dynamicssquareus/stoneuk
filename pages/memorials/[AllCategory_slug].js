@@ -430,67 +430,68 @@ const CategoryPage = ({ category, products, faq, error }) => {
             </div>
           </div>
           <div className='row g-2 sliding-row'>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/benches/">
-                    <img src='/img/webpages/pic-07.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Bench</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/kerb-sets/">
-                    <img src='/img/webpages/pic-08.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Kerbsets</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/vases/">
-                    <img src='/img/webpages/pic-09.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Flower Vases</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/urns/">
-                    <img src='/img/webpages/pic-10.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Urns</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/angel-headstone/">
-                    <img src='/img/webpages/pic-11.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Angel Headstones</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2  col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/memorials/childrens-headstones/">
-                    <img src='/img/webpages/pic-12.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Children Memorial</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+                      <div className='col-lg-2 col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/benches/">
+                              <Image src='/img/webpages/pic-07.jpg' alt='Granite Bench' className='img-fluid' width={210} height={210} />
+                              <h4>Bench</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='col-lg-2 col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/kerb-sets/">
+                              <Image src='/img/webpages/pic-08.jpg' alt='Kerbsets' className='img-fluid' width={210} height={210} />
+                              <h4>Kerbsets</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className='col-lg-2 col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/plaques/">
+                              <Image src='/img/webpages/granite-memorial-plaques.png' alt='Granite Plaques' className='img-fluid' width={210} height={210} />
+                              <h4>Plaques</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='col-lg-2 col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/bespoke/">
+                              <Image src='/img/webpages/bespoke-headstone.png' alt='Bespoke Headstone' className='img-fluid' width={210} height={210} />
+                              <h4>Bespoke Headstone</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='col-lg-2 col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/grave-markers/">
+                              <Image src='/img/webpages/grave-markers.png' alt='Grave Markers' className='img-fluid' width={210} height={210} />
+                              <h4>Grave Markers</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='col-lg-2  col-md-4 sliding-col'>
+                        <div className='card-04'>
+                          <div className='card-04-item text-center'>
+                            <a href="/memorials/childrens-headstones/">
+                              <Image src='/img/webpages/pic-12.jpg' alt='About Us' className='img-fluid' width={210} height={210} />
+                              <h4>Children Memorial</h4>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
         </div>
       </section>
 

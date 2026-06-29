@@ -132,8 +132,8 @@ const Nav = () => {
             <li><a href="/metal-urns/">Metal Urns</a></li>
           <li className="dropdown"><a href="/memorials/"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/variety-of-granites/">Variety of granite</a></li>
               <li><a href="/blog/">Blogs</a></li>
+              <li><a href="/variety-of-granites/">Variety of granite</a></li>
               <li><a href="/photo-gallery/">Photo Gallery</a></li>
             </ul>
           </li>

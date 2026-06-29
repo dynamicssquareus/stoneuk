@@ -90,11 +90,11 @@ export default function Home() {
           <div className='row'>
             <div className='col-lg-6'>
               <div className='about-us-content'>
-                <h2>About Us</h2>
-                <p>Stone Discover UK is a trusted name in the memorial industry, dedicated to supplying memorial stones all over the United Kingdom. Whether you are looking for an Ogee, Kerb set, Heart-shaped, or Angel memorial, we have a wide range of memorials to suit all kinds of needs.</p>
+                <h2>About Stone Discover UK</h2>
+                <p>Stone Discover UK is a trusted name in the memorial industry, dedicated to supplying <a href="/memorials/">memorial stones</a> all over the United Kingdom. Whether you are looking for an Ogee, Kerb set, Heart-shaped, or Angel memorial, we have a wide range of memorials to suit all kinds of needs.</p>
 
                 <p>Our skilled professionals ensure that each piece is thoughtfully designed and crafted with care and precision, reflecting the memory of the deceased. We also do custom designs by adding memorial flower vases and graveside ornaments to add a personal touch to the memorial.</p>
-                <p>With warehouses in Liverpool and Southampton, we ensure safe packaging and prompt delivery. Please feel free to visit our showrooms for any queries or further guidance.</p>
+                <p>With warehouses in Liverpool, London and Southampton, we ensure safe packaging and prompt delivery. Please feel free to visit our showrooms for any queries or further guidance.</p>
                 <a href='/about-us/' className='btn btn-four m-t-30' >Read More<span className="sr-only">about Stone Discover</span></a>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function Home() {
               <div className='card-01'>
                 <Image src='/img/icons/add-location-alt.png' alt='Our Location' className='img-fluid' width={48} height={49} />
                 <h3>UK Presence</h3>
-                <p>We are a wholesale memorial headstones supplier expanding across the UK, with warehouses in Liverpool and Southampton. This allows us to keep stock ready for fast delivery to trade customers nationwide.</p>
+                <p>We are a wholesale memorial headstones supplier expanding across the UK, with warehouses in Liverpool, London and Southampton. This allows us to keep stock ready for fast delivery to trade customers nationwide.</p>
               </div>
             </div>
             <div className='col-lg-4 d-flex'>
@@ -199,11 +199,11 @@ export default function Home() {
                 <ul>
                   <li className='m-b-20'>
                     <h3 className='m-b-20'>Memorial Wholesaler</h3>
-                    <p>We supply memorials to monument suppliers, wholesalers, and fabricators throughout the UK. As the largest stockist of granite headstones in the country, we are known for our reliable delivery service and exceptional quality.</p>
+                    <p>We supply memorials to monument suppliers, wholesalers, and fabricators throughout the UK. As the largest stockist of <a href="/memorials/headstones/">granite headstones</a> in the country, we are known for our reliable delivery service and exceptional quality.</p>
                   </li>
                   <li className='m-b-20'>
                     <h3 className='m-b-20'>Premium Granite Colors</h3>
-                    <p>We offer a variety of premium granite colors, including Absolute Indian Black, Bahama Blue, Indian Aurora, Indian Impala, Imperial Red, Light Grey Granite, and many more. Imported varieties such as Black Pearl, Olive Green, and South African Impala are also available for bespoke designs.</p>
+                    <p>We offer a <a href="/variety-of-granites/">variety of premium granite colors</a>, including Absolute Indian Black, Bahama Blue, Indian Aurora, Indian Impala, Imperial Red, Light Grey Granite, and many more. Imported varieties such as Black Pearl, Olive Green, and South African Impala are also available for bespoke designs.</p>
                   </li>
                   <li>
                     <h3 className='m-b-20'>Bespoke Designs</h3>
@@ -233,7 +233,7 @@ export default function Home() {
               <div className='card-04'>
                 <div className='card-04-item text-center'>
                   <a href="/memorials/benches/">
-                    <img src='/img/webpages/pic-07.jpg' alt='About Us' className='img-fluid' />
+                    <Image src='/img/webpages/pic-07.jpg' alt='Granite Bench' className='img-fluid' width={210} height={210} />
                     <h4>Bench</h4>
                   </a>
                 </div>
@@ -243,18 +243,19 @@ export default function Home() {
               <div className='card-04'>
                 <div className='card-04-item text-center'>
                   <a href="/memorials/kerb-sets/">
-                    <img src='/img/webpages/pic-08.jpg' alt='About Us' className='img-fluid' />
+                    <Image src='/img/webpages/pic-08.jpg' alt='Kerbsets' className='img-fluid' width={210} height={210} />
                     <h4>Kerbsets</h4>
                   </a>
                 </div>
               </div>
             </div>
+            
             <div className='col-lg-2 col-md-4 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/memorials/vases/">
-                    <img src='/img/webpages/pic-09.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Flower Vases</h4>
+                  <a href="/memorials/plaques/">
+                    <Image src='/img/webpages/granite-memorial-plaques.png' alt='Granite Plaques' className='img-fluid' width={210} height={210} />
+                    <h4>Plaques</h4>
                   </a>
                 </div>
               </div>
@@ -262,9 +263,9 @@ export default function Home() {
             <div className='col-lg-2 col-md-4 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/memorials/urns/">
-                    <img src='/img/webpages/pic-10.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Urns</h4>
+                  <a href="/memorials/bespoke/">
+                    <Image src='/img/webpages/bespoke-headstone.png' alt='Bespoke Headstone' className='img-fluid' width={210} height={210} />
+                    <h4>Bespoke Headstone</h4>
                   </a>
                 </div>
               </div>
@@ -272,9 +273,9 @@ export default function Home() {
             <div className='col-lg-2 col-md-4 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/memorials/angel-headstone/">
-                    <img src='/img/webpages/pic-11.jpg' alt='About Us' className='img-fluid' />
-                    <h4>Angel Headstones</h4>
+                  <a href="/memorials/grave-markers/">
+                    <Image src='/img/webpages/grave-markers.png' alt='Grave Markers' className='img-fluid' width={210} height={210} />
+                    <h4>Grave Markers</h4>
                   </a>
                 </div>
               </div>
@@ -283,7 +284,7 @@ export default function Home() {
               <div className='card-04'>
                 <div className='card-04-item text-center'>
                   <a href="/memorials/childrens-headstones/">
-                    <img src='/img/webpages/pic-12.jpg' alt='About Us' className='img-fluid' />
+                    <Image src='/img/webpages/pic-12.jpg' alt='About Us' className='img-fluid' width={210} height={210} />
                     <h4>Children Memorial</h4>
                   </a>
                 </div>
@@ -388,8 +389,8 @@ export default function Home() {
               <div className='card-04'>
                 <div className='card-04-item text-center'>
                   <a href="/stocks-available/">
-                    <img src='/img/webpages/black-celtic-cross-headstone.png' alt='Black Celtic Cross Headstone' className='img-fluid' />
-                    <h4>Black Celtic Cross Headstone</h4>
+                    <img src='/img/webpages/Mecca-jet-black-headstone.png' alt='Mecca jet black headstone' className='img-fluid' />
+                    <h4>Mecca Jet Black Headstone</h4>
                   </a>
                 </div>
               </div>

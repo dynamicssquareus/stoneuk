@@ -25,7 +25,7 @@ const AuthorPage = ({ author, posts }) => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <div className="container pb-80">
-      <div className='row'>
+        <div className='row'>
           <div className='col-lg-12'>
             <div className="breadcrumb-list">
               <ol className="breadcrumb">
@@ -42,61 +42,79 @@ const AuthorPage = ({ author, posts }) => {
         <div className="row pd-90">
           <div className="col-md-2">
             <div className='auther-inner'>
-            <Image
-              src={
-                author.profilePic
-                  ? `${process.env.NEXT_PUBLIC_BLOG_API_Image_profilePics.replace(/\/$/, '')}/${author.profilePic.replace(/^\//, '')}`
-                  : '/img/icons/user-avt.png'
-              }
-              width={100}
-              height={100}
-              alt={author.name}
-              className="img-fluid rounded-circle"
-            />
+              <Image
+                src={
+                  author.profilePic
+                    ? `${process.env.NEXT_PUBLIC_BLOG_API_Image_profilePics.replace(/\/$/, '')}/${author.profilePic.replace(/^\//, '')}`
+                    : '/img/icons/user-avt.png'
+                }
+                width={100}
+                height={100}
+                alt={author.name}
+                className="img-fluid rounded-circle"
+              />
+              {author.linkedin && (
+                <div className="mt-3">
+                  <a
+                    href={author.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="author-linkedin-icon"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <i className="bi bi-linkedin"></i>
+                  </a>
+                </div>
+              )}
             </div>
 
           </div>
           <div className="col-md-10">
-           <div className='common-titles'>
-           <h1>{author.name}</h1>
-           <p>{author.aboutus}</p>
-           </div>
+            <div className='common-titles'>
+              {author.designation && (
+                <div className="author-designation">
+                  {author.designation}
+                </div>
+              )}
+              <h1>{author.name}</h1>
+              <p>{author.aboutus}</p>
+            </div>
           </div>
         </div>
         <div className='common-title-two'> <h2>Posts by {author.name}</h2></div>
-       
+
         {posts.length === 0 ? (
           <p>No posts found for this author.</p>
         ) : (
           <div className="row">
             {posts.map(post => (
               <div key={post.slug} className='col-lg-4'>
-              <div className='card-blog-02'>
-                <div className="card-title">
-                  <Link href={`/blog/${post.slug}`}>
-                    {post.banner && (
-                      <Image src={getImageUrl(post.banner)} alt={post.title} className="img-fluid" width={400} height={300} />
-                    )}
-                    <h3>{post.title}</h3>
-                  </Link>
-                </div>
-                <div className='card-post-ava'>
-                  <Link href={`/blog/author/${post.author.slug || post.author._id}`}>
-                    <Image
-                      width={44}
-                      height={44}
-                      src={post.author.profilePic ? getProfileImageUrl(post.author.profilePic) : '/img/icons/user-avt.png'}
-                      alt="user avatar"
-                       className='rounded-circle'
-                    />
-                    <div className='av-info'>
-                      <div className='av-name-a'>{post.author && post.author.name ? post.author.name : 'Unknown'}</div>
-                      <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
-                    </div>
-                  </Link>
+                <div className='card-blog-02'>
+                  <div className="card-title">
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.banner && (
+                        <Image src={getImageUrl(post.banner)} alt={post.title} className="img-fluid" width={400} height={300} />
+                      )}
+                      <h3>{post.title}</h3>
+                    </Link>
+                  </div>
+                  <div className='card-post-ava'>
+                    <Link href={`/blog/author/${post.author.slug || post.author._id}`}>
+                      <Image
+                        width={44}
+                        height={44}
+                        src={post.author.profilePic ? getProfileImageUrl(post.author.profilePic) : '/img/icons/user-avt.png'}
+                        alt="user avatar"
+                        className='rounded-circle'
+                      />
+                      <div className='av-info'>
+                        <div className='av-name-a'>{post.author && post.author.name ? post.author.name : 'Unknown'}</div>
+                        <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
         )}
@@ -138,7 +156,7 @@ export async function getStaticProps({ params }) {
     const filteredPosts = posts.filter(
       post => post.author && post.author.slug === slug
     );
-    return { props: { author, posts: filteredPosts } , revalidate: 10 };
+    return { props: { author, posts: filteredPosts }, revalidate: 10 };
   } catch (err) {
     console.error(err);
     return { props: { author: null, posts: [] }, revalidate: 10 };

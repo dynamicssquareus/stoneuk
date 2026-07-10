@@ -30,7 +30,7 @@ const AuthorIndex = ({ authors }) => {
 
 
   
-        <div className="row">
+        <div className="row g-3">
         <div className='col-lg-12'>
             <div className='common-title'>
             <h1>Authors</h1>

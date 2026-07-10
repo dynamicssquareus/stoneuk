@@ -1865,6 +1865,73 @@ ul li {
           right: -22px;
           transform: translateY(-50%);
         }
+        .cta-card {
+            border: 1px solid #dbe4f0;
+            border-radius: 12px;
+            padding: 24px;
+            background: #fff;
+            margin-bottom: 30px;
+        }
+
+        .cta-primary {
+            background: #f8fafc;
+        }
+
+        .trade-sidebar {
+            background: #aa7d4a;
+            color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .trade-sidebar ul {
+            padding-left: 18px;
+        }
+
+        .trade-sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .bottom-cta {
+            border: 2px solid #aa7d4a;
+            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 30px;
+        }
+        .btn-cccc{
+             background: #aa7d4a;
+             border-color: #9b703e;
+        }
+        .btn-cccc:hover{
+             background: #9e6d36;
+             border-color: #9b703e;
+        }
+.author-linkedin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #0077b5;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.author-linkedin-icon:hover {
+  background: #005e8c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.author-designation {
+ margin-top: 15px;
+    font-size: 15px;
+    color: #444444;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
         @media (max-width: 1199px) {
           .experience-card {

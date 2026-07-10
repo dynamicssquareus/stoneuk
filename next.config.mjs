@@ -24,21 +24,24 @@ const nextConfig = {
     NEXT_PUBLIC_LOCATION:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/locations',
     NEXT_PUBLIC_LOCATION_DETAILS:'https://stonediscoveruk-apibackend.onrender.com/api/frontend/locationdetails'
   },
-  images: {
-    formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",  
-        hostname: "stonediscoveruk-apibackend.onrender.com",
-        port: "",
-       pathname: '/uploads/**',
-      },
-    ],
-    domains: ['discover-pricecalculator.onrender.com'],
-    deviceSizes: [320, 420, 768, 1024, 1200, 1600, 1920],
-    imageSizes: [16, 32, 48, 64, 96],
-  },
 
+images: {
+  formats: ["image/avif", "image/webp"],
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "stonediscoveruk-apibackend.onrender.com",
+      pathname: "/uploads/**",
+    },
+    {
+      protocol: "https",
+      hostname: "discover-pricecalculator.onrender.com",
+      pathname: "/**",
+    },
+  ],
+  deviceSizes: [320, 420, 768, 1024, 1200, 1600, 1920],
+  imageSizes: [16, 32, 48, 64, 96],
+},
   // async headers() {
   //   return [
   //     {

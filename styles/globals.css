@@ -1932,6 +1932,132 @@ ul li {
     margin-bottom: 10px;
     font-weight: 600;
 }
+.combo-header {
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+  color: #fff;
+}
+
+.combo-modal-body {
+  height: calc(100vh - 85px);
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.combo-yard-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.combo-products-area {
+  height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.combo-products-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.combo-products-area::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 20px;
+}
+
+.combo-product-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  transition: all .3s ease;
+  height: 100%;
+}
+
+.combo-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.combo-product-img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #fff;
+  padding: 15px;
+}
+
+.combo-product-title {
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 45px;
+}
+
+.combo-summary {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+.combo-selected-item {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.combo-total-box {
+  background: linear-gradient(
+    135deg,
+    #0d6efd,
+    #2563eb
+  );
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.combo-total-box h2 {
+  margin: 5px 0 0;
+  font-weight: 700;
+}
+
+.combo-enquiry-btn {
+  height: 55px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+@media (max-width: 991px) {
+  .combo-modal-body {
+    overflow: auto;
+    height: auto;
+  }
+
+  .combo-products-area,
+  .combo-summary {
+    height: auto;
+  }
+
+  .combo-summary {
+    margin-top: 20px;
+  }
+}
 
         @media (max-width: 1199px) {
           .experience-card {

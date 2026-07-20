@@ -175,6 +175,8 @@ const BookingFormYard = ({ onSubmit, productData = null }) => {
               {item.title}
               {" - "}
               {item.option}
+              {" - Pallets: "}
+              {item.palletCount}
               {" - £"}
               {item.price}
             </div>
@@ -187,6 +189,18 @@ const BookingFormYard = ({ onSubmit, productData = null }) => {
           Total £
           {productData.price}
         </h5>
+
+        <p className="mb-0">
+          <b>Pallets:</b>
+          {" "}
+          {productData.comboPalletCount}
+        </p>
+
+        <p className="mb-0">
+          <b>Discount:</b>
+          {" "}
+          {productData.discount}
+        </p>
       </>
     ) : (
       <>

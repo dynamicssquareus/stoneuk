@@ -5,9 +5,31 @@ export default function ComboBuilder({
     onClose,
     onProceed,
 }) {
-    const [yard, setYard] = useState("");
     const [selectedProducts, setSelectedProducts] =
         useState([]);
+
+    const getPalletCount = (product, option) => {
+        const palletCount =
+            option?.pallets ??
+            option?.pallet ??
+            option?.palletCount ??
+            option?.pallet_count ??
+            option?.palletsCount ??
+            option?.noOfPallets ??
+            product?.pallets ??
+            product?.pallet ??
+            product?.palletCount ??
+            product?.pallet_count ??
+            product?.palletsCount ??
+            product?.noOfPallets ??
+            1;
+
+        const numericPalletCount = Number(palletCount);
+
+        return Number.isFinite(numericPalletCount) && numericPalletCount > 0
+            ? numericPalletCount
+            : 1;
+    };
 
     const addProduct = (product, option) => {
         setSelectedProducts((prev) => {
@@ -24,11 +46,13 @@ export default function ComboBuilder({
                 {
                     productId: product.id,
                     title: product.title,
+                    yard: product.yard || "NA",
                     option: option.label,
                     price:
                         option.price ||
                         option.pricePerSet ||
                         0,
+                    palletCount: getPalletCount(product, option),
                 },
             ];
         });
@@ -39,21 +63,30 @@ export default function ComboBuilder({
             sum + Number(item.price || 0),
         0
     );
-    const uniqueYards = [
+    const totalPallets = selectedProducts.reduce(
+        (sum, item) =>
+            sum + Number(item.palletCount || 0),
+        0
+    );
+    const selectedYards = [
         ...new Set(
-            products
+            selectedProducts
                 .map((item) => item.yard)
                 .filter(Boolean)
         ),
     ];
+    const selectedYardText =
+        selectedYards.length === 0
+            ? "NA"
+            : selectedYards.join(", ");
     let comboDiscount = 0;
 
-    if (selectedProducts.length >= 4) {
+    if (totalPallets >= 4) {
+        comboDiscount = 7;
+    } else if (totalPallets === 3) {
         comboDiscount = 5;
-    } else if (selectedProducts.length === 3) {
-        comboDiscount = 4;
-    } else if (selectedProducts.length === 2) {
-        comboDiscount = 2;
+    } else if (totalPallets === 2) {
+        comboDiscount = 3;
     }
 
     const discountAmount =
@@ -90,47 +123,6 @@ export default function ComboBuilder({
                     {/* Body */}
                     <div className="modal-body combo-modal-body">
 
-                        {/* Yard Selection */}
-                        <div className="combo-yard-box">
-
-                            <label className="form-label fw-bold">
-                                Select Yard
-                            </label>
-
-                            <select
-                                className="form-select"
-                                value={yard}
-                                disabled={selectedProducts.length > 0}
-                                onChange={(e) =>
-                                    setYard(e.target.value)
-                                }
-                            >
-                                <option value="">
-                                    Choose Yard
-                                </option>
-
-                                {uniqueYards.map((yardName) => (
-                                    <option
-                                        key={yardName}
-                                        value={yardName}
-                                    >
-                                        {yardName}
-                                    </option>
-                                ))}
-                            </select>
-                            {selectedProducts.length > 0 && (
-                                <button
-                                    className="btn btn-outline-danger btn-sm mt-2"
-                                    onClick={() => {
-                                        setSelectedProducts([]);
-                                        setYard("");
-                                    }}
-                                >
-                                    Clear Combo & Change Yard
-                                </button>
-                            )}
-                        </div>
-
                         <div className="row h-100">
 
                             {/* Products */}
@@ -140,21 +132,15 @@ export default function ComboBuilder({
 
                                     <div className="row">
 
-                                        {!yard ? (
-                                            <div className="text-center py-5">
-                                                <h4>Select Yard First</h4>
-                                            </div>
-                                        ) : (
-                                            products
-                                                .filter(
-                                                    (product) =>
-                                                        product.yard === yard &&
-                                                        !selectedProducts.some(
-                                                            (item) =>
-                                                                item.productId === product.id
-                                                        )
-                                                )
-                                                .map((product) => (
+                                        {products
+                                            .filter(
+                                                (product) =>
+                                                    !selectedProducts.some(
+                                                        (item) =>
+                                                            item.productId === product.id
+                                                    )
+                                            )
+                                            .map((product) => (
                                                     <div
                                                         key={product.id}
                                                         className="col-md-6 col-xl-4 mb-4"
@@ -176,6 +162,8 @@ export default function ComboBuilder({
                                                                     <strong>H/S:</strong> {product.hsSize}
                                                                     <br />
                                                                     <strong>Base:</strong> {product.baseSize}
+                                                                    <br />
+                                                                    <strong>Yard:</strong> {product.yard || "NA"}
                                                                 </div>
 
                                                                 <select
@@ -223,8 +211,7 @@ export default function ComboBuilder({
 
                                                         </div>
                                                     </div>
-                                                ))
-                                        )}
+                                                ))}
 
                                     </div>
 
@@ -242,9 +229,9 @@ export default function ComboBuilder({
                                         <strong>Combo Offer</strong>
 
                                         <ul className="mb-0 mt-2">
-                                            <li>2 Products = 2% Off</li>
-                                            <li>3 Products = 4% Off</li>
-                                            <li>4+ Products = 5% Off</li>
+                                            <li>2 Pallets = 3% Off</li>
+                                            <li>3 Pallets = 5% Off</li>
+                                            <li>4+ Pallets = 7% Off</li>
                                         </ul>
 
                                     </div>
@@ -277,6 +264,12 @@ export default function ComboBuilder({
                                                         <small>
                                                             {item.option}
                                                         </small>
+
+                                                        <div>
+                                                            <small>
+                                                                Pallets: {item.palletCount}
+                                                            </small>
+                                                        </div>
 
                                                         <div className="fw-bold text-success mt-2">
                                                             £{item.price}
@@ -313,6 +306,14 @@ export default function ComboBuilder({
 
                                         <h4>£{total.toFixed(2)}</h4>
 
+                                        <div className="mt-2">
+                                            Total Pallets:
+                                            <strong>
+                                                {" "}
+                                                {totalPallets}
+                                            </strong>
+                                        </div>
+
                                         {comboDiscount > 0 && (
                                             <>
                                                 <div className="mt-2">
@@ -342,14 +343,14 @@ export default function ComboBuilder({
                                     <button
                                         className="btn btn-success w-100 combo-enquiry-btn"
                                         disabled={
-                                            !yard ||
                                             selectedProducts.length ===
                                             0
                                         }
                                         onClick={() =>
                                             onProceed({
-                                                yard,
+                                                yard: selectedYardText,
                                                 products: selectedProducts,
+                                                palletCount: totalPallets,
                                                 subtotal: total,
                                                 discountPercent: comboDiscount,
                                                 discountAmount,

@@ -151,11 +151,17 @@ const [showCombo, setShowCombo] =
 
     setSelectedProduct({
       title: "Combo Order",
-      option: `${data.products.length} Products`,
+      option: `${data.palletCount} Pallets`,
       price: data.total,
       size: data.yard,
-      discount: "NA",
+      discount:
+        data.discountPercent > 0
+          ? `${data.discountPercent}% Combo Discount`
+          : "NA",
       yard: data.yard,
+      comboPalletCount: data.palletCount,
+      comboSubtotal: data.subtotal,
+      comboDiscountAmount: data.discountAmount,
       comboProducts: data.products,
     });
 

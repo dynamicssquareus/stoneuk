@@ -199,9 +199,7 @@ const Test = ({ products }) => {
                 <span>Arriving</span> Soon
               </h2>
 
-              <p>
-                Prebook your order
-              </p>
+              <p>NEW DESIGNS   |   LIMITED STOCKS   |   FIRST COME, FIRST SERVED</p>
             </div>
           </div>
         </div>

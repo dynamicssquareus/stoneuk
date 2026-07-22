@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import BookingForm from "@/components/BookingForm";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
+import UpcomingProductCard from "@/components/UpcomingProductCard";
 
 const Test = ({ products }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const [upcomingProducts, setUpcomingProducts] = useState([]);
 
   const handleBook = (productData) => {
     setSelectedProduct(productData);
@@ -15,6 +18,13 @@ const Test = ({ products }) => {
   };
 
   const loading = !products;
+
+  useEffect(() => {
+    fetch("/data/upcoming-products.json")
+      .then((res) => res.json())
+      .then((data) => setUpcomingProducts(data))
+      .catch((err) => console.error("Upcoming products:", err));
+  }, []);
 
   return (
     <>
@@ -181,6 +191,32 @@ const Test = ({ products }) => {
         </div>
       </div>
 
+      <section id="upcoming" className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
+            <div className="heading-center p-b-40">
+              <h2 className="m-b-30">
+                <span>Arriving</span> Soon
+              </h2>
+
+              <p>
+                Prebook your order
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          {upcomingProducts.map((product) => (
+            <UpcomingProductCard
+              key={product.id}
+              product={product}
+              onBook={handleBook}
+            />
+          ))}
+        </div>
+      </section>
+
       <section className="p-b-30">
         <div className="container">
           <div className="row justify-content-center">
@@ -262,6 +298,7 @@ const Test = ({ products }) => {
           </div>
         </div>
       </section>
+
 
       {showModal && selectedProduct && (
         <div

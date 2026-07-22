@@ -77,7 +77,7 @@ export default function Home() {
           <div className='row align-items-center justify-content-center'>
             <div className='col-lg-12 text-center'>
               <div className='quote-us-content'>
-                <p>We proudly serve dealers and wholesalers across the UK, offering memorial stones in bulk quantities that are carefully designed and produced in our industries to meet the highest quality standards for the customers.</p>
+                <p>We proudly serve dealers and wholesalers across the UK, offering memorial headstones in bulk quantities that are carefully designed and produced in our industries to meet the highest quality standards for the customers.</p>
 
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
           <div className='row'>
             <div className='col-lg-12 text-center'>
               <div className='heading-center p-b-40'>
-                <h2 className='m-b-20'>Any <span> Design</span>, Size, Color</h2>
+                <h2 className='m-b-20'>Browse Memorials by <span> Design, Size & Colour</span></h2>
 
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function Home() {
             <div className='col-lg-9'>
               <div className='heading-center p-b-40'>
                 <h2 className='m-b-30'>Memorial Collection <span>Crafted</span> for All</h2>
-                <p>We offer a wide range of expertly crafted memorial designs to suit every need and occasion. From classic headstones and kerbsets to elegant bench and heart memorials, our collection also includes vases, urns, angel tributes, and dedicated children’s memorials. Each piece is made with care, precision, and a deep respect for the memories it honors. Contact us directly for competitive quotes and tailored solutions.</p>
+                <p>We offer a wide range of expertly crafted memorial designs to suit every need and occasion. From classic Ogee headstones, angel headstones, children's headstones, book headstones, <a href="/memorials/grave-markers/">grave markers</a>, and kerbsets to elegant memorial benches and heart memorials, our collection also includes memorial vases and cremation urns. Each piece is made with care, precision, and a deep respect for the memories it honours. Contact us directly for competitive quotes and tailored solutions.</p>
               </div>
             </div>
           </div>

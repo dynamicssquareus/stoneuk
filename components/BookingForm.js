@@ -153,7 +153,7 @@ const BookingForm = ({ onSubmit, productData = null }) => {
         <form className="form-one" onSubmit={handleSubmit}>
 
             {/* PRODUCT SUMMARY */}
-            {productData && (
+            {/* {productData && (
                 <div className="alert alert-light border rounded-3 mb-4">
                     <p className="mb-1"><b>Product:</b> {productData.title}</p>
                     <p className="mb-1"><b>Option:</b> {productData.option}</p>
@@ -165,7 +165,50 @@ const BookingForm = ({ onSubmit, productData = null }) => {
                         </p>
                     )}
                 </div>
-            )}
+            )} */}
+            {productData &&
+  (
+    productData.title ||
+    productData.option ||
+    productData.price ||
+    productData.size ||
+    productData.discount
+  ) && (
+    <div className="alert alert-light border rounded-3 mb-4">
+
+      {productData.title && (
+        <p className="mb-1">
+          <b>Product:</b> {productData.title}
+        </p>
+      )}
+
+      {productData.option && (
+        <p className="mb-1">
+          <b>Option:</b> {productData.option}
+        </p>
+      )}
+
+      {productData.price && (
+        <p className="mb-1">
+          <b>Price:</b> £{productData.price}
+        </p>
+      )}
+
+      {productData.size && (
+        <p className="mb-1">
+          <b>Size:</b> {productData.size}
+        </p>
+      )}
+
+      {productData.discount &&
+        productData.discount !== "NA" && (
+          <p className="mb-0 text-success">
+            <b>Discount:</b> {productData.discount}
+          </p>
+        )}
+
+    </div>
+)}
 
             {/* NAME */}
             <div className="form-group">

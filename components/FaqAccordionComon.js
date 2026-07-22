@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ModelBox from '@/components/ModelBox';
 import {
   Accordion,
@@ -13,6 +13,27 @@ const FaqAccordionComon = ({ faqList = [], categoryData = null }) => {
   const toggle = (id) => {
     setOpen(open === id ? undefined : id);
   };
+    //faq h2 remove code start
+  useEffect(() => {
+  document.querySelectorAll(".accordion-header").forEach((header) => {
+    if (header.tagName === "H2") {
+      const div = document.createElement("div");
+
+      // Copy attributes
+      [...header.attributes].forEach((attr) =>
+        div.setAttribute(attr.name, attr.value)
+      );
+
+      // Move children
+      while (header.firstChild) {
+        div.appendChild(header.firstChild);
+      }
+
+      header.parentNode.replaceChild(div, header);
+    }
+  });
+}, []);
+  //faq h2 remove code end
 
   const defaultFaqs = [
     {

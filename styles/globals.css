@@ -2563,7 +2563,15 @@ ul li {
 .nav-btn.right {
   right: -60px;
 }
-
+.card-m-new{
+  position:relative
+}
+.card-m-new .floting-com{
+position: absolute;
+    top: 15px;
+    left: 15px;
+    border-radius: 0;
+}
 @media (max-width: 768px) {
   .nav-btn.left {
     left: 10px;

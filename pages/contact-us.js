@@ -45,7 +45,7 @@ const ContactUs = () => {
                     <div className='row justify-content-center'>
                         <div className='col-lg-8'>
                             <div className='commn-head'>
-                                <h1>Contact US</h1>
+                                <h1>Contact Us</h1>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const ContactUs = () => {
                         <div className='col-lg-6 align-self-center'>
                             <div className='addre-left'>
                                 <h2>Get in touch with us</h2>
-                                <p>Get in touch with us using the form below. We're excited to assist you with all your tiles and stone needs!</p>
+                                <p>Get in touch with us using the form below. We're excited to assist you with all your Memorials needs!</p>
                                 <div className='addres-sec'>
                                     {/* <div className='add-list'>
                                         <div className='icons-l'>

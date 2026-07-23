@@ -65,7 +65,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           defer
         ></script> */}
 
-
+           {/* Zoho SalesIQ */}
+          <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var $zoho = $zoho || {};
+              $zoho.salesiq = $zoho.salesiq || {
+                  widgetcode: "siq24db42b123907969f273b450e1bf7256b38c9b3ce64b42d79f6952e155f88655",
+                  values: {},
+                  ready: function(){}
+              };
+              var d=document;
+              s=d.createElement("script");
+              s.type="text/javascript";
+              s.id="zsiqscript";
+              s.defer=true;
+              s.src="https://salesiq.zoho.in/widget";
+              t=d.getElementsByTagName("script")[0];
+              t.parentNode.insertBefore(s,t);
+            `,
+          }}
+        />
 
       </body>
     </Html>

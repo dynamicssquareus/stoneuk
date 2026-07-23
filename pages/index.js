@@ -36,7 +36,7 @@ export default function Home() {
       <div className="hero-banner-one">
         <Image
           src="/img/banner/hero-banner-three.png"
-          alt="Hero Banner"
+          alt="Memorial HeadStone"
           fill
           style={{ objectFit: 'cover', objectPosition: 'bottom' }}
           priority
@@ -44,7 +44,7 @@ export default function Home() {
         />
         <Image
           src="/img/banner/mobile-bg.png"
-          alt="Hero Banner"
+          alt="Memorial HeadStone"
           fill
           className='mobile-top'
           style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
@@ -284,7 +284,7 @@ export default function Home() {
               <div className='card-04'>
                 <div className='card-04-item text-center'>
                   <a href="/memorials/childrens-headstones/">
-                    <Image src='/img/webpages/pic-12.jpg' alt='About Us' className='img-fluid' width={210} height={210} />
+                    <Image src='/img/webpages/pic-12.jpg' alt='Children Memorial' className='img-fluid' width={210} height={210} />
                     <h4>Children Memorial</h4>
                   </a>
                 </div>

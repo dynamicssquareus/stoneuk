@@ -230,7 +230,7 @@ const Index = ({ categories }) => {
               <div className="about-us-image">
                 <img
                   src="/img/webpages/granite-memorial-headstones.png"
-                  alt="granite-memorial-headstones"
+                  alt="granite memorial stones"
                   className="img-fluid"
                 />
               </div>
@@ -672,7 +672,7 @@ const Index = ({ categories }) => {
               <div className="partner-pic">
                 <img
                   src="/img/webpages/headstones-pic.png"
-                  alt="partent-side-pic"
+                  alt="granite memorial stones"
                 />
               </div>
             </div>

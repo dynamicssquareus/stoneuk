@@ -276,7 +276,7 @@ const CategoryPage = ({ category, products, faq, error }) => {
           <div className='row'>
             <div className='col-lg-6 align-self-center'>
               <div className='partner-pic'>
-                {/* <img src='/img/webpages/headstones-pic.png' alt='partent-side-pic' /> */}
+                {/* <img src='/img/webpages/headstones-pic.png' alt='Granite memorial stones' /> */}
                 <Image
                   width={555}
                   height={440}

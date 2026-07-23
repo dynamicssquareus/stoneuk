@@ -131,7 +131,7 @@ export default function About() {
                     <div className='row'>
                         <div className='col-lg-6'>
                             <div className='partner-pic'>
-                                <img src='/img/webpages/partent-side-pic.jpg' alt='partent-side-pic' />
+                                <img src='/img/webpages/partent-side-pic.jpg' alt='Granite memorial stones' />
                             </div>
                         </div>
                         <div className='col-lg-6 align-self-center'>

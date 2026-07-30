@@ -1,18 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
 import FormCatlog from '@/components/FormCatlog';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 const CatalogDownload = () => {
-const router = useRouter();
-const handleFormSubmit = () => {
-        console.log('Form submitted!');
-        setTimeout(() => {
-            router.push('/files/Catalogue-Stonediscover.pdf');
-          }, 3000);
-        // Perform any additional actions needed after form submission
-      };
-    
+// const router = useRouter();
+// const handleFormSubmit = () => {
+//         console.log('Form submitted!');
+//         setTimeout(() => {
+//             router.push('/files/Catalogue-Stonediscover.pdf');
+//           }, 3000);
+     
+//       };
+    const handleFormSubmit = () => {
+    console.log("Form submitted!");
+
+    setTimeout(() => {
+        window.location.href = "/files/Catalogue-Stonediscover.pdf";
+    }, 3000);
+};
     return (
         <>
             <Head>

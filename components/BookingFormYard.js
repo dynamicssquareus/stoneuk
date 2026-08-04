@@ -105,6 +105,7 @@ const BookingFormYard = ({ onSubmit, productData = null }) => {
                         : "NA",
 
                 product_yard: productData?.yard || "NA",
+                product_status: productData?.status || "In-Stock",
             },
             "3b5rTXsmRl05L_8tD"
         );

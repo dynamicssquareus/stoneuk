@@ -87,7 +87,7 @@ export default function ProductCard({ product, onBook }) {
                                     size: `H/S: ${product?.hsSize || "NA"} | Base: ${product?.baseSize || "NA"}`,
                                     discount: "NA",
                                     yard: product?.yard || "NA",
-                                    status: product?.status || "Sold-Out",
+                                    status: "Out of Stock",
                                 });
                                 return;
                             }
@@ -104,6 +104,7 @@ export default function ProductCard({ product, onBook }) {
                                         ? selected.discount
                                         : "NA",
                                 yard: product?.yard || "NA",
+                                status: "In-Stock",
                             });
                         }}
                     >

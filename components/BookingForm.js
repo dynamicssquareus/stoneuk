@@ -92,7 +92,6 @@ const BookingForm = ({ onSubmit, productData = null }) => {
                 company_name: company || "",
                 message: message || "",
                 page_url: pageUrl || "",
-
                 product_title: productData?.title || "",
                 product_option: productData?.option || "",
                 product_price: productData?.price ?? "NA",
@@ -105,6 +104,7 @@ const BookingForm = ({ onSubmit, productData = null }) => {
                         : "NA",
 
                 product_yard: productData?.yard || "NA",
+                product_status: productData?.status || "In-Stock",
             },
             "3b5rTXsmRl05L_8tD"
         );
@@ -188,11 +188,11 @@ const BookingForm = ({ onSubmit, productData = null }) => {
         </p>
       )}
 
-      {productData.status && (
+      {/* {productData.status && (
         <p className="mb-1">
           <b>Status:</b> {productData.status}
         </p>
-      )}
+      )} */}
 
       {productData.price && (
         <p className="mb-1">

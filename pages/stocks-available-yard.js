@@ -186,28 +186,8 @@ const [showCombo, setShowCombo] =
                 Please wait while we fetch inventory
               </p>
             </div>
-          ) : products?.filter(
-            (product) =>
-              product?.options?.some(
-                (opt) =>
-                  !isNaN(
-                    Number(opt.price || opt.pricePerSet)
-                  ) &&
-                  Number(opt.price || opt.pricePerSet) > 0
-              )
-          ).length > 0 ? (
-            products
-              .filter(
-                (product) =>
-                  product?.options?.some(
-                    (opt) =>
-                      !isNaN(
-                        Number(opt.price || opt.pricePerSet)
-                      ) &&
-                      Number(opt.price || opt.pricePerSet) > 0
-                  )
-              )
-              .map((product) => (
+          ) : products?.length > 0 ? (
+            products.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}

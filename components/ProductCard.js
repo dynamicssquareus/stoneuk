@@ -2,7 +2,17 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function ProductCard({ product, onBook }) {
-    const [selected, setSelected] = useState(product.options[0]);
+    const options = Array.isArray(product.options) ? product.options : [];
+    const pricedOptions = options.filter((opt) => {
+        const price = Number(opt.price || opt.pricePerSet);
+
+        return Number.isFinite(price) && price > 0;
+    });
+    const isSoldOut =
+        product?.soldOut ||
+        product?.status?.toLowerCase() === "sold-out" ||
+        pricedOptions.length === 0;
+    const [selected, setSelected] = useState(pricedOptions[0] || null);
 
     const discountText = selected?.discount?.trim();
 
@@ -29,17 +39,22 @@ export default function ProductCard({ product, onBook }) {
                         H/S: {product.hsSize} | Base: {product.baseSize}
                     </p>
 
+                    {isSoldOut ? (
+                        <div className="sold-out-box">
+                            Sold Out
+                        </div>
+                    ) : (
                     <div className="form-ff">
                         <select
                             className="form-select me-2"
-                            value={selected.label}
+                            value={selected?.label || ""}
                             onChange={(e) =>
                                 setSelected(
-                                    product.options.find((o) => o.label === e.target.value),
+                                    pricedOptions.find((o) => o.label === e.target.value),
                                 )
                             }
                         >
-                            {product.options.map((opt, i) => (
+                            {pricedOptions.map((opt, i) => (
                                 <option key={i} value={opt.label}>
                                     {opt.label}
                                 </option>
@@ -50,6 +65,7 @@ export default function ProductCard({ product, onBook }) {
                             £ {selected.price || selected.pricePerSet}
                         </div>
                     </div>
+                    )}
 
                     <div className="di-sec">
                         {/* {selected.discount && <p className="small-p">{selected.discount}</p>} */}
@@ -62,7 +78,20 @@ export default function ProductCard({ product, onBook }) {
 
                     <button
                         className="btn btnii"
-                        onClick={() =>
+                        onClick={() => {
+                            if (isSoldOut) {
+                                onBook({
+                                    title: product?.title || "",
+                                    option: "Notify me when available",
+                                    price: "",
+                                    size: `H/S: ${product?.hsSize || "NA"} | Base: ${product?.baseSize || "NA"}`,
+                                    discount: "NA",
+                                    yard: product?.yard || "NA",
+                                    status: product?.status || "Sold-Out",
+                                });
+                                return;
+                            }
+
                             onBook({
                                 title: product?.title || "",
                                 option: selected?.label || "",
@@ -75,10 +104,10 @@ export default function ProductCard({ product, onBook }) {
                                         ? selected.discount
                                         : "NA",
                                 yard: product?.yard || "NA",
-                            })
-                        }
+                            });
+                        }}
                     >
-                        Enquire Now
+                        {isSoldOut ? "Notify Me" : "Enquire Now"}
                     </button>
                 </div>
                 <style jsx global>
@@ -116,6 +145,18 @@ export default function ProductCard({ product, onBook }) {
               display: grid;
               grid-template-columns: 4fr 2fr;
               gap: 0px;
+            }
+            .sold-out-box {
+              border: 1px solid #b55f5f;
+              border-radius: 4px;
+              background: #b95757;
+              color: #ffffff;
+              font-size: 15px;
+              font-weight: 600;
+              padding: 10px 15px;
+              text-align: center;
+              text-transform: uppercase;
+              width: 100%;
             }
             .fw-bold-bg {
               border-radius: 0px 4px 4px 0px;

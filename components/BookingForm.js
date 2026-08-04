@@ -188,6 +188,12 @@ const BookingForm = ({ onSubmit, productData = null }) => {
         </p>
       )}
 
+      {productData.status && (
+        <p className="mb-1">
+          <b>Status:</b> {productData.status}
+        </p>
+      )}
+
       {productData.price && (
         <p className="mb-1">
           <b>Price:</b> £{productData.price}

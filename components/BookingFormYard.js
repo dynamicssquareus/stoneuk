@@ -216,11 +216,21 @@ const BookingFormYard = ({ onSubmit, productData = null }) => {
           {productData.option}
         </p>
 
+        {productData.status && (
+          <p>
+            <b>Status:</b>
+            {" "}
+            {productData.status}
+          </p>
+        )}
+
+        {productData.price && (
         <p>
           <b>Price:</b>
           {" "}
           £{productData.price}
         </p>
+        )}
       </>
     )}
 

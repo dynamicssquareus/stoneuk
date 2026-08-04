@@ -18,7 +18,26 @@ const Test = ({ products }) => {
   };
 
   const loading = !products;
+  /*filter start*/ 
+  const sortedProducts = [...(products || [])].sort((a, b) => {
+    const isSoldOut = (product) => {
+      const options = Array.isArray(product.options) ? product.options : [];
 
+      const pricedOptions = options.filter((opt) => {
+        const price = Number(opt.price || opt.pricePerSet);
+        return Number.isFinite(price) && price > 0;
+      });
+
+      return (
+        product?.soldOut ||
+        product?.status?.toLowerCase() === "sold-out" ||
+        pricedOptions.length === 0
+      );
+    };
+
+    return Number(isSoldOut(a)) - Number(isSoldOut(b));
+  });
+/*filter end*/ 
   useEffect(() => {
     fetch("/data/upcoming-products.json")
       .then((res) => res.json())
@@ -151,35 +170,24 @@ const Test = ({ products }) => {
                 Please wait while we fetch inventory
               </p>
             </div>
-          ) : products?.filter(
-            (product) =>
-              product?.options?.some(
-                (opt) =>
-                  !isNaN(
-                    Number(opt.price || opt.pricePerSet)
-                  ) &&
-                  Number(opt.price || opt.pricePerSet) > 0
-              )
-          ).length > 0 ? (
-            products
-              .filter(
-                (product) =>
-                  product?.options?.some(
-                    (opt) =>
-                      !isNaN(
-                        Number(opt.price || opt.pricePerSet)
-                      ) &&
-                      Number(opt.price || opt.pricePerSet) > 0
-                  )
-              )
-              .map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onBook={handleBook}
-                />
-              ))
+          ) : sortedProducts.length > 0 ? (
+            sortedProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onBook={handleBook}
+              />
+            ))
           ) : (
+            // ) : products?.length > 0 ? (
+            //   products.map((product) => (
+            //       <ProductCard
+            //         key={product.id}
+            //         product={product}
+            //         onBook={handleBook}
+            //       />
+            //     ))
+            // ) : (
             <div className="col-12 text-center py-5">
               <h4>No Products Available</h4>
 

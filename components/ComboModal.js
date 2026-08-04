@@ -133,13 +133,29 @@ export default function ComboBuilder({
                                     <div className="row">
 
                                         {products
-                                            .filter(
-                                                (product) =>
+                                            .filter((product) => {
+                                                const hasPricedOption =
+                                                    product?.options?.some((option) => {
+                                                        const price = Number(
+                                                            option.price ||
+                                                            option.pricePerSet
+                                                        );
+
+                                                        return Number.isFinite(price) && price > 0;
+                                                    });
+                                                const isSoldOut =
+                                                    product?.soldOut ||
+                                                    product?.status?.toLowerCase() === "sold-out";
+
+                                                return (
+                                                    hasPricedOption &&
+                                                    !isSoldOut &&
                                                     !selectedProducts.some(
                                                         (item) =>
                                                             item.productId === product.id
                                                     )
-                                            )
+                                                );
+                                            })
                                             .map((product) => (
                                                     <div
                                                         key={product.id}

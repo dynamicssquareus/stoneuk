@@ -4,6 +4,7 @@ import FooterContactForm from './FooterContactForm';
 import FormSubscribe from './FormSubscribe';
 import ScrollToTopButton from './ScrollToTopButton';
 import Image from 'next/image';
+import FloatingContact from './FloatingContact';
 Image
 
 const Footer = ({ faq }) => {
@@ -118,6 +119,7 @@ const Footer = ({ faq }) => {
                 </div>
             </footer>
             <ScrollToTopButton />
+            <FloatingContact />
         </>
     );
 }

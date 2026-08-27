@@ -9,7 +9,7 @@ const FloatingContact = () => {
 
         {/* Phone */}
         <a
-          href="tel:+919667584700"
+          href="tel:+441613941594"
           className="floating-contact-btn phone-btn"
           aria-label="Call us"
         >

@@ -215,7 +215,7 @@ const [showFullDescription, setShowFullDescription] = useState(false);
       <div className="col-lg-6">
         <div className="location-about-info">
 
-          <h2>About UK Wholesale Granite Headstones</h2>
+          <h2>About UK Location</h2>
 
           <p>
             Stone Discover UK supplies premium granite headstones, memorial
@@ -235,8 +235,8 @@ const [showFullDescription, setShowFullDescription] = useState(false);
           </p>
 
           <button
-            type="button"
-            className="location-read-more-btn"
+           type="button"
+              className="btn btn-four m-t-30"
             onClick={() => {
               setShowFullDescription(true);
 

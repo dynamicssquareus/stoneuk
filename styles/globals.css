@@ -625,7 +625,17 @@ ul li {
   transform: translateY(5px);
   color: var(--primary);
 }
-
+.card-06-item-00 h3{
+text-align: left;
+    font-size: 18px;;
+}
+.card-06-item-00 p{
+   text-align: left;
+    font-size: 14px;;
+}
+.p-dd3{
+  padding-top: 15px;
+}
 /*get quation*/
 .quote-us-section {
   padding: 80px 0px 100px;
@@ -2580,4 +2590,153 @@ position: absolute;
   .nav-btn.right {
     right: 10px;
   }
+}
+
+/* =========================================================
+   SHORT DESCRIPTION
+========================================================= */
+
+.description-short {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   FULL DESCRIPTION SECTION
+========================================================= */
+
+.full-description-section {
+  background: #f8f8f8;
+}
+
+.full-description-content {
+  max-width: 100%;
+}
+
+.full-description-content h2 {
+  margin-bottom: 25px;
+}
+
+.full-description-content p {
+  margin-bottom: 15px;
+}
+
+.full-description-content ul,
+.full-description-content ol {
+  margin-bottom: 20px;
+}
+
+.full-description-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.about-us-content .btn-four,
+.full-description-content .btn-four {
+  cursor: pointer;
+  border: none;
+}
+.full-description-content h3{
+  font-size:20px
+}
+
+/* =========================================================
+   LOCATION ABOUT
+========================================================= */
+
+.location-about-block {
+  width: 100%;
+}
+
+.location-about-info {
+  width: 100%;
+}
+
+.location-about-info h2 {
+  margin-bottom: 25px;
+}
+
+.location-about-info p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.location-about-media {
+  width: 100%;
+}
+
+.location-about-media img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   LOCATION READ MORE
+========================================================= */
+
+.location-read-more-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  border: 0;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   LOCATION FULL DETAILS
+========================================================= */
+
+.location-details-block {
+  width: 100%;
+  background: #f8f8f8;
+}
+
+.location-details-info {
+  width: 100%;
+}
+
+.location-details-info h2 {
+  margin-bottom: 25px;
+}
+
+.location-details-info p {
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+
+.location-details-info a {
+  text-decoration: underline;
+}
+
+.location-details-info ul,
+.location-details-info ol {
+  margin-bottom: 20px;
+}
+
+.location-details-info img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================================
+   LOCATION READ LESS
+========================================================= */
+
+.location-read-less-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  border: 0;
+  cursor: pointer;
 }

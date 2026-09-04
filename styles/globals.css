@@ -291,7 +291,15 @@ ul li {
   background-color: var(--primary-dark) !important;
   border-color: var(--primary-dark) !important;
 }
-
+.btn-four.hero-btn{
+  color: #000 !important;
+    padding: 12px 50px !important;
+}
+.btn-four.hero-btn:hover{
+    color: #ffffff !important;
+        background: #000000 !important;
+        border-color:#000000 !important;
+}
 /*end of code*/
 
 /*hreo banner one*/
@@ -867,6 +875,7 @@ text-align: left;
 .subsc-head-right .subsc-head-right-l h4 {
   font-size: 14px;
   margin-bottom: 0;
+  color: #000;
 }
 .subsc-head-right-r {
   flex: 1 1 60%;

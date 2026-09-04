@@ -63,6 +63,7 @@ export default function Home() {
                   </p>
                   <div className="hero-banner-btn">
                     <ModelBox className="btn-three" headerText="Scale Your Store!" buttonText="Get Quote Now" />
+                    <a href="/stocks-available/" class="btn btn-four hero-btn">In Stock<span class="sr-only">In Stock</span></a>
                     {/* <ModelBox className="btn-transparent" headerText="Scale Your Store!" buttonText="Request Catalogue" /> */}
                   </div>
                 </div>
@@ -120,7 +121,8 @@ export default function Home() {
             </div>
             <div className='col-lg-4 d-flex'>
               <div className='card-01'>
-                <Image src='/img/icons/delivery-truck-speed.png' alt='Seamless Delivery' className='img-fluid' width={48} height={49} />
+                  <Image src='/img/icons/quick_phrases.png' alt='quick_phrases' className='img-fluid' width={48} height={49} />
+              
                 <h3>Quick Turnaround</h3>
                 <p>Standard catalogue memorials are stocked in our UK warehouses for quick dispatch. For bespoke orders, production is managed by our parent company, Stone Discover, ensuring reliable lead times and consistent quality.</p>
               </div>
@@ -130,6 +132,27 @@ export default function Home() {
                 <Image src='/img/icons/handyman.png' alt='Timeless Craftsmanship' className='img-fluid' width={48} height={49} />
                 <h3>Timeless Craftsmanship</h3>
                 <p>All memorial headstones are crafted in India by skilled craftsmen using premium granite, delivering durable and high-quality products for the UK trade market.</p>
+              </div>
+            </div>
+            <div className='col-lg-4 d-flex'>
+              <div className='card-01'>
+                <Image src='/img/icons/palette.png' alt='palette' className='img-fluid' width={48} height={49} />
+                <h3>Premium Granite Colours</h3>
+                <p>We offer a carefully selected range of premium granite colours, from classic black and elegant blue-grey to distinctive natural shades. This gives UK trade customers a wide choice for different memorial styles and customer requirements.</p>
+              </div>
+            </div>
+            <div className='col-lg-4 d-flex'>
+              <div className='card-01'>
+                <Image src='/img/icons/draw.png' alt='draw' className='img-fluid' width={48} height={49} />
+                <h3>Bespoke Design</h3>
+                <p>We provide bespoke memorial designs tailored to individual requirements, with custom shapes, finishes, lettering and detailing available. Our skilled craftsmen ensure each design is produced with precision and consistent quality.</p>
+              </div>
+            </div>
+             <div className='col-lg-4 d-flex'>
+              <div className='card-01'>
+                <Image src='/img/icons/delivery-truck-speed.png' alt='Seamless Delivery' className='img-fluid' width={48} height={49} />
+                <h3>Nationwide Delivery</h3>
+                <p>We provide reliable delivery across the UK, ensuring wholesale memorial orders reach retailers, funeral homes and stonemasons efficiently and on schedule.</p>
               </div>
             </div>
           </div>
@@ -273,9 +296,9 @@ export default function Home() {
             <div className='col-lg-2 col-md-4 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/memorials/grave-markers/">
-                    <Image src='/img/webpages/grave-markers.png' alt='Grave Markers' className='img-fluid' width={210} height={210} />
-                    <h4>Grave Markers</h4>
+                  <a href="/memorials/columbarium/">
+                    <Image src='/img/webpages/columbarium-one.png' alt='columbariums' className='img-fluid' width={210} height={210} />
+                    <h4>Columbarium</h4>
                   </a>
                 </div>
               </div>
@@ -378,7 +401,7 @@ export default function Home() {
             <div className='col-lg-3 col-md-6 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/stocks-available/">
+                  <a href="/product/anton-black-granite-headstone/">
                     <img src='/img/webpages/black-anton-headstone.png' alt='Black Anton Headstone' className='img-fluid' />
                     <h4>Black Anton Headstone</h4>
                   </a>
@@ -388,7 +411,7 @@ export default function Home() {
             <div className='col-lg-3 col-md-6 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/stocks-available/">
+                  <a href="/memorials/headstones/">
                     <img src='/img/webpages/Mecca-jet-black-headstone.png' alt='Mecca jet black headstone' className='img-fluid' />
                     <h4>Mecca Jet Black Headstone</h4>
                   </a>
@@ -398,7 +421,7 @@ export default function Home() {
             <div className='col-lg-3 col-md-6 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/stocks-available/">
+                  <a href="/product/black-granite-ogee-headstone/">
                     <img src='/img/webpages/black-ogee-headstone.png' alt='Black Ogee Headstone' className='img-fluid' />
                     <h4>Black Ogee Headstone</h4>
                   </a>
@@ -409,7 +432,7 @@ export default function Home() {
             <div className='col-lg-3 col-md-6 sliding-col'>
               <div className='card-04'>
                 <div className='card-04-item text-center'>
-                  <a href="/stocks-available/">
+                  <a href="/product/black-granite-ogee-headstone-with-moulding/">
                     <img src='/img/webpages/Black-Ogee-with-rope-moulding-headstone.png' alt='Black Ogee With Rope Moulding Headstone' className='img-fluid' />
                     <h4>Black Ogee With Rope Moulding Headstone</h4>
                   </a>

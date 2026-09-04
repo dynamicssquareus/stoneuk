@@ -129,12 +129,13 @@ const Nav = () => {
               <li><a style={{ color: '#a44400', fontWeight: 'bold' }} href="/memorials">View All</a></li>
             </ul>
           </li>
-            <li><a href="/metal-urns/">Metal Urns</a></li>
+            
+            <li><a href="/photo-gallery/">Gallery</a></li>
           <li className="dropdown"><a href="#"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/blog/">Blogs</a></li>
               <li><a href="/variety-of-granites/">Variety of granite</a></li>
-              <li><a href="/photo-gallery/">Photo Gallery</a></li>
+              <li><a href="/metal-urns/">Metal Urns</a></li>
             </ul>
           </li>
           <li><a className="nav-link scrollto" href="/about-us/">About Us</a></li>

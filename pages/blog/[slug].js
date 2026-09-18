@@ -373,14 +373,19 @@ export async function getStaticProps({ params }) {
   const categoryApi = process.env.NEXT_PUBLIC_CATEGORY_API_URL;
 
   try {
-    // Fetch the post by slug
-    const postRes = await fetch(`${blogApi}/${slug}`);
+    // Fetch the post by slug, retrying once in case a just-published post
+    // hasn't propagated on the backend yet
+    let postRes = await fetch(`${blogApi}/${slug}`);
     if (!postRes.ok) {
-      return { notFound: true }; // Return 404 if post doesn't exist
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      postRes = await fetch(`${blogApi}/${slug}`);
+    }
+    if (!postRes.ok) {
+      return { notFound: true, revalidate: 60 }; // Return 404 if post doesn't exist
     }
     const post = await postRes.json();
     if (!post || Object.keys(post).length === 0) {
-      return { notFound: true };
+      return { notFound: true, revalidate: 60 };
     }
 
     // Fetch all posts
@@ -417,7 +422,7 @@ export async function getStaticProps({ params }) {
     };
   } catch (err) {
     console.error(err);
-    return { notFound: true }; // Return 404 if there’s an error
+    return { notFound: true, revalidate: 60 }; // Return 404 if there’s an error
   }
 }
 

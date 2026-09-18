@@ -239,67 +239,67 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
             </div>
           </div>
           <div className='row g-2 sliding-row'>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-13.jpg' alt='Absolute Black' width={210} height={210} className='img-fluid' />
-                    <h4>Absolute Black</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-14.jpg' alt='Bahama Blue' width={210} height={210} className='img-fluid' />
-                    <h4>Bahama Blue</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-15.jpg' alt='Indian Aurora' width={210} height={210} className='img-fluid' />
-                    <h4>Indian Aurora</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-16.jpg' alt='Imperial Red' width={210} height={210} className='img-fluid' />
-                    <h4>Imperial Red</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-17.jpg' alt='Jurpana' width={210} height={210} className='img-fluid' />
-                    <h4>Jurpana</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2  col-md-4 sliding-col'>
-              <div className='card-04'>
-                <div className='card-04-item text-center'>
-                  <a href="/contact-us/">
-                    <Image src='/img/webpages/pic-18.jpg' alt='Kuppam Green' width={210} height={210} className='img-fluid' />
-                    <h4>Kuppam Green</h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+                                <div className='col-lg-2 col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/absolute-black.png' alt='Absolute Black' width={210} height={210} className='img-fluid' />
+                                        <h4>Absolute Black</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='col-lg-2 col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/pic-14.jpg' alt='Bahama Blue' width={210} height={210} className='img-fluid' />
+                                        <h4>Bahama Blue</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='col-lg-2 col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/pic-15.jpg' alt='Indian Aurora' width={210} height={210} className='img-fluid' />
+                                        <h4>Indian Aurora</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='col-lg-2 col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/pic-16.jpg' alt='Imperial Red' width={210} height={210} className='img-fluid' />
+                                        <h4>Imperial Red</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='col-lg-2 col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/pic-17.jpg' alt='Jurpana' width={210} height={210} className='img-fluid' />
+                                        <h4>Jurpana</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='col-lg-2  col-md-4 sliding-col'>
+                                  <div className='card-04'>
+                                    <div className='card-04-item text-center'>
+                                      <a href="/variety-of-granites/">
+                                        <Image src='/img/webpages/kuppam-green.png' alt='Kuppam Green' width={210} height={210} className='img-fluid' />
+                                        <h4>Kuppam Green</h4>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
         </div>
       </section>
 

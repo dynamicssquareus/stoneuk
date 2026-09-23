@@ -240,13 +240,24 @@ const [showCombo, setShowCombo] =
                   <h4 className="category-heading">{categoryName}</h4>
 
                   <div className="row">
-                    {items.map((product) => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        onBook={handleBook}
-                      />
-                    ))}
+                    {/* TEMP: show only one card per duplicate title+size - remove this block to show all */}
+                    {(() => {
+                      const seen = new Set();
+                      return items.filter((product) => {
+                        const key = `${product?.title?.trim().toLowerCase()}|${product?.hsSize}|${product?.baseSize}`;
+                        if (seen.has(key)) return false;
+                        seen.add(key);
+                        return true;
+                      });
+                    })()
+                    /* END TEMP */
+                      .map((product) => (
+                        <ProductCard
+                          key={product.id}
+                          product={product}
+                          onBook={handleBook}
+                        />
+                      ))}
                   </div>
                 </div>
               ))

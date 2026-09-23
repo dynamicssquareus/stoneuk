@@ -14,6 +14,10 @@ export default function ProductCard({ product, onBook }) {
         pricedOptions.length === 0;
     const [selected, setSelected] = useState(pricedOptions[0] || null);
 
+    if (isSoldOut) {
+        return null;
+    }
+
     const discountText = selected?.discount?.trim();
 
     const showDiscount =

@@ -18,26 +18,56 @@ const Test = ({ products }) => {
   };
 
   const loading = !products;
-  /*filter start*/ 
-  const sortedProducts = [...(products || [])].sort((a, b) => {
-    const isSoldOut = (product) => {
-      const options = Array.isArray(product.options) ? product.options : [];
+  /*filter start*/
+  const isSoldOut = (product) => {
+    const options = Array.isArray(product.options) ? product.options : [];
 
-      const pricedOptions = options.filter((opt) => {
-        const price = Number(opt.price || opt.pricePerSet);
-        return Number.isFinite(price) && price > 0;
-      });
+    const pricedOptions = options.filter((opt) => {
+      const price = Number(opt.price || opt.pricePerSet);
+      return Number.isFinite(price) && price > 0;
+    });
 
-      return (
-        product?.soldOut ||
-        product?.status?.toLowerCase() === "sold-out" ||
-        pricedOptions.length === 0
-      );
-    };
+    return (
+      product?.soldOut ||
+      product?.status?.toLowerCase() === "sold-out" ||
+      pricedOptions.length === 0
+    );
+  };
 
-    return Number(isSoldOut(a)) - Number(isSoldOut(b));
-  });
-/*filter end*/ 
+  const sortedProducts = [...(products || [])].sort(
+    (a, b) => Number(isSoldOut(a)) - Number(isSoldOut(b)),
+  );
+
+  const CATEGORY_MODIFIER_WORDS = ["half"];
+  const CATEGORY_KEEP_SINGULAR_WORDS = ["camber"];
+
+  const normalizeCategoryName = (word) => {
+    const base = word.replace(/s$/i, "");
+    const name = CATEGORY_KEEP_SINGULAR_WORDS.includes(base.toLowerCase())
+      ? base
+      : `${base}s`;
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  };
+
+  const getCategoryName = (title) => {
+    const words = title?.trim().split(/\s+/) || [];
+    const categoryWord =
+      words.find(
+        (word) => !CATEGORY_MODIFIER_WORDS.includes(word.toLowerCase()),
+      ) || words[0];
+
+    return categoryWord ? normalizeCategoryName(categoryWord) : "Other";
+  };
+
+  const groupedProducts = sortedProducts.reduce((groups, product) => {
+    const categoryName = getCategoryName(product?.title);
+    if (!groups[categoryName]) {
+      groups[categoryName] = [];
+    }
+    groups[categoryName].push(product);
+    return groups;
+  }, {});
+/*filter end*/
   useEffect(() => {
     fetch("/data/upcoming-products.json")
       .then((res) => res.json())
@@ -171,13 +201,23 @@ const Test = ({ products }) => {
               </p>
             </div>
           ) : sortedProducts.length > 0 ? (
-            sortedProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onBook={handleBook}
-              />
-            ))
+            Object.entries(groupedProducts)
+              .filter(([, items]) => items.some((product) => !isSoldOut(product)))
+              .map(([categoryName, items]) => (
+                <div key={categoryName} className="col-12 category-group">
+                  <h4 className="category-heading">{categoryName}</h4>
+
+                  <div className="row">
+                    {items.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        onBook={handleBook}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))
           ) : (
             // ) : products?.length > 0 ? (
             //   products.map((product) => (
@@ -332,6 +372,19 @@ const Test = ({ products }) => {
           </div>
         </div>
       )}
+
+      <style jsx global>{`
+        .category-group {
+          margin-bottom: 30px;
+        }
+        .category-heading {
+          font-family: var(--font-sec) !important;
+          font-size: 24px;
+          font-weight: bold;
+          text-transform: capitalize;
+          margin-bottom: 15px;
+        }
+      `}</style>
     </>
   );
 };

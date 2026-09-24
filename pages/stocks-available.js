@@ -67,6 +67,19 @@ const Test = ({ products }) => {
     groups[categoryName].push(product);
     return groups;
   }, {});
+
+  const CATEGORY_ORDER = ["Ogees", "Antons"];
+
+  const orderedCategoryEntries = Object.entries(groupedProducts).sort(
+    ([a], [b]) => {
+      const aIndex = CATEGORY_ORDER.indexOf(a);
+      const bIndex = CATEGORY_ORDER.indexOf(b);
+      if (aIndex === -1 && bIndex === -1) return 0;
+      if (aIndex === -1) return 1;
+      if (bIndex === -1) return -1;
+      return aIndex - bIndex;
+    },
+  );
 /*filter end*/
   useEffect(() => {
     fetch("/data/upcoming-products.json")
@@ -201,7 +214,7 @@ const Test = ({ products }) => {
               </p>
             </div>
           ) : sortedProducts.length > 0 ? (
-            Object.entries(groupedProducts)
+            orderedCategoryEntries
               .filter(([, items]) => items.some((product) => !isSoldOut(product)))
               .map(([categoryName, items]) => (
                 <div key={categoryName} className="col-12 category-group">

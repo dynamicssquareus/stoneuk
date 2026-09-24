@@ -117,7 +117,7 @@ const Nav = () => {
           {/* <li><Link className="nav-link scrollto" href="/solutions/">Solutions</Link></li> */}
           {/* <li><a className="nav-link scrollto" href="/">Industries</a></li> */}
           {/* <li><a className="nav-link scrollto" href="/">Company</a></li> */}
-          <li><a style={{ color: '#a44400', fontWeight: 'bold' }} className="nav-link" href="/stocks-available/">In Stock</a></li>
+          <li><a style={{ fontWeight: 'bold' }} className="nav-link nav-instock-link" href="/stocks-available/"><span className="nav-instock-dot"></span>In Stock</a></li>
           <li className="dropdown"><a href="/memorials/"><span>Memorial Stones</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/memorials/angel-headstone/">Angel Headstone</a></li>
@@ -208,7 +208,7 @@ const Nav = () => {
                 {/* <DropdownComponent id="servicesDropdown" label="Drop Down" items={servicesItems} />
                 <DropdownComponent id="solutionsDropdown" label="Drop Down" items={solutionsItems} /> */}
                 {/* <DropdownComponent label="Resources" items={resourceItems} /> */}
-                 <li><a style={{ color: '#a44400', fontWeight: 'bold' }} className="nav-link" href="/stocks-available/">In Stock</a></li>
+                 <li><a style={{ fontWeight: 'bold' }} className="nav-link nav-instock-link" href="/stocks-available/"><span className="nav-instock-dot"></span>In Stock</a></li>
                  <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
                 <li><a className="nav-link" href="/memorials/">Memorial Stones</a></li>
                 <li><a className="nav-link" href="/about-us/">About US</a></li>

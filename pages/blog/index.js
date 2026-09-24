@@ -80,12 +80,12 @@ const BlogIndex = ({ posts, categories }) => {
                 )}
                 {latestPost && (
                   <div className="pic-poster-blog mt-3">
-                    <a href={`/blog/author/${latestPost.author.slug || latestPost.author._id}/`}>
+                    <a href={`/blog/author/${latestPost.author?.slug || latestPost.author?._id || ''}/`}>
                       <Image
                         width={64}
                         height={64}
                         src={
-                          latestPost.author.profilePic
+                          latestPost.author?.profilePic
                             ? getProfileImageUrl(latestPost.author.profilePic)
                             : '/img/icons/user-avt.png'
                         }
@@ -95,9 +95,9 @@ const BlogIndex = ({ posts, categories }) => {
 
                     </a>
                     <div className="av-info">
-                      <div className="av-name"><a href={`/blog/author/${latestPost.author.slug || latestPost.author._id}/`}>{getAuthorName(latestPost)}</a></div>
+                      <div className="av-name"><a href={`/blog/author/${latestPost.author?.slug || latestPost.author?._id || ''}/`}>{getAuthorName(latestPost)}</a></div>
                       <div className="av-date">
-                        {new Date(latestPost.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Date unknown'} <span className='m-22'>|</span> {latestPost.readtimes || 'read time'}min
+                        {new Date(latestPost.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) || 'Date unknown'} <span className='m-22'>|</span> {latestPost.readtimes || 'read time'}min
                       </div>
                     </div>
 
@@ -105,14 +105,16 @@ const BlogIndex = ({ posts, categories }) => {
                 )}
 
               </div>
-              <div className='new-imag'>
-                <a href={`/blog/${latestPost.slug}/`}> <Image src={
-                latestPost.metaimage
-                  ? getImageUrl(latestPost.metaimage)
-                  : `${process.env.NEXT_PUBLIC_SITE_URL}img/sdie-pop.png`
-              } alt={latestPost.title} className="img-fluid" width={1200} height={628} priority /></a>
-               
-              </div>
+              {latestPost && (
+                <div className='new-imag'>
+                  <a href={`/blog/${latestPost.slug}/`}> <Image src={
+                  latestPost.metaimage
+                    ? getImageUrl(latestPost.metaimage)
+                    : `${process.env.NEXT_PUBLIC_SITE_URL}img/sdie-pop.png`
+                } alt={latestPost.title} className="img-fluid" width={1200} height={628} priority /></a>
+
+                </div>
+              )}
             </div>
           
           </div>
@@ -185,35 +187,40 @@ const BlogIndex = ({ posts, categories }) => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row g-3">
             {visiblePosts.length ? (
               visiblePosts.map(post => (
 
 
                 <div key={post.slug} className='col-lg-4'>
-                  <div className='card-blog-02'>
-                    <div className="card-title">
+                  <div className='card-blog-home'>
+                    <Link href={`/blog/${post.slug}`} className='card-blog-home-img'>
+                      <Image
+                        src={post.banner ? getImageUrl(post.banner) : '/img/sdie-pop.png'}
+                        alt={post.title}
+                        width={400}
+                        height={240}
+                        className='img-fluid'
+                      />
+                    </Link>
+                    <div className='card-blog-home-body'>
                       <Link href={`/blog/${post.slug}`}>
-                        {post.banner && (
-                          <Image src={getImageUrl(post.banner)} alt={post.title} className="img-fluid" width={400} height={300} />
-                        )}
                         <h3>{post.title}</h3>
                       </Link>
-                    </div>
-                    <div className='card-post-ava'>
-                      <Link href={`/blog/author/${post.author.slug || post.author._id}`}>
-                        <Image
-                          width={44}
-                          height={44}
-                          src={post.author.profilePic ? getProfileImageUrl(post.author.profilePic) : '/img/icons/user-avt.png'}
-                          alt="user avatar"
-                          className='rounded-circle'
-                        />
+                      <div className='card-blog-home-meta'>
+                        <Link href={`/blog/author/${post.author?.slug || post.author?._id || ''}`}>
+                          <Image
+                            width={40}
+                            height={40}
+                            src={post.author?.profilePic ? getProfileImageUrl(post.author.profilePic) : '/img/icons/user-avt.png'}
+                            alt="user avatar"
+                          />
+                        </Link>
                         <div className='av-info'>
-                          <div className='av-name-a'>{post.author && post.author.name ? post.author.name : 'Unknown'}</div>
-                          <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
+                          <div className='av-name-a'>{getAuthorName(post)}</div>
+                          <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
                         </div>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -260,7 +267,7 @@ const BlogIndex = ({ posts, categories }) => {
             )}
           </div>
           {filteredPosts.length > visiblePostsCount && (
-            <div className="text-center">
+            <div className="text-center mt-5">
               <button className="btn btn-three" onClick={() => setVisiblePostsCount(visiblePostsCount + 3)}>
                 Load More
               </button>

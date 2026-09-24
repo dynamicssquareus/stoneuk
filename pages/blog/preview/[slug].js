@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 
 function formatDate(dateStr) {
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => {

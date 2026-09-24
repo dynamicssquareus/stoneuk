@@ -3,11 +3,18 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import parse from 'html-react-parser';
 
 function formatDate(dateStr) {
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// Widths Next's built-in image optimizer will accept, per next.config.mjs
+// (images.deviceSizes + images.imageSizes combined).
+const NEXT_IMAGE_WIDTHS = [16, 32, 48, 64, 96, 320, 420, 768, 1024, 1200, 1600, 1920];
+
+function pickImageWidth(target) {
+  return NEXT_IMAGE_WIDTHS.find(w => w >= target) || NEXT_IMAGE_WIDTHS[NEXT_IMAGE_WIDTHS.length - 1];
 }
 
 const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => {
@@ -35,7 +42,7 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
   let toc = [];
   let count = 0;
 
-  const contentWithIds = post.content.replace(/<h2>(.*?)<\/h2>/g, (match, p1) => {
+  const contentWithIds = (post.content || '').replace(/<h2>(.*?)<\/h2>/g, (match, p1) => {
     count++;
     const id = `tb-${count.toString().padStart(2, '0')}`;
 
@@ -48,7 +55,32 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
     return `<h2 id="${id}">${p1}</h2>`;
   });
 
-  return { modifiedContent: contentWithIds, tableOfContents: toc };
+  // Route <img> tags in the CMS content through Next's built-in image
+  // optimizer as a plain string rewrite (not html-react-parser), since this
+  // HTML is injected via dangerouslySetInnerHTML further down. Reparsing it
+  // into React elements instead produced a server/client hydration mismatch
+  // on messy CMS markup - this way there is nothing for React to hydrate.
+  const contentWithImages = contentWithIds.replace(/<img\b([^>]*)>/gi, (match, attrsStr) => {
+    const getAttr = (name) => {
+      const m = attrsStr.match(new RegExp(`${name}\\s*=\\s*["']([^"']*)["']`, 'i'));
+      return m ? m[1] : null;
+    };
+
+    const src = getAttr('src');
+    if (!src) return match;
+
+    const alt = (getAttr('alt') || '').replace(/"/g, '&quot;');
+    const width = parseInt(getAttr('width'), 10) || null;
+    const height = parseInt(getAttr('height'), 10) || null;
+    const absoluteSrc = getImageUrl(src);
+    const targetWidth = pickImageWidth(width || 800);
+    const optimizedSrc = `/_next/image?url=${encodeURIComponent(absoluteSrc)}&w=${targetWidth}&q=75`;
+    const dims = width && height ? ` width="${width}" height="${height}"` : '';
+
+    return `<img src="${optimizedSrc}" alt="${alt}"${dims} loading="lazy" decoding="async" style="max-width:100%;height:auto;" />`;
+  });
+
+  return { modifiedContent: contentWithImages, tableOfContents: toc };
 }, [post.content]);
 
   // Use IntersectionObserver to update the active heading in TOC
@@ -67,25 +99,6 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
       headings.forEach(heading => observer.unobserve(heading));
     };
   }, [modifiedContent]);
-
-
-  // Use html-react-parser to convert <img> tags inside post content to Next.js <Image> components.
-  const options = {
-    replace: domNode => {
-      if (domNode.name === 'img') {
-        const { src, alt, width, height } = domNode.attribs;
-        return (
-          <Image
-            src={getImageUrl(src)}
-            alt={alt || 'Post image'}
-            width={width ? parseInt(width) : 800}
-            height={height ? parseInt(height) : 400}
-            layout="responsive"
-          />
-        );
-      }
-    }
-  };
 
 
   return (
@@ -142,18 +155,40 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
                   <div className='combo-sect'>
                     <div className="d-flex blog-author">
                       <span>
-                        By <Link href={`/blog/author/${post.author.slug || post.author._id}`}>{post.author.name}</Link>
+                        By <Link href={`/blog/author/${post.author?.slug || post.author?._id || ''}`}>{post.author?.name || 'Unknown'}</Link>
                       </span>
                       <span className="mx-2">|</span>
                       <span>{formatDate(post.createdAt)}</span>
                     </div>
-                    <div className="mb-4 post-sharing">
-                      <span>Share: </span>
-                      <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`}>Facebook</Link>
-                      {" | "}
-                      <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}`}>Twitter</Link>
-                      {" | "}
-                      <Link href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(canonicalUrl)}`}>LinkedIn</Link>
+                    <div className="mb-3 post-sharing">
+                      <span>Share:</span>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="share-icon share-facebook"
+                        aria-label="Share on Facebook"
+                      >
+                        <i className="bi bi-facebook"></i>
+                      </a>
+                      <a
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="share-icon share-twitter"
+                        aria-label="Share on Twitter"
+                      >
+                        <i className="bi bi-twitter-x"></i>
+                      </a>
+                      <a
+                        href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(canonicalUrl)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="share-icon share-linkedin"
+                        aria-label="Share on LinkedIn"
+                      >
+                        <i className="bi bi-linkedin"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -171,9 +206,6 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
                     />
                   </div>
                 )}
-                {/* <div className="mt-3 post-content-main">
-                  {parse(modifiedContent, options)}
-                </div> */}
                 <div
                   className="mt-3 post-content-main"
                   dangerouslySetInnerHTML={{ __html: modifiedContent }}
@@ -182,18 +214,18 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
                 {/* Author Profile Card */}
                 <div className="card card-avt my-5">
                   <div className="card-body">
-                    <Link href={`/blog/author/${post.author.slug || post.author._id}`}>
+                    <Link href={`/blog/author/${post.author?.slug || post.author?._id || ''}`}>
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_BLOG_API_Image_profilePics.replace(/\/$/, '')}/${post.author.profilePic}`}
-                        alt={post.author.name}
+                        src={post.author?.profilePic ? getImageUrl(post.author.profilePic) : '/img/icons/user-avt.png'}
+                        alt={post.author?.name || 'Unknown'}
                         className="rounded-circle me-3"
                         style={{ width: '60px', height: '60px', objectFit: 'cover' }}
                         width={60}
                         height={60}
                       />
                       <div className='card-avt-det'>
-                        <h4>{post.author.name}</h4>
-                        <p>{post.author.aboutus}</p>
+                        <h4>{post.author?.name || 'Unknown'}</h4>
+                        <p>{post.author?.aboutus || ''}</p>
 
                       </div>
                     </Link>
@@ -256,45 +288,34 @@ const BlogPost = ({ post, relatedPosts, relatedHeading, categories, error }) => 
             {relatedPosts && relatedPosts.length > 0 ? (
               relatedPosts.map(rp => (
                 <div key={rp.slug} className="col-lg-4 mb-4">
-                  <div className="card h-100 card-222">
-                    <div className='card-image-p'>
-                      {rp.banner && (
-                        <Link href={`/blog/${rp.slug}`}>
+                  <div className='card-blog-home'>
+                    <Link href={`/blog/${rp.slug}`} className='card-blog-home-img'>
+                      <Image
+                        src={rp.banner ? getImageUrl(rp.banner) : '/img/sdie-pop.png'}
+                        alt={rp.title}
+                        width={400}
+                        height={240}
+                        className='img-fluid'
+                      />
+                    </Link>
+                    <div className='card-blog-home-body'>
+                      <Link href={`/blog/${rp.slug}`}>
+                        <h3>{rp.title}</h3>
+                      </Link>
+                      <div className='card-blog-home-meta'>
+                        <Link href={`/blog/author/${rp.author?.slug || rp.author?._id || ''}`}>
                           <Image
-                            src={getImageUrl(rp.banner)}
-                            alt={rp.title}
-                            className="card-img-top"
-                            width={768}
-                            height={402}
+                            width={40}
+                            height={40}
+                            src={rp.author?.profilePic ? getImageUrl(rp.author.profilePic) : '/img/icons/user-avt.png'}
+                            alt="user avatar"
                           />
                         </Link>
-                      )}
-                      <div className='cate-overl'>
-                        {post.category && post.category.slug ? (
-
-                          <Link href={`/blog/category/${post.category.slug}`}><span>{post.category.title}</span></Link>
-                        ) : (
-                          "Uncategorized"
-                        )}
+                        <div className='av-info'>
+                          <div className='av-name-a'>{rp.author?.name || 'Unknown'}</div>
+                          <div className='av-date-b'>{formatDate(rp.createdAt)} <span>|</span> {rp.readtimes || ''}min</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="card-body">
-                      <div className="d-flex blog-author">
-                        <span>
-                          <Link href={`/blog/author/${rp.author.slug || rp.author._id}`}>{rp.author.name}</Link>
-                        </span>
-                        <span className="mx-2">|</span>
-                        <span>{formatDate(rp.createdAt)}</span>
-                        <span className="mx-2">|</span>
-                        <span>{rp.readtimes || ' '}m Reading</span>
-                      </div>
-                      <Link href={`/blog/${rp.slug}`}>
-                        <h5 className="card-title">{rp.title}</h5>
-                      </Link>
-                      <p className="card-text">
-                        {rp.excerpt.slice(0, 50) + '...' || rp.content.replace(/<[^>]+>/g, '').slice(0, 50) + '...'}
-                      </p>
-                      <Link href={`/blog/${rp.slug}`}>Read More</Link>
                     </div>
                   </div>
                 </div>
@@ -373,19 +394,24 @@ export async function getStaticProps({ params }) {
   const categoryApi = process.env.NEXT_PUBLIC_CATEGORY_API_URL;
 
   try {
-    // Fetch the post by slug, retrying once in case a just-published post
-    // hasn't propagated on the backend yet
+    // Fetch the post by slug, retrying with backoff in case a just-published
+    // post hasn't propagated on the backend yet
+    const retryDelays = [1000, 2000, 4000];
     let postRes = await fetch(`${blogApi}/${slug}`);
-    if (!postRes.ok) {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    for (const delay of retryDelays) {
+      if (postRes.ok) break;
+      await new Promise((resolve) => setTimeout(resolve, delay));
       postRes = await fetch(`${blogApi}/${slug}`);
     }
     if (!postRes.ok) {
-      return { notFound: true, revalidate: 60 }; // Return 404 if post doesn't exist
+      // Short revalidate so a wrongly-cached 404 self-heals quickly
+      // once the backend actually has the post, instead of sticking
+      // around for a full minute.
+      return { notFound: true, revalidate: 5 };
     }
     const post = await postRes.json();
     if (!post || Object.keys(post).length === 0) {
-      return { notFound: true, revalidate: 60 };
+      return { notFound: true, revalidate: 5 };
     }
 
     // Fetch all posts
@@ -422,7 +448,7 @@ export async function getStaticProps({ params }) {
     };
   } catch (err) {
     console.error(err);
-    return { notFound: true, revalidate: 60 }; // Return 404 if there’s an error
+    return { notFound: true, revalidate: 5 }; // Return 404 if there’s an error
   }
 }
 

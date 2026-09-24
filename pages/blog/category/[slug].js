@@ -92,7 +92,7 @@ const CategoryPage = ({ category, posts }) => {
                     />
                     <div className='av-info'>
                       <div className='av-name-a'>{post.author && post.author.name ? post.author.name : 'Unknown'}</div>
-                      <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
+                      <div className='av-date-b'>{new Date(post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) || 'Date unknown'} <span>|</span> {post.readtimes || ''}min</div>
                     </div>
                   </Link>
                 </div>

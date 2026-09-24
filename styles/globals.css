@@ -1604,6 +1604,50 @@ text-align: left;
   color: var(--secnadry);
 }
 
+.post-sharing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-sharing span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secnadry);
+  margin-right: 2px;
+}
+
+.post-sharing .share-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  color: var(--secnadry);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.post-sharing .share-icon:hover {
+  transform: translateY(-3px);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.post-sharing .share-facebook:hover {
+  background: #1877f2;
+}
+
+.post-sharing .share-twitter:hover {
+  background: #000;
+}
+
+.post-sharing .share-linkedin:hover {
+  background: #0a66c2;
+}
+
 .p-30 {
   padding-right: 30px;
 }
@@ -1658,7 +1702,6 @@ text-align: left;
 
 .card-222 .card-image-p img {
   height: 250px;
-  object-fit: cover;
 }
 
 .cate-overl {

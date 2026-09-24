@@ -80,6 +80,11 @@ const Test = ({ products }) => {
       return aIndex - bIndex;
     },
   );
+
+  const visibleCategoryEntries = orderedCategoryEntries.filter(([, items]) =>
+    items.some((product) => !isSoldOut(product)),
+  );
+  const lastCategoryIndex = visibleCategoryEntries.length - 1;
 /*filter end*/
   useEffect(() => {
     fetch("/data/upcoming-products.json")
@@ -213,88 +218,94 @@ const Test = ({ products }) => {
                 Please wait while we fetch inventory
               </p>
             </div>
-          ) : sortedProducts.length > 0 ? (
-            (() => {
-              const visibleCategoryEntries = orderedCategoryEntries.filter(
-                ([, items]) => items.some((product) => !isSoldOut(product)),
-              );
-              const lastCategoryIndex = visibleCategoryEntries.length - 1;
+          ) : visibleCategoryEntries.length > 0 ? (
+            <>
+              {visibleCategoryEntries.map(([categoryName, items], index) => (
+                <div key={categoryName} className="col-12 category-group">
+                  {CATEGORY_ORDER.includes(categoryName) && (
+                    <h4 className="category-heading">{categoryName}</h4>
+                  )}
 
-              return (
-                <>
-                  {visibleCategoryEntries.map(([categoryName, items], index) => (
-                    <div key={categoryName} className="col-12 category-group">
-                      {CATEGORY_ORDER.includes(categoryName) && (
-                        <h4 className="category-heading">{categoryName}</h4>
-                      )}
+                  <div className="row">
+                    {/* TEMP: show only one card per duplicate title+size - remove this block to show all */}
+                    {(() => {
+                      const seen = new Set();
+                      return items.filter((product) => {
+                        const key = `${product?.title?.trim().toLowerCase()}|${product?.hsSize}|${product?.baseSize}`;
+                        if (seen.has(key)) return false;
+                        seen.add(key);
+                        return true;
+                      });
+                    })()
+                    /* END TEMP */
+                      .map((product) => (
+                        <ProductCard
+                          key={product.id}
+                          product={product}
+                          onBook={handleBook}
+                        />
+                      ))}
 
-                      <div className="row">
-                        {/* TEMP: show only one card per duplicate title+size - remove this block to show all */}
-                        {(() => {
-                          const seen = new Set();
-                          return items.filter((product) => {
-                            const key = `${product?.title?.trim().toLowerCase()}|${product?.hsSize}|${product?.baseSize}`;
-                            if (seen.has(key)) return false;
-                            seen.add(key);
-                            return true;
-                          });
-                        })()
-                        /* END TEMP */
-                          .map((product) => (
-                            <ProductCard
-                              key={product.id}
-                              product={product}
-                              onBook={handleBook}
-                            />
-                          ))}
+                    {index === lastCategoryIndex &&
+                      upcomingProducts.map((product) => (
+                        <UpcomingProductCard
+                          key={product.id}
+                          product={product}
+                          onBook={handleBook}
+                        />
+                      ))}
 
-                        {index === lastCategoryIndex &&
-                          upcomingProducts.map((product) => (
-                            <UpcomingProductCard
-                              key={product.id}
-                              product={product}
-                              onBook={handleBook}
-                            />
-                          ))}
+                    {index === lastCategoryIndex && (
+                      <div className="col-lg-4 col-sm-6 mb-4 d-flex">
+                        <div className="card-m-01 enquiry-card">
+                          <h6>Want a Bespoke Headstone Design?</h6>
+                          <p className="mut">
+                            We craft custom memorial designs tailored to
+                            your vision. Share your requirements below and
+                            one of our headstone experts will get in touch
+                            to bring your design to life.
+                          </p>
 
-                        {index === lastCategoryIndex && (
-                          <div className="col-lg-4 col-sm-6 mb-4 d-flex">
-                            <div className="card-m-01 enquiry-card">
-                              <h6>Want a Bespoke Headstone Design?</h6>
-                              <p className="mut">
-                                We craft custom memorial designs tailored to
-                                your vision. Share your requirements below and
-                                one of our headstone experts will get in touch
-                                to bring your design to life.
-                              </p>
-
-                              <BookingForm onSubmit={() => {}} />
-                            </div>
-                          </div>
-                        )}
+                          <BookingForm onSubmit={() => {}} />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </>
-              );
-            })()
+                    )}
+                  </div>
+                </div>
+              ))}
+            </>
           ) : (
-            // ) : products?.length > 0 ? (
-            //   products.map((product) => (
-            //       <ProductCard
-            //         key={product.id}
-            //         product={product}
-            //         onBook={handleBook}
-            //       />
-            //     ))
-            // ) : (
-            <div className="col-12 text-center py-5">
-              <h4>No Products Available</h4>
+            <>
+              <div className="col-12 text-center py-5">
+                <h4>No Products Available</h4>
 
-              <p className="text-muted">
-                Please check back later.
-              </p>
-            </div>
+                <p className="text-muted">
+                  Please check back later.
+                </p>
+              </div>
+
+              {upcomingProducts.map((product) => (
+                <UpcomingProductCard
+                  key={product.id}
+                  product={product}
+                  onBook={handleBook}
+                />
+              ))}
+
+              <div className="col-lg-4 col-sm-6 mb-4 d-flex">
+                <div className="card-m-01 enquiry-card">
+                  <h6>Want a Bespoke Headstone Design?</h6>
+                  <p className="mut">
+                    We craft custom memorial designs tailored to
+                    your vision. Share your requirements below and
+                    one of our headstone experts will get in touch
+                    to bring your design to life.
+                  </p>
+
+                  <BookingForm onSubmit={() => {}} />
+                </div>
+              </div>
+            </>
           )}
         </div>
       </div>

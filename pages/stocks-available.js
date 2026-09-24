@@ -214,34 +214,70 @@ const Test = ({ products }) => {
               </p>
             </div>
           ) : sortedProducts.length > 0 ? (
-            orderedCategoryEntries
-              .filter(([, items]) => items.some((product) => !isSoldOut(product)))
-              .map(([categoryName, items]) => (
-                <div key={categoryName} className="col-12 category-group">
-                  <h4 className="category-heading">{categoryName}</h4>
+            (() => {
+              const visibleCategoryEntries = orderedCategoryEntries.filter(
+                ([, items]) => items.some((product) => !isSoldOut(product)),
+              );
+              const lastCategoryIndex = visibleCategoryEntries.length - 1;
 
-                  <div className="row">
-                    {/* TEMP: show only one card per duplicate title+size - remove this block to show all */}
-                    {(() => {
-                      const seen = new Set();
-                      return items.filter((product) => {
-                        const key = `${product?.title?.trim().toLowerCase()}|${product?.hsSize}|${product?.baseSize}`;
-                        if (seen.has(key)) return false;
-                        seen.add(key);
-                        return true;
-                      });
-                    })()
-                    /* END TEMP */
-                      .map((product) => (
-                        <ProductCard
-                          key={product.id}
-                          product={product}
-                          onBook={handleBook}
-                        />
-                      ))}
-                  </div>
-                </div>
-              ))
+              return (
+                <>
+                  {visibleCategoryEntries.map(([categoryName, items], index) => (
+                    <div key={categoryName} className="col-12 category-group">
+                      {CATEGORY_ORDER.includes(categoryName) && (
+                        <h4 className="category-heading">{categoryName}</h4>
+                      )}
+
+                      <div className="row">
+                        {/* TEMP: show only one card per duplicate title+size - remove this block to show all */}
+                        {(() => {
+                          const seen = new Set();
+                          return items.filter((product) => {
+                            const key = `${product?.title?.trim().toLowerCase()}|${product?.hsSize}|${product?.baseSize}`;
+                            if (seen.has(key)) return false;
+                            seen.add(key);
+                            return true;
+                          });
+                        })()
+                        /* END TEMP */
+                          .map((product) => (
+                            <ProductCard
+                              key={product.id}
+                              product={product}
+                              onBook={handleBook}
+                            />
+                          ))}
+
+                        {index === lastCategoryIndex &&
+                          upcomingProducts.map((product) => (
+                            <UpcomingProductCard
+                              key={product.id}
+                              product={product}
+                              onBook={handleBook}
+                            />
+                          ))}
+
+                        {index === lastCategoryIndex && (
+                          <div className="col-lg-4 col-sm-6 mb-4 d-flex">
+                            <div className="card-m-01 enquiry-card">
+                              <h6>Want a Bespoke Headstone Design?</h6>
+                              <p className="mut">
+                                We craft custom memorial designs tailored to
+                                your vision. Share your requirements below and
+                                one of our headstone experts will get in touch
+                                to bring your design to life.
+                              </p>
+
+                              <BookingForm onSubmit={() => {}} />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </>
+              );
+            })()
           ) : (
             // ) : products?.length > 0 ? (
             //   products.map((product) => (
@@ -262,30 +298,6 @@ const Test = ({ products }) => {
           )}
         </div>
       </div>
-
-      <section id="upcoming" className="container py-5">
-        <div className="row justify-content-center">
-          <div className="col-lg-9">
-            <div className="heading-center p-b-40">
-              <h2 className="m-b-30">
-                <span>Arriving</span> Soon
-              </h2>
-
-              <p>NEW DESIGNS   |   LIMITED STOCKS   |   FIRST COME, FIRST SERVED</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          {upcomingProducts.map((product) => (
-            <UpcomingProductCard
-              key={product.id}
-              product={product}
-              onBook={handleBook}
-            />
-          ))}
-        </div>
-      </section>
 
       <section className="p-b-30">
         <div className="container">
@@ -406,6 +418,20 @@ const Test = ({ products }) => {
           font-size: 24px;
           font-weight: bold;
           text-transform: capitalize;
+          margin-bottom: 15px;
+        }
+        .enquiry-card {
+          width: 100%;
+        }
+        .enquiry-card h6 {
+          font-family: var(--font-sec) !important;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .enquiry-card .mut {
+          font-family: var(--font-sec) !important;
+          font-size: 14px;
+          color: #4a4a4a !important;
           margin-bottom: 15px;
         }
       `}</style>

@@ -108,7 +108,9 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
                 <div className='product-title m-b-30'>
                   <h1 className='m-b-15'>{product.title}</h1>
 
-                  <div dangerouslySetInnerHTML={{ __html: product.metaDescription }}></div>
+                  {/* <div dangerouslySetInnerHTML={{ __html: product.metaDescription  }}></div> */}
+                  <div dangerouslySetInnerHTML={{ __html: product.shortDescription ? product.shortDescription: product.metaDescription,}}></div>
+
                 </div>
                 {/* <div className='product-size-info '>
                   <ul>

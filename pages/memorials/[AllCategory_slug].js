@@ -73,6 +73,8 @@ const CategoryPage = ({ category, products, faq, error }) => {
 
   const displayShortDesc = primary.shortdescription || '';
 
+  const displaySectionDesc = primary.sectionDescription || primary.sectiondescription || '';
+
   const displayHeroImage = primary.image || primary.featuredimage || '';
 
 
@@ -134,6 +136,18 @@ const CategoryPage = ({ category, products, faq, error }) => {
           </div>
         </div>
       </div>
+
+      {displaySectionDesc && (
+        <section className='p-t-40'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-lg-12'>
+                <div dangerouslySetInnerHTML={{ __html: displaySectionDesc }} />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className='p-t-30'>
         <div className="container py-4 m-p-08">

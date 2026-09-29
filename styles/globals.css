@@ -2879,3 +2879,62 @@ position: absolute;
   border: 0;
   cursor: pointer;
 }
+
+/* NEW CSS CODE BY RAJNISH  */
+
+/* ── Blog CTA Block ── */
+
+  .blog-cta {
+  border-left: 5px solid #c85b00;
+  background-color: #f0f6ff;
+  border-radius: 0 6px 6px 0;
+  padding: 22px 28px 24px 28px;
+  margin: 28px 0;
+}
+.blog-cta .blog-cta__title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0d1117;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+.blog-cta .blog-cta__desc {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: #4a5568;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+.blog-cta .blog-cta__desc p {
+  margin: 0 0 0.5em 0;
+}
+.blog-cta .blog-cta__desc p:last-child {
+  margin-bottom: 0;
+}
+.blog-cta .blog-cta__desc ul, .blog-cta .blog-cta__desc ol {
+  margin: 0 0 0.5em 0;
+  padding-left: 1.5em;
+}
+.blog-cta .blog-cta__desc ul { list-style: disc; }
+.blog-cta .blog-cta__desc ol { list-style: decimal; }
+.blog-cta .blog-cta__desc a {
+  color: #c85b00;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.blog-cta .blog-cta__btn {
+  display: inline-block;
+  background-color: #c85b00;
+  color: #ffffff !important;
+  padding: 11px 22px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.blog-cta .blog-cta__btn:hover {
+  background-color: #0d47a1;
+  transform: translateY(-1px);
+}

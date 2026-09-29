@@ -2938,3 +2938,10 @@ position: absolute;
   background-color: #0d47a1;
   transform: translateY(-1px);
 }
+
+.blog-cta .author {
+  font-style: italic;
+  text-align: right;
+  font-size: 1rem;
+  font-weight:600;
+}

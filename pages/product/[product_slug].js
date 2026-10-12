@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 // import ImageMagnifier from '@/components/ImageMagnifier';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, } from 'reactstrap';
 import ModelBox from '@/components/ModelBox';
@@ -9,7 +10,75 @@ const getImageUrl = (img) =>
   img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/product-01.jpg';
 
 const getImageUrPartner = (img) =>
-  img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/headstones-pic.png'
+  img ? `${process.env.NEXT_PUBLIC_IMAGE}/${img}` : '/img/webpages/headstones-pic.png';
+
+/**
+ * Builds dynamic breadcrumb items for product page:
+ * - Home > Parent Category > Subcategory > Product Title
+ * - Home > Category > Product Title
+ */
+const buildBreadcrumbs = (product) => {
+  const items = [{ name: 'Home', url: '/' }];
+
+  const cat = product?.category;
+  const sub = product?.subcategory;
+
+  // Case 1: Both category and subcategory exist with distinct slugs
+  if (cat && sub && cat.slug && sub.slug && cat.slug !== sub.slug) {
+    items.push({
+      name: cat.title || 'Memorials',
+      url: `/${cat.slug}/`,
+    });
+    items.push({
+      name: sub.title,
+      url: `/${cat.slug}/${sub.slug}/`,
+    });
+  }
+  // Case 2: Category has a parent object
+  else if (cat && cat.parent && typeof cat.parent === 'object' && cat.parent.slug) {
+    items.push({
+      name: cat.parent.title || 'Memorials',
+      url: `/${cat.parent.slug}/`,
+    });
+    items.push({
+      name: cat.title,
+      url: `/${cat.parent.slug}/${cat.slug}/`,
+    });
+  }
+  // Case 3: Subcategory has a parent object
+  else if (sub && sub.parent && typeof sub.parent === 'object' && sub.parent.slug) {
+    items.push({
+      name: sub.parent.title || 'Memorials',
+      url: `/${sub.parent.slug}/`,
+    });
+    items.push({
+      name: sub.title,
+      url: `/${sub.parent.slug}/${sub.slug}/`,
+    });
+  }
+  // Case 4: Standalone / root category
+  else if (cat && cat.slug) {
+    items.push({
+      name: cat.title,
+      url: `/${cat.slug}/`,
+    });
+  }
+  // Case 5: Standalone subcategory fallback
+  else if (sub && sub.slug) {
+    items.push({
+      name: sub.title,
+      url: `/${sub.slug}/`,
+    });
+  }
+
+  // Active item: Product title
+  items.push({
+    name: product?.title || product?.Title || 'Product Details',
+    url: null,
+  });
+
+  return items;
+};
 
 const ProductPage = ({ product, relatedProducts, specifications, error }) => {
   if (error) {
@@ -40,6 +109,20 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
     if (img.startsWith('http')) return img;
     return `${process.env.NEXT_PUBLIC_IMAGE.replace(/\/$/, '')}/${img.replace(/^\//, '')}`;
   };
+
+  const breadcrumbItems = buildBreadcrumbs(product);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.stonediscover.co.uk/';
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      ...(item.url ? { item: `${siteUrl.replace(/\/$/, '')}${item.url}` } : {}),
+    })),
+  };
+
   return (
     <>
       <Head>
@@ -54,9 +137,13 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
           property="og:image"
           content={
             product.featuredimage
-              ? CanImageUrl(product.featuredimage)
-              : `${process.env.NEXT_PUBLIC_SITE_URL}img/stone-og-inne.jpeg`
+                ? CanImageUrl(product.featuredimage)
+                : `${process.env.NEXT_PUBLIC_SITE_URL}img/stone-og-inne.jpeg`
           }
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
         {product.schema &&
           product.schema.map((scriptContent, index) => (
@@ -72,12 +159,24 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
           <div className='col-lg-12'>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="/memorials/">Memorial Stones</a></li>
-                <li className="breadcrumb-item"><a href={`/memorials/${product.category.slug}/`}>{product.category.title}</a></li>
-                <li className="breadcrumb-item active" aria-current="page">{product.Title || product.title}</li>
+                {breadcrumbItems.map((item, index) => {
+                  const isLast = index === breadcrumbItems.length - 1;
+                  return (
+                    <li
+                      key={index}
+                      className={`breadcrumb-item${isLast ? ' active' : ''}`}
+                      {...(isLast ? { 'aria-current': 'page' } : {})}
+                    >
+                      {isLast || !item.url ? (
+                        <span>{item.name}</span>
+                      ) : (
+                        <Link href={item.url}>{item.name}</Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ol>
             </nav>
-
           </div>
         </div>
       </div>

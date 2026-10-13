@@ -75,9 +75,17 @@ useEffect(() => {
 
   ];
 
-  const validFaqList = faqList?.filter(
-    item => item.title?.trim() && item.description?.trim()
-  );
+  const validFaqList = Array.isArray(faqList)
+    ? faqList
+        .map((item) => {
+          if (!item) return null;
+          const title = (item.title || item.question || '').toString().trim();
+          const description = (item.description || item.answer || '').toString().trim();
+          if (!title || !description) return null;
+          return { title, description };
+        })
+        .filter(Boolean)
+    : [];
 
   const items = validFaqList && validFaqList.length > 0 ? validFaqList : defaultFaqs;
 

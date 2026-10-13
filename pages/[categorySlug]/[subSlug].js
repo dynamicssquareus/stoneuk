@@ -11,7 +11,6 @@ import {
   AccordionItem,
 } from 'reactstrap';
 import ModelBox from '@/components/ModelBox';
-import FaqAccordionComon from '@/components/FaqAccordionComon';
 
 /* ─── Helpers ──────────────────────────────────────────────── */
 const BASE_IMAGE = process.env.NEXT_PUBLIC_IMAGE || '';
@@ -293,7 +292,7 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
                     <AccordionItem>
                       <AccordionHeader targetId="1">
                         <div className="d-flex justify-content-between align-items-center w-100">
-                          <h3><img src="/img/icons/faq-icon-01.png" alt="faq-icon" />Direct Manufacturer Advantage</h3>
+                          <h3><img src="/img/icons/faq-icon-01.png" alt="Direct Manufacturer Advantage" />Direct Manufacturer Advantage</h3>
                         </div>
                       </AccordionHeader>
                       <AccordionBody accordionId="1">
@@ -309,7 +308,7 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
                     <AccordionItem>
                       <AccordionHeader targetId="2">
                         <div className="d-flex justify-content-between align-items-center w-100">
-                          <h3><img src="/img/icons/faq-icon-02.png" alt="faq-icon" />Consistent Quality, Every Time</h3>
+                          <h3><img src="/img/icons/faq-icon-02.png" alt="Consistent Quality, Every Time" />Consistent Quality, Every Time</h3>
                         </div>
                       </AccordionHeader>
                       <AccordionBody accordionId="2">
@@ -319,7 +318,7 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
                     <AccordionItem>
                       <AccordionHeader targetId="3">
                         <div className="d-flex justify-content-between align-items-center w-100">
-                          <h3><img src="/img/icons/faq-icon-03.png" alt="faq-icon" />Bespoke Designs</h3>
+                          <h3><img src="/img/icons/faq-icon-03.png" alt="Bespoke Designs" />Bespoke Designs</h3>
                         </div>
                       </AccordionHeader>
                       <AccordionBody accordionId="3">
@@ -329,7 +328,7 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
                     <AccordionItem>
                       <AccordionHeader targetId="4">
                         <div className="d-flex justify-content-between align-items-center w-100">
-                          <h3><img src="/img/icons/faq-icon-04.png" alt="faq-icon" />Seamless Logistics &amp; Delivery</h3>
+                          <h3><img src="/img/icons/faq-icon-04.png" alt="Seamless Logistics & Delivery" />Seamless Logistics &amp; Delivery</h3>
                         </div>
                       </AccordionHeader>
                       <AccordionBody accordionId="4">
@@ -362,25 +361,6 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
         </div>
       </section>
 
-      {/* ── Dynamic FAQ Section ── */}
-      {subcategoryFaqs && subcategoryFaqs.length > 0 && (
-        <section className="faq-section p-t-60 p-b-40">
-          <div className="container bottom-form">
-            <div className="row justify-content-center">
-              <div className="col-lg-9">
-                <div className="heading-center p-b-40">
-                  <h2 className="m-b-30">Frequently Asked <span>Questions</span></h2>
-                </div>
-              </div>
-            </div>
-            <div className="row bg-gray justify-content-center">
-              <div className="col-lg-10">
-                <FaqAccordionComon faqList={subcategoryFaqs} categoryData={subcategory} />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── CTA Section ── */}
       <section className="p-t-20">

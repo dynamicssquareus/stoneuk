@@ -100,7 +100,8 @@ const Footer = ({ faq }) => {
                             </div>
                             <div className="col-lg-4 col-md-12 footer-contact text-center text-md-start">
                                 <h4>Useful info</h4>
-                                {/* <p><b>Office:</b> 1116, JMD Megapolis, Sector 48, Gurugram, Haryana 122018.</p> */}
+                                <p><b>Office:</b> 124 City Road, London, EC1V 2NX </p>
+                                <p><b>Phone:</b> +44 161 394 1594</p>
                                 <p><b>Working Time:</b> Mon-Sat: 8 AM - 5 PM</p>
                                 <p><b>Email:</b> info@stonediscover.co.uk</p>
                                 {/* <FormSubscribe /> */}
@@ -112,7 +113,7 @@ const Footer = ({ faq }) => {
                 </div>
                 <div className='bottom-footer'>
                     <div className="container">
-                        <div className="copyright">© Copyright 2026 Stonediscover UK, Inc. All rights reserved. Various trademarks held by their respective owners.</div>
+                        <div className="copyright">© Copyright 2026 Stone Discover UK Limited. All rights reserved. Various trademarks are held by their respective owners.</div>
                     </div>
                 </div>
             </footer>

@@ -119,9 +119,12 @@ const CategoryPage = ({ category, products, subcategories, faq, error }) => {
   const displayDescription = category.description?.trim() || '';
   const canonicalUrl = `${BASE_SITE}${category.slug}/`;
 
-  const categoryFaqs = (faq && Array.isArray(faq) && faq.length > 0)
+  const rawFaqs = (faq && Array.isArray(faq) && faq.length > 0)
     ? faq
     : (Array.isArray(category?.faqs) ? category.faqs : []);
+  const categoryFaqs = rawFaqs.filter(
+    (f) => f && (f.title || f.question) && (f.description || f.answer)
+  );
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

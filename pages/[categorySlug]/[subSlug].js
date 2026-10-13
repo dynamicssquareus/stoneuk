@@ -91,11 +91,14 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) 
   const displaySectionDesc = subcategory.sectionDescription || subcategory.sectiondescription || '';
   const displayDescription = subcategory.description?.trim() || '';
 
-  const subcategoryFaqs = (faq && Array.isArray(faq) && faq.length > 0)
+  const rawSubFaqs = (faq && Array.isArray(faq) && faq.length > 0)
     ? faq
     : (Array.isArray(subcategory?.faqs) && subcategory.faqs.length > 0
       ? subcategory.faqs
       : (Array.isArray(parentCategory?.faqs) ? parentCategory.faqs : []));
+  const subcategoryFaqs = rawSubFaqs.filter(
+    (f) => f && (f.title || f.question) && (f.description || f.answer)
+  );
 
   // Canonical: /[parentSlug]/[subSlug]/  — fully dynamic, no hardcoded "memorials"
   const canonicalUrl = parentCategory

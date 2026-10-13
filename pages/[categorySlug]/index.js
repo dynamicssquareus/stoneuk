@@ -11,6 +11,7 @@ import {
   AccordionItem,
 } from 'reactstrap';
 import ModelBox from '@/components/ModelBox';
+import FaqAccordionComon from '@/components/FaqAccordionComon';
 
 /* ─── Helpers ──────────────────────────────────────────────── */
 const BASE_IMAGE = process.env.NEXT_PUBLIC_IMAGE || '';
@@ -97,7 +98,7 @@ function ProductGrid({ products }) {
 /* ═══════════════════════════════════════════════════════════ */
 /*  PAGE COMPONENT                                             */
 /* ═══════════════════════════════════════════════════════════ */
-const CategoryPage = ({ category, products, subcategories, error }) => {
+const CategoryPage = ({ category, products, subcategories, faq, error }) => {
   if (error)     return <p className="text-danger container py-5">{error}</p>;
   if (!category) return <p className="text-warning container py-5">Category not found.</p>;
 
@@ -117,6 +118,10 @@ const CategoryPage = ({ category, products, subcategories, error }) => {
   const displaySectionDesc = category.sectionDescription || category.sectiondescription || '';
   const displayDescription = category.description?.trim() || '';
   const canonicalUrl = `${BASE_SITE}${category.slug}/`;
+
+  const categoryFaqs = (faq && Array.isArray(faq) && faq.length > 0)
+    ? faq
+    : (Array.isArray(category?.faqs) ? category.faqs : []);
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -142,6 +147,27 @@ const CategoryPage = ({ category, products, subcategories, error }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        {categoryFaqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: categoryFaqs
+                  .filter((f) => (f.title || f.question) && (f.description || f.answer))
+                  .map((f) => ({
+                    '@type': 'Question',
+                    name: f.title || f.question,
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: (f.description || f.answer).replace(/<[^>]+>/g, ''),
+                    },
+                  })),
+              }),
+            }}
+          />
+        )}
         {Array.isArray(category.schemaMarkup) &&
           category.schemaMarkup.map((s, i) => {
             try { JSON.parse(s); } catch { return null; }
@@ -346,6 +372,26 @@ const CategoryPage = ({ category, products, subcategories, error }) => {
         </div>
       </section>
 
+      {/* ── Dynamic FAQ Section ── */}
+      {categoryFaqs && categoryFaqs.length > 0 && (
+        <section className="faq-section p-t-60 p-b-40">
+          <div className="container bottom-form">
+            <div className="row justify-content-center">
+              <div className="col-lg-9">
+                <div className="heading-center p-b-40">
+                  <h2 className="m-b-30">Frequently Asked <span>Questions</span></h2>
+                </div>
+              </div>
+            </div>
+            <div className="row bg-gray justify-content-center">
+              <div className="col-lg-10">
+                <FaqAccordionComon faqList={categoryFaqs} categoryData={category} />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── CTA Section ── */}
       <section className="p-t-20">
         <div className="container">
@@ -465,6 +511,7 @@ export async function getStaticProps({ params }) {
         category,
         products:      products      || [],
         subcategories: subcategories || [],
+        faq:           category?.faqs || null,
       },
       revalidate: 60,
     };

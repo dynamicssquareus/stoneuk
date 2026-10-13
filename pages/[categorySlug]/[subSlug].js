@@ -11,6 +11,7 @@ import {
   AccordionItem,
 } from 'reactstrap';
 import ModelBox from '@/components/ModelBox';
+import FaqAccordionComon from '@/components/FaqAccordionComon';
 
 /* ─── Helpers ──────────────────────────────────────────────── */
 const BASE_IMAGE = process.env.NEXT_PUBLIC_IMAGE || '';
@@ -71,7 +72,7 @@ function ProductGrid({ products }) {
 /* ═══════════════════════════════════════════════════════════ */
 /*  PAGE COMPONENT                                             */
 /* ═══════════════════════════════════════════════════════════ */
-const SubCategoryPage = ({ parentCategory, subcategory, products, error }) => {
+const SubCategoryPage = ({ parentCategory, subcategory, products, faq, error }) => {
   if (error)        return <p className="text-danger container py-5">{error}</p>;
   if (!subcategory) return <p className="text-warning container py-5">Subcategory not found.</p>;
 
@@ -89,6 +90,12 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, error }) => {
 
   const displaySectionDesc = subcategory.sectionDescription || subcategory.sectiondescription || '';
   const displayDescription = subcategory.description?.trim() || '';
+
+  const subcategoryFaqs = (faq && Array.isArray(faq) && faq.length > 0)
+    ? faq
+    : (Array.isArray(subcategory?.faqs) && subcategory.faqs.length > 0
+      ? subcategory.faqs
+      : (Array.isArray(parentCategory?.faqs) ? parentCategory.faqs : []));
 
   // Canonical: /[parentSlug]/[subSlug]/  — fully dynamic, no hardcoded "memorials"
   const canonicalUrl = parentCategory
@@ -122,6 +129,27 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, error }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        {subcategoryFaqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: subcategoryFaqs
+                  .filter((f) => (f.title || f.question) && (f.description || f.answer))
+                  .map((f) => ({
+                    '@type': 'Question',
+                    name: f.title || f.question,
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: (f.description || f.answer).replace(/<[^>]+>/g, ''),
+                    },
+                  })),
+              }),
+            }}
+          />
+        )}
         {Array.isArray(subcategory.schemaMarkup) &&
           subcategory.schemaMarkup.map((s, i) => {
             try { JSON.parse(s); } catch { return null; }
@@ -331,6 +359,26 @@ const SubCategoryPage = ({ parentCategory, subcategory, products, error }) => {
         </div>
       </section>
 
+      {/* ── Dynamic FAQ Section ── */}
+      {subcategoryFaqs && subcategoryFaqs.length > 0 && (
+        <section className="faq-section p-t-60 p-b-40">
+          <div className="container bottom-form">
+            <div className="row justify-content-center">
+              <div className="col-lg-9">
+                <div className="heading-center p-b-40">
+                  <h2 className="m-b-30">Frequently Asked <span>Questions</span></h2>
+                </div>
+              </div>
+            </div>
+            <div className="row bg-gray justify-content-center">
+              <div className="col-lg-10">
+                <FaqAccordionComon faqList={subcategoryFaqs} categoryData={subcategory} />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── CTA Section ── */}
       <section className="p-t-20">
         <div className="container">
@@ -505,6 +553,7 @@ export async function getStaticProps({ params }) {
         parentCategory,
         subcategory,
         products: products || [],
+        faq: subcategory?.faqs || parentCategory?.faqs || null,
       },
       revalidate: 60,
     };

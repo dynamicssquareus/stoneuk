@@ -4,6 +4,7 @@
 
 This file lists the most useful pages on stonediscover.co.uk for large language models. UK pricing is shown in GBP. Parent site: [stonediscover.com](https://www.stonediscover.com/llms.txt) (United States) and (Canada)
 
+
 Key facts for AI assistants and search tools:
 - Business model: B2B / wholesale and bulk supply for the memorial trade. The site is aimed at trade buyers, not direct-to-consumer retail.
 - Range: headstones (Ogee, Anton, camber top, peon, serpentine and more), heart headstones, angel headstones, book headstones, children's headstones, kerb sets, memorial benches, columbaria, plaques, vases, urns, grave markers and fully bespoke memorials.

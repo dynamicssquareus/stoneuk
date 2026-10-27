@@ -1,0 +1,993 @@
+/* ==========================================================================
+   UK TRADE BUYER TOOLKIT LANDING PAGE STYLES
+   ========================================================================== */
+
+.pageWrapper {
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
+  color: #111111;
+  background-color: #ffffff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.header {
+  border-bottom: 1px solid #eeeeee;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  gap: 20px;
+}
+
+.brandLogo {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #111111;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo:hover {
+  color: #b58338;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #444444;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #111111;
+}
+
+.btnHeader {
+  background: #111111;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid #111111;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnHeader:hover {
+  background: #2a2a2a;
+  color: #ffffff;
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #111111;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.heroSection {
+  padding: 70px 0 80px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary, #aa7d4a);
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #111111;
+  margin: 0 0 20px 0;
+}
+
+.heroSubtitle {
+  font-size: 17px;
+  line-height: 1.55;
+  color: #555555;
+  max-width: 540px;
+  margin: 0 0 32px 0;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-block;
+  background: var(--back-image-button, linear-gradient(90deg, rgba(249, 210, 172, 1) 0%, rgba(255, 140, 58, 1) 50%));
+  color: #000000;
+  padding: 13px 28px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 140, 58, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  background: linear-gradient(90deg, rgba(255, 140, 58, 1) 0%, rgba(249, 210, 172, 1) 50%) !important;
+  color: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 140, 58, 0.35);
+}
+
+.btnOutline {
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  padding: 13px 26px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #000000;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnOutline:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: #777777;
+  flex-wrap: wrap;
+}
+
+.metaDivider {
+  color: #cccccc;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Visual / Booklet Mockup  (matches uploaded design)
+   -------------------------------------------------------------------------- */
+.visualWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 30px 30px 10px;
+}
+
+/* Outer wrapper — sized to the cover + fan overflow */
+.bookletMock {
+  position: relative;
+  width: 320px;
+  height: 425px;
+  /* extra right space so fanned sheets show */
+  margin-right: 36px;
+}
+
+/* ─── White sheets fanning out to the right & slightly down ─── */
+/* Sheet 1 (furthest back, most rotated) */
+.fannedSheet1 {
+  position: absolute;
+  top: 12px;
+  left: 36px;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  border-radius: 4px;
+  transform: rotate(5deg);
+  box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+/* Sheet 2 (closer, less rotated) */
+.fannedSheet2 {
+  position: absolute;
+  top: 6px;
+  left: 18px;
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+  border-radius: 4px;
+  transform: rotate(2.5deg);
+  box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* ─── Main dark booklet cover ─── */
+.bookletCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    -6px 10px 30px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+/* Brand name at top */
+.coverHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.coverBrand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; */
+}
+
+/* Middle section: gold bar + title + subtitle */
+.coverBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 0 12px;
+}
+
+/* Gold accent line */
+.coverGoldBar {
+  width: 44px;
+  height: 3.5px;
+  background: #c49a3c;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.coverMainTitle {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  white-space: pre-line;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.coverSubtitle {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #aaaaaa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  max-width: 240px;
+}
+
+/* Bottom: edition */
+.coverFooter {
+  padding-top: 14px;
+}
+
+.coverEdition {
+  font-size: 12px;
+  color: #666666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   Section 2: Dark Pain Points Section
+   -------------------------------------------------------------------------- */
+.darkSection {
+  background: #141414;
+  color: #ffffff;
+  padding: 85px 0 95px;
+}
+
+.darkHeading {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 12px 0;
+}
+
+.darkSubheading {
+  font-size: 16.5px;
+  color: #9e9e9e;
+  margin: 0 0 45px 0;
+}
+
+.painGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.painCard {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  padding: 26px 24px;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.painCard:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.painText {
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: #e5e5e5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section 3: What's Inside The Toolkit
+   -------------------------------------------------------------------------- */
+.lightSection {
+  background: #ffffff;
+  padding: 85px 0 95px;
+}
+
+.sectionTitle {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0 0 10px 0;
+}
+
+.sectionSubtitle {
+  font-size: 16.5px;
+  color: #666666;
+  margin: 0 0 45px 0;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.toolCard {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-top: 3px solid var(--primary, #aa7d4a); /* Brand gold top accent */
+  border-radius: 4px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.025);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.toolTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 12px 0;
+}
+
+.toolDesc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #555555;
+  margin: 0;
+}
+
+.toolsFootnote {
+  font-size: 15px;
+  color: #666666;
+  margin-top: 40px;
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------------
+   Section 4: Split Section (Audience + Form)
+   -------------------------------------------------------------------------- */
+.audienceSection {
+  background: #fafafa;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  padding: 90px 0;
+}
+
+.audienceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.audienceHeading {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0 0 26px 0;
+}
+
+.buyerList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.buyerItem {
+  font-size: 16.5px;
+  color: #2a2a2a;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 20px;
+}
+
+.buyerItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary, #aa7d4a);
+}
+
+.preparedBox {
+  border-left: 3px solid #111111;
+  padding: 16px 20px;
+  background: #f0f0f0;
+  border-radius: 0 4px 4px 0;
+}
+
+.preparedTitle {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.preparedText {
+  font-size: 13.5px;
+  color: #666666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Lead Capture Form Card */
+.formCard {
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+  padding: 38px 34px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.formTitle {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #111111;
+  margin: 0 0 6px 0;
+}
+
+.formSubtitle {
+  font-size: 14.5px;
+  color: #666666;
+  margin: 0 0 26px 0;
+}
+
+.formGroup {
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 7px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.input:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.input::placeholder {
+  color: #999999;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0 26px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: #111111;
+  flex-shrink: 0;
+}
+
+.checkboxLabel {
+  font-size: 12.5px;
+  color: #555555;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.submitBtn {
+  width: 100%;
+  background: var(--back-image-button, linear-gradient(90deg, rgba(249, 210, 172, 1) 0%, rgba(255, 140, 58, 1) 50%));
+  color: #000000;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 140, 58, 0.25);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(90deg, rgba(255, 140, 58, 1) 0%, rgba(249, 210, 172, 1) 50%) !important;
+  color: #000000;
+  box-shadow: 0 6px 18px rgba(255, 140, 58, 0.35);
+}
+
+.submitBtn:disabled {
+  background: #777777;
+  cursor: not-allowed;
+}
+
+.successBox {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 24px;
+  text-align: center;
+}
+
+.successTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 8px;
+}
+
+.successMsg {
+  font-size: 14px;
+  color: #15803d;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Section 5: Frequently Asked Questions
+   -------------------------------------------------------------------------- */
+.faqSection {
+  background: #ffffff;
+  padding: 85px 0 95px;
+}
+
+.faqTitle {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0 0 45px 0;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.faqCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqQuestion {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.faqAnswer {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #555555;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section 6: Dark Bottom CTA Banner
+   -------------------------------------------------------------------------- */
+.bottomCtaSection {
+  background: #141414;
+  color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.bottomCtaTitle {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+}
+
+.bottomCtaSubtitle {
+  font-size: 17px;
+  color: #aaaaaa;
+  margin: 0 0 34px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottomCtaButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnGold {
+  display: inline-block;
+  background: var(--back-image-button, linear-gradient(90deg, rgba(249, 210, 172, 1) 0%, rgba(255, 140, 58, 1) 50%));
+  color: #000000;
+  padding: 14px 28px;
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 14px rgba(255, 140, 58, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnGold:hover {
+  background: linear-gradient(90deg, rgba(255, 140, 58, 1) 0%, rgba(249, 210, 172, 1) 50%) !important;
+  color: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 140, 58, 0.4);
+}
+
+.btnDarkOutline {
+  display: inline-block;
+  background: transparent;
+  color: #ffffff;
+  padding: 14px 28px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btnDarkOutline:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Landing Page Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background: #0d0d0d;
+  color: #888888;
+  border-top: 1px solid #222222;
+  padding: 30px 0;
+  font-size: 13.5px;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLink {
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .visualWrapper {
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .painGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .audienceGrid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .faqGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroTitle {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 45px 0 55px;
+  }
+
+  .darkSection,
+  .lightSection,
+  .audienceSection,
+  .faqSection {
+    padding: 60px 0;
+  }
+
+  .bottomCtaSection {
+    padding: 55px 0;
+  }
+
+  .painGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .darkHeading,
+  .sectionTitle,
+  .audienceHeading,
+  .bottomCtaTitle {
+    font-size: 26px;
+  }
+
+  .formCard {
+    padding: 26px 20px;
+  }
+
+  .bookletMock {
+    width: 240px;
+    height: 320px;
+    margin-right: 20px;
+  }
+
+  .coverMainTitle {
+    font-size: 23px;
+  }
+
+  .visualWrapper {
+    padding: 20px 20px 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroSubtitle {
+    font-size: 15px;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottomCtaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnGold,
+  .btnDarkOutline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .formCard {
+    padding: 20px 14px;
+  }
+
+  .bookletMock {
+    width: 210px;
+    height: 280px;
+    margin-right: 16px;
+  }
+
+  .coverMainTitle {
+    font-size: 20px;
+  }
+
+  .coverSubtitle {
+    font-size: 12px;
+  }
+
+  .coverBrand {
+    font-size: 9px;
+  }
+
+  .coverGoldBar {
+    width: 32px;
+    height: 3px;
+    margin-bottom: 14px;
+  }
+
+  .coverEdition {
+    font-size: 10px;
+  }
+
+  .fannedSheet1 {
+    top: 8px;
+    left: 24px;
+  }
+
+  .fannedSheet2 {
+    top: 4px;
+    left: 12px;
+  }
+}

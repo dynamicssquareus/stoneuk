@@ -136,6 +136,7 @@ const Nav = () => {
               <li><a href="/blog/">Blogs</a></li>
               <li><a href="/variety-of-granites/">Variety of granite</a></li>
               <li><a href="/metal-urns/">Metal Urns</a></li>
+              <li><a href="/trade-buyer-toolkit/">Trade Buyer Toolkit</a></li>
             </ul>
           </li>
           <li><a className="nav-link scrollto" href="/about-us/">About Us</a></li>
@@ -214,6 +215,7 @@ const Nav = () => {
                 <li><a className="nav-link" href="/about-us/">About US</a></li>
                 <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
               <li><a className="nav-link" href="/metal-urns/">Metal Urns</a></li>
+              <li><a className="nav-link" href="/trade-buyer-toolkit/">Trade Buyer Toolkit</a></li>
               <li><a className="nav-link" href="/photo-gallery/">Photo Gallery</a></li>
                 <li><a className="nav-link" href="/blog/">Blogs</a></li>
                 <li><a className="nav-link" href="/catalog-download/">Catalog</a></li>

@@ -219,7 +219,7 @@ export default function TradeBuyerToolkit({ apiData }) {
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          message: `Interested in buying: ${formData.interest || 'Not specified'}`,
+          message: formData.interest || 'Not specified',
           page_url: typeof window !== 'undefined' ? window.location.href : '',
         }),
       }).catch((err) => console.log('Lead capture logging (non-fatal):', err.message));

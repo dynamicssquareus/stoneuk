@@ -126,42 +126,286 @@ const DEFAULT_DATA = {
   },
 };
 
-/* ─── Merge Helper for API vs Static Data ─── */
-function mergeWithDefaults(defaults, api) {
-  if (!api || typeof api !== 'object') return defaults;
+ 
+const cleanStr = (val, fallback = '') =>
+  typeof val === 'string' && val.trim() ? val.trim() : fallback;
+
+function mergeWithDefaults(defaults, incomingApi) {
+ 
+  if (
+    !incomingApi ||
+    typeof incomingApi !== 'object' ||
+    incomingApi.message ||
+    incomingApi.error
+  ) {
+    return defaults;
+  }
+
+   
+  const api =
+    incomingApi.data && typeof incomingApi.data === 'object' && !Array.isArray(incomingApi.data)
+      ? incomingApi.data
+      : incomingApi.toolkit && typeof incomingApi.toolkit === 'object'
+        ? incomingApi.toolkit
+        : incomingApi.result && typeof incomingApi.result === 'object'
+          ? incomingApi.result
+          : incomingApi;
+ 
+  if (
+    !api ||
+    (!api.hero &&
+      !api.painPointsSection &&
+      !api.toolsSection &&
+      !api.audienceSection &&
+      !api.bottomCta &&
+      !api.tools &&
+      !api.painPoints)
+  ) {
+    return defaults;
+  }
+
+  // 1. Meta
+  const meta = {
+    title: cleanStr(
+      api.meta?.title || api.metaTitle || api.meta_title || api.title,
+      defaults.meta.title
+    ),
+    description: cleanStr(
+      api.meta?.description || api.metaDescription || api.meta_description || api.description,
+      defaults.meta.description
+    ),
+  };
+
+  // 2. Hero
+  const hero = {
+    badge: cleanStr(
+      api.hero?.badge || api.heroBadge || api.badge || api.bannerBadge,
+      defaults.hero.badge
+    ),
+    title: cleanStr(
+      api.hero?.title || api.heroTitle || api.hero_title || api.title || api.heading,
+      defaults.hero.title
+    ),
+    subtitle: cleanStr(
+      api.hero?.subtitle || api.heroSubtitle || api.hero_subtitle || api.subtitle || api.subheading || api.description,
+      defaults.hero.subtitle
+    ),
+    metaText: cleanStr(
+      api.hero?.metaText || api.metaText || api.heroMetaText,
+      defaults.hero.metaText
+    ),
+    booklet: {
+      brand: cleanStr(
+        api.hero?.booklet?.brand || api.bookletBrand || api.brand,
+        defaults.hero.booklet.brand
+      ),
+      title: cleanStr(
+        api.hero?.booklet?.title || api.bookletTitle,
+        defaults.hero.booklet.title
+      ),
+      subtitle: cleanStr(
+        api.hero?.booklet?.subtitle || api.bookletSubtitle,
+        defaults.hero.booklet.subtitle
+      ),
+      edition: cleanStr(
+        api.hero?.booklet?.edition || api.bookletEdition || api.edition,
+        defaults.hero.booklet.edition
+      ),
+      checklistTitle: cleanStr(
+        api.hero?.booklet?.checklistTitle || api.checklistTitle,
+        defaults.hero.booklet.checklistTitle
+      ),
+      checklistItems:
+        Array.isArray(api.hero?.booklet?.checklistItems) &&
+        api.hero.booklet.checklistItems.filter((i) => cleanStr(i)).length > 0
+          ? api.hero.booklet.checklistItems.filter((i) => cleanStr(i))
+          : defaults.hero.booklet.checklistItems,
+    },
+  };
+
+  // 3. Pain Points Section
+  const rawPainItems =
+    api.painPointsSection?.items ||
+    api.painPoints ||
+    api.pain_points ||
+    api.problems ||
+    api.avoidItems ||
+    api.avoid_items;
+
+  let validPainItems = [];
+  if (Array.isArray(rawPainItems)) {
+    validPainItems = rawPainItems
+      .map((item, idx) => {
+        const text = cleanStr(
+          typeof item === 'string'
+            ? item
+            : item?.text ||
+              item?.title ||
+              item?.point ||
+              item?.name ||
+              item?.description ||
+              item?.heading
+        );
+        return text ? { id: item?.id || item?._id || idx + 1, text } : null;
+      })
+      .filter(Boolean);
+  }
+
+  const painPointsSection = {
+    heading: cleanStr(
+      api.painPointsSection?.heading || api.painPointsHeading || api.painHeading,
+      defaults.painPointsSection.heading
+    ),
+    subheading: cleanStr(
+      api.painPointsSection?.subheading || api.painPointsSubheading,
+      defaults.painPointsSection.subheading
+    ),
+    items: validPainItems.length > 0 ? validPainItems : defaults.painPointsSection.items,
+  };
+
+  // 4. Tools Section
+  const rawTools =
+    api.toolsSection?.tools ||
+    api.tools ||
+    api.features ||
+    api.toolkitItems ||
+    api.items;
+
+  let validTools = [];
+  if (Array.isArray(rawTools)) {
+    validTools = rawTools
+      .map((tool, idx) => {
+        const title = cleanStr(tool?.title || tool?.name || tool?.heading);
+        const description = cleanStr(
+          tool?.description ||
+          tool?.desc ||
+          tool?.content ||
+          tool?.details ||
+          tool?.subheading
+        );
+        return title || description
+          ? { id: tool?.id || tool?._id || idx + 1, title, description }
+          : null;
+      })
+      .filter(Boolean);
+  }
+
+  const toolsSection = {
+    heading: cleanStr(
+      api.toolsSection?.heading || api.toolsHeading || api.sectionTitle,
+      defaults.toolsSection.heading
+    ),
+    subheading: cleanStr(
+      api.toolsSection?.subheading || api.toolsSubheading,
+      defaults.toolsSection.subheading
+    ),
+    tools: validTools.length > 0 ? validTools : defaults.toolsSection.tools,
+    footnote: cleanStr(
+      api.toolsSection?.footnote || api.toolsFootnote || api.footnote,
+      defaults.toolsSection.footnote
+    ),
+  };
+
+  // 5. Audience Section
+  const rawBuyers =
+    api.audienceSection?.buyers ||
+    api.buyers ||
+    api.audience ||
+    api.targetAudience;
+
+  let validBuyers = [];
+  if (Array.isArray(rawBuyers)) {
+    validBuyers = rawBuyers
+      .map((buyer) =>
+        cleanStr(
+          typeof buyer === 'string'
+            ? buyer
+            : buyer?.title || buyer?.name || buyer?.text || buyer?.role
+        )
+      )
+      .filter(Boolean);
+  }
+
+  const audienceSection = {
+    heading: cleanStr(
+      api.audienceSection?.heading || api.audienceHeading || api.audience_heading,
+      defaults.audienceSection.heading
+    ),
+    buyers: validBuyers.length > 0 ? validBuyers : defaults.audienceSection.buyers,
+    preparedBy: {
+      team: cleanStr(
+        api.audienceSection?.preparedBy?.team || api.preparedByTeam || api.preparedBy?.team,
+        defaults.audienceSection.preparedBy.team
+      ),
+      note: cleanStr(
+        api.audienceSection?.preparedBy?.note || api.preparedByNote || api.preparedBy?.note,
+        defaults.audienceSection.preparedBy.note
+      ),
+    },
+  };
+
+  // 6. Form
+  const form = {
+    title: cleanStr(api.form?.title || api.formTitle, defaults.form.title),
+    subtitle: cleanStr(api.form?.subtitle || api.formSubtitle, defaults.form.subtitle),
+    buttonText: cleanStr(
+      api.form?.buttonText || api.formButtonText,
+      defaults.form.buttonText
+    ),
+    privacyText: cleanStr(
+      api.form?.privacyText || api.privacyText,
+      defaults.form.privacyText
+    ),
+    downloadUrl: cleanStr(
+      api.form?.downloadUrl || api.downloadUrl || api.pdfUrl || api.pdf_url || api.fileUrl,
+      defaults.form.downloadUrl
+    ),
+  };
+
+  // 7. FAQs
+  const rawFaqs = api.faqs || api.faq || api.questions;
+  let validFaqs = [];
+  if (Array.isArray(rawFaqs)) {
+    validFaqs = rawFaqs
+      .map((f) => {
+        const question = cleanStr(f?.question || f?.q || f?.title || f?.heading);
+        const answer = cleanStr(f?.answer || f?.a || f?.description || f?.desc || f?.content);
+        return question && answer ? { question, answer } : null;
+      })
+      .filter(Boolean);
+  }
+
+  const faqs = validFaqs.length > 0 ? validFaqs : defaults.faqs;
+
+  // 8. Bottom CTA
+  const bottomCta = {
+    heading: cleanStr(
+      api.bottomCta?.heading || api.bottomCtaHeading || api.ctaHeading,
+      defaults.bottomCta.heading
+    ),
+    subheading: cleanStr(
+      api.bottomCta?.subheading || api.bottomCtaSubheading || api.ctaSubheading,
+      defaults.bottomCta.subheading
+    ),
+    primaryBtnText: cleanStr(
+      api.bottomCta?.primaryBtnText || api.bottomCtaPrimaryBtn,
+      defaults.bottomCta.primaryBtnText
+    ),
+    secondaryBtnText: cleanStr(
+      api.bottomCta?.secondaryBtnText || api.bottomCtaSecondaryBtn,
+      defaults.bottomCta.secondaryBtnText
+    ),
+  };
+
   return {
-    meta: { ...defaults.meta, ...(api.meta || {}) },
-    hero: {
-      ...defaults.hero,
-      ...(api.hero || {}),
-      booklet: {
-        ...defaults.hero.booklet,
-        ...(api.hero?.booklet || {}),
-        checklistItems: api.hero?.booklet?.checklistItems || defaults.hero.booklet.checklistItems,
-      },
-    },
-    painPointsSection: {
-      ...defaults.painPointsSection,
-      ...(api.painPointsSection || {}),
-      items: api.painPointsSection?.items?.length ? api.painPointsSection.items : defaults.painPointsSection.items,
-    },
-    toolsSection: {
-      ...defaults.toolsSection,
-      ...(api.toolsSection || {}),
-      tools: api.toolsSection?.tools?.length ? api.toolsSection.tools : defaults.toolsSection.tools,
-    },
-    audienceSection: {
-      ...defaults.audienceSection,
-      ...(api.audienceSection || {}),
-      buyers: api.audienceSection?.buyers?.length ? api.audienceSection.buyers : defaults.audienceSection.buyers,
-      preparedBy: {
-        ...defaults.audienceSection.preparedBy,
-        ...(api.audienceSection?.preparedBy || {}),
-      },
-    },
-    form: { ...defaults.form, ...(api.form || {}) },
-    faqs: api.faqs?.length ? api.faqs : defaults.faqs,
-    bottomCta: { ...defaults.bottomCta, ...(api.bottomCta || {}) },
+    meta,
+    hero,
+    painPointsSection,
+    toolsSection,
+    audienceSection,
+    form,
+    faqs,
+    bottomCta,
   };
 }
 
@@ -311,19 +555,30 @@ export default function TradeBuyerToolkit({ apiData }) {
 
               <div className={styles.btnGroup}>
                 <button onClick={scrollToForm} className={styles.btnPrimary}>
-                  Download the Free Toolkit
+                  {data.bottomCta.primaryBtnText || 'Download the Free Toolkit'}
                 </button>
                 <Link href="/get-quote-now/" className={styles.btnOutline}>
-                  Request Trade Pricing
+                  {data.bottomCta.secondaryBtnText || 'Request Trade Pricing'}
                 </Link>
               </div>
 
               <div className={styles.heroMeta}>
-                <span>14-page PDF</span>
-                <span className={styles.metaDivider}>|</span>
-                <span>Printable and fillable</span>
-                <span className={styles.metaDivider}>|</span>
-                <span>Free</span>
+                {data.hero.metaText ? (
+                  data.hero.metaText.split('|').map((part, idx, arr) => (
+                    <React.Fragment key={idx}>
+                      <span>{part.trim()}</span>
+                      {idx < arr.length - 1 && <span className={styles.metaDivider}>|</span>}
+                    </React.Fragment>
+                  ))
+                ) : (
+                  <>
+                    <span>14-page PDF</span>
+                    <span className={styles.metaDivider}>|</span>
+                    <span>Printable and fillable</span>
+                    <span className={styles.metaDivider}>|</span>
+                    <span>Free</span>
+                  </>
+                )}
               </div>
             </div>
 
@@ -559,34 +814,50 @@ export default function TradeBuyerToolkit({ apiData }) {
 /* ─── Data Fetching: Dynamic API with Static Fallback ─── */
 export async function getStaticProps() {
   let apiData = null;
+ 
+  const endpoints = [
+    'http://127.0.0.1:5000/api/frontend/trade-buyer-toolkit',
+    'http://localhost:5000/api/frontend/trade-buyer-toolkit',
+    `${process.env.NEXT_PUBLIC_MAIN_API_URL || 'https://stonediscoveruk-apibackend.onrender.com/api/frontend'}/trade-buyer-toolkit`,
+  ];
 
-  try {
-    const mainApi =
-      process.env.NEXT_PUBLIC_MAIN_API_URL ||
-      'https://stonediscoveruk-apibackend.onrender.com/api/frontend';
-    const endpoint = `${mainApi}/trade-buyer-toolkit`;
+  for (const endpoint of endpoints) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
+      const res = await fetch(endpoint, { signal: controller.signal });
+      clearTimeout(timeoutId);
 
-    const res = await fetch(endpoint, { signal: controller.signal });
-    clearTimeout(timeoutId);
+      if (res.ok) {
+        const json = await res.json();
+      
+        if (json && typeof json === 'object' && !json.message && !json.error) {
+          const payload = Array.isArray(json)
+            ? json[0]
+            : json.data || json.result || json.toolkit || json;
 
-    if (res.ok) {
-      const json = await res.json();
-      if (json && typeof json === 'object') {
-        apiData = json;
+          if (
+            payload &&
+            typeof payload === 'object' &&
+            !payload.message &&
+            !payload.error &&
+            (payload.hero || payload.toolsSection || payload.painPointsSection)
+          ) {
+            apiData = payload;
+            break;  
+          }
+        }
       }
+    } catch (err) {
+      
     }
-  } catch (err) {
-    // Graceful fallback to static content if backend endpoint does not exist yet
-    // No error thrown, returns apiData: null
   }
 
   return {
     props: {
       apiData,
     },
-    revalidate: 60, // Incremental Static Regeneration (ISR)
+    revalidate: 60, 
   };
 }

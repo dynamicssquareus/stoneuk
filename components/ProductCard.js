@@ -78,7 +78,7 @@ export default function ProductCard({ product, onBook }) {
                         )}
                     </div>
 
-                    <p className="small-c">Yard: {product.yard}</p>
+                    {/* <p className="small-c">Yard: {product.yard}</p> */}
 
                     <button
                         className="btn btnii"

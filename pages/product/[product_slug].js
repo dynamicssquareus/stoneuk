@@ -556,8 +556,8 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
                                   </div>
                                 </div>
                               </div>
-        </div>
-      </section>
+                          </div>
+                        </section>
 
 
       <section className='p-t-60'>

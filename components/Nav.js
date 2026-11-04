@@ -134,7 +134,7 @@ const Nav = () => {
           <li className="dropdown"><a href="#"><span>Resources</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/blog/">Blogs</a></li>
-              <li><a href="/variety-of-granites/">Variety of granite</a></li>
+              <li><a href="/granite/">Variety of granite</a></li>
               <li><a href="/metal-urns/">Metal Urns</a></li>
               <li><a href="/trade-buyer-toolkit/">Trade Buyer Toolkit</a></li>
             </ul>
@@ -210,10 +210,10 @@ const Nav = () => {
                 <DropdownComponent id="solutionsDropdown" label="Drop Down" items={solutionsItems} /> */}
                 {/* <DropdownComponent label="Resources" items={resourceItems} /> */}
                  <li><a style={{ fontWeight: 'bold' }} className="nav-link nav-instock-link" href="/stocks-available/"><span className="nav-instock-dot"></span>In Stock</a></li>
-                 <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
+                 {/* <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li> */}
                 <li><a className="nav-link" href="/memorials/">Memorial Stones</a></li>
                 <li><a className="nav-link" href="/about-us/">About US</a></li>
-                <li><a className="nav-link" href="/variety-of-granites/">Variety of granite</a></li>
+                <li><a className="nav-link" href="/granite/">Variety of granite</a></li>
               <li><a className="nav-link" href="/metal-urns/">Metal Urns</a></li>
               <li><a className="nav-link" href="/trade-buyer-toolkit/">Trade Buyer Toolkit</a></li>
               <li><a className="nav-link" href="/photo-gallery/">Photo Gallery</a></li>

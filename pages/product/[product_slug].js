@@ -330,7 +330,7 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
       </section>
 
 
-      <section className='p-b-100 p-t-80 m-p-07'>
+      {/* <section className='p-b-100 p-t-80 m-p-07'>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-9'>
@@ -402,7 +402,7 @@ const ProductPage = ({ product, relatedProducts, specifications, error }) => {
                                 </div>
                               </div>
         </div>
-      </section>
+      </section> */}
 
 
       <section className='partner-section'>

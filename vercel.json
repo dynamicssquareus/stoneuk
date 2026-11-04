@@ -419,6 +419,11 @@
       "source": "/product/black-granite-open-standing-book-headstone/",
       "destination": "/memorials/book-headstones/",
       "statusCode": 301
+    },
+    {
+      "source": "/variety-of-granites/",
+      "destination": "/granite/",
+      "statusCode": 301
     }
   ]
 }
